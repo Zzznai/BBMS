@@ -50,21 +50,18 @@
             this.BloodGroupComboBox = new System.Windows.Forms.ComboBox();
             this.FirstNameValidation = new System.Windows.Forms.Label();
             this.DonorLastNameValidation = new System.Windows.Forms.Label();
-            this.AddButton = new BloodBankManagementSystem.ButtonModified();
             this.GenderValidation = new System.Windows.Forms.Label();
             this.AgeValidation = new System.Windows.Forms.Label();
-            this.BloodGroupValidation = new System.Windows.Forms.Label();
             this.DonationDateValidation = new System.Windows.Forms.Label();
             this.ContactNumberValidation = new System.Windows.Forms.Label();
             this.AddressValidation = new System.Windows.Forms.Label();
             this.DonorFirstNameValidation = new System.Windows.Forms.Label();
-            this.DonorGenderValidation = new System.Windows.Forms.Label();
             this.BirthDateValidation = new System.Windows.Forms.Label();
-            this.DonorBloodGroupValidation = new System.Windows.Forms.Label();
             this.DonorDonationTimeValidation = new System.Windows.Forms.Label();
             this.DonorNumberValidation = new System.Windows.Forms.Label();
             this.DonorAdressValidation = new System.Windows.Forms.Label();
             this.BirthdateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.AddButton = new BloodBankManagementSystem.ButtonModified();
             this.SuspendLayout();
             // 
             // ExitLabel
@@ -110,6 +107,7 @@
             this.FirstNameTextBox.Name = "FirstNameTextBox";
             this.FirstNameTextBox.Size = new System.Drawing.Size(315, 31);
             this.FirstNameTextBox.TabIndex = 22;
+            this.FirstNameTextBox.TextChanged += new System.EventHandler(this.FirstNameTextBox_TextChanged);
             // 
             // LastNameLabel
             // 
@@ -129,6 +127,7 @@
             this.LastNameTextBox.Name = "LastNameTextBox";
             this.LastNameTextBox.Size = new System.Drawing.Size(321, 31);
             this.LastNameTextBox.TabIndex = 24;
+            this.LastNameTextBox.TextChanged += new System.EventHandler(this.LastNameTextBox_TextChanged);
             // 
             // GenderLabel
             // 
@@ -298,23 +297,6 @@
             this.DonorLastNameValidation.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.DonorLastNameValidation.Click += new System.EventHandler(this.DonorLastNameValidation_Click);
             // 
-            // AddButton
-            // 
-            this.AddButton.BackColor = System.Drawing.Color.Salmon;
-            this.AddButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.AddButton.FlatAppearance.BorderColor = System.Drawing.Color.Red;
-            this.AddButton.FlatAppearance.BorderSize = 0;
-            this.AddButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddButton.ForeColor = System.Drawing.Color.White;
-            this.AddButton.Location = new System.Drawing.Point(174, 670);
-            this.AddButton.Name = "AddButton";
-            this.AddButton.Size = new System.Drawing.Size(137, 39);
-            this.AddButton.TabIndex = 40;
-            this.AddButton.Text = "Add";
-            this.AddButton.UseVisualStyleBackColor = false;
-            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
-            // 
             // GenderValidation
             // 
             this.GenderValidation.AutoSize = true;
@@ -338,18 +320,6 @@
             this.AgeValidation.TabIndex = 44;
             this.AgeValidation.Text = " ";
             this.AgeValidation.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // BloodGroupValidation
-            // 
-            this.BloodGroupValidation.AutoSize = true;
-            this.BloodGroupValidation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BloodGroupValidation.ForeColor = System.Drawing.Color.Red;
-            this.BloodGroupValidation.Location = new System.Drawing.Point(160, 324);
-            this.BloodGroupValidation.Name = "BloodGroupValidation";
-            this.BloodGroupValidation.Size = new System.Drawing.Size(10, 16);
-            this.BloodGroupValidation.TabIndex = 45;
-            this.BloodGroupValidation.Text = " ";
-            this.BloodGroupValidation.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // DonationDateValidation
             // 
@@ -400,19 +370,6 @@
             this.DonorFirstNameValidation.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.DonorFirstNameValidation.Click += new System.EventHandler(this.DonorFirstNameValidation_Click);
             // 
-            // DonorGenderValidation
-            // 
-            this.DonorGenderValidation.AutoSize = true;
-            this.DonorGenderValidation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DonorGenderValidation.ForeColor = System.Drawing.Color.Red;
-            this.DonorGenderValidation.Location = new System.Drawing.Point(317, 226);
-            this.DonorGenderValidation.Name = "DonorGenderValidation";
-            this.DonorGenderValidation.Size = new System.Drawing.Size(10, 16);
-            this.DonorGenderValidation.TabIndex = 50;
-            this.DonorGenderValidation.Text = " ";
-            this.DonorGenderValidation.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.DonorGenderValidation.Click += new System.EventHandler(this.DonorGenderValidation_Click);
-            // 
             // BirthDateValidation
             // 
             this.BirthDateValidation.AutoSize = true;
@@ -425,19 +382,6 @@
             this.BirthDateValidation.Text = " ";
             this.BirthDateValidation.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.BirthDateValidation.Click += new System.EventHandler(this.DonorAgeValidation_Click);
-            // 
-            // DonorBloodGroupValidation
-            // 
-            this.DonorBloodGroupValidation.AutoSize = true;
-            this.DonorBloodGroupValidation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DonorBloodGroupValidation.ForeColor = System.Drawing.Color.Red;
-            this.DonorBloodGroupValidation.Location = new System.Drawing.Point(159, 324);
-            this.DonorBloodGroupValidation.Name = "DonorBloodGroupValidation";
-            this.DonorBloodGroupValidation.Size = new System.Drawing.Size(10, 16);
-            this.DonorBloodGroupValidation.TabIndex = 52;
-            this.DonorBloodGroupValidation.Text = " ";
-            this.DonorBloodGroupValidation.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.DonorBloodGroupValidation.Click += new System.EventHandler(this.DonorBloodGroupValidation_Click);
             // 
             // DonorDonationTimeValidation
             // 
@@ -488,6 +432,23 @@
             this.BirthdateTimePicker.TabIndex = 56;
             this.BirthdateTimePicker.ValueChanged += new System.EventHandler(this.BirthdateTimePicker_ValueChanged);
             // 
+            // AddButton
+            // 
+            this.AddButton.BackColor = System.Drawing.Color.Salmon;
+            this.AddButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AddButton.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.AddButton.FlatAppearance.BorderSize = 0;
+            this.AddButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddButton.ForeColor = System.Drawing.Color.White;
+            this.AddButton.Location = new System.Drawing.Point(174, 670);
+            this.AddButton.Name = "AddButton";
+            this.AddButton.Size = new System.Drawing.Size(137, 39);
+            this.AddButton.TabIndex = 40;
+            this.AddButton.Text = "Add";
+            this.AddButton.UseVisualStyleBackColor = false;
+            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
+            // 
             // AddDonorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -499,13 +460,10 @@
             this.Controls.Add(this.DonorNumberValidation);
             this.Controls.Add(this.DonorAdressValidation);
             this.Controls.Add(this.DonorDonationTimeValidation);
-            this.Controls.Add(this.DonorBloodGroupValidation);
-            this.Controls.Add(this.DonorGenderValidation);
             this.Controls.Add(this.DonorFirstNameValidation);
             this.Controls.Add(this.AddressValidation);
             this.Controls.Add(this.ContactNumberValidation);
             this.Controls.Add(this.DonationDateValidation);
-            this.Controls.Add(this.BloodGroupValidation);
             this.Controls.Add(this.AgeValidation);
             this.Controls.Add(this.GenderValidation);
             this.Controls.Add(this.DonorLastNameValidation);
@@ -566,14 +524,11 @@
         private System.Windows.Forms.Label DonorLastNameValidation;
         private System.Windows.Forms.Label GenderValidation;
         private System.Windows.Forms.Label AgeValidation;
-        private System.Windows.Forms.Label BloodGroupValidation;
         private System.Windows.Forms.Label DonationDateValidation;
         private System.Windows.Forms.Label ContactNumberValidation;
         private System.Windows.Forms.Label AddressValidation;
         private System.Windows.Forms.Label DonorFirstNameValidation;
-        private System.Windows.Forms.Label DonorGenderValidation;
         private System.Windows.Forms.Label BirthDateValidation;
-        private System.Windows.Forms.Label DonorBloodGroupValidation;
         private System.Windows.Forms.Label DonorDonationTimeValidation;
         private System.Windows.Forms.Label DonorNumberValidation;
         private System.Windows.Forms.Label DonorAdressValidation;
