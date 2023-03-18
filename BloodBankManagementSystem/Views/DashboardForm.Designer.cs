@@ -67,6 +67,7 @@
             this.ExitLabel = new System.Windows.Forms.Label();
             this.HeaderLabel = new System.Windows.Forms.Label();
             this.MenuPanel = new System.Windows.Forms.Panel();
+            this.DonationsRecordsLabel = new System.Windows.Forms.Label();
             this.PointerPanel = new System.Windows.Forms.Panel();
             this.RecordsLabel = new System.Windows.Forms.Label();
             this.TransferLabel = new System.Windows.Forms.Label();
@@ -88,7 +89,6 @@
             this.transfusionsNuumber = new System.Windows.Forms.Label();
             this.transfusionslabel = new System.Windows.Forms.Label();
             this.InfoPanel = new System.Windows.Forms.Panel();
-            this.DonationsRecordsLabel = new System.Windows.Forms.Label();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -126,7 +126,7 @@
             this.panel4.Controls.Add(this.lblABnegativeCount);
             this.panel4.Controls.Add(this.lblABnegative);
             this.panel4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel4.Location = new System.Drawing.Point(972, 449);
+            this.panel4.Location = new System.Drawing.Point(973, 540);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(200, 100);
             this.panel4.TabIndex = 22;
@@ -173,7 +173,7 @@
             this.panel2.Controls.Add(this.lblAnegativeCount);
             this.panel2.Controls.Add(this.lblAnegative);
             this.panel2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel2.Location = new System.Drawing.Point(972, 306);
+            this.panel2.Location = new System.Drawing.Point(973, 343);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(200, 100);
             this.panel2.TabIndex = 18;
@@ -218,7 +218,7 @@
             this.panel5.Controls.Add(this.lblABpositiveCount);
             this.panel5.Controls.Add(this.lblABpositive);
             this.panel5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel5.Location = new System.Drawing.Point(741, 449);
+            this.panel5.Location = new System.Drawing.Point(742, 540);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(200, 100);
             this.panel5.TabIndex = 21;
@@ -264,7 +264,7 @@
             this.panel6.Controls.Add(this.lblBnegativeCount);
             this.panel6.Controls.Add(this.lblBnegative);
             this.panel6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel6.Location = new System.Drawing.Point(510, 449);
+            this.panel6.Location = new System.Drawing.Point(511, 540);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(200, 100);
             this.panel6.TabIndex = 20;
@@ -309,7 +309,7 @@
             this.panel3.Controls.Add(this.lblApositiveCount);
             this.panel3.Controls.Add(this.lblApositive);
             this.panel3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel3.Location = new System.Drawing.Point(741, 306);
+            this.panel3.Location = new System.Drawing.Point(742, 343);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(200, 100);
             this.panel3.TabIndex = 17;
@@ -355,7 +355,7 @@
             this.panel7.Controls.Add(this.lblBpositiveCount);
             this.panel7.Controls.Add(this.lblBpositive);
             this.panel7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel7.Location = new System.Drawing.Point(279, 449);
+            this.panel7.Location = new System.Drawing.Point(280, 540);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(200, 100);
             this.panel7.TabIndex = 19;
@@ -400,7 +400,7 @@
             this.panel1.Controls.Add(this.lblOnegativeCount);
             this.panel1.Controls.Add(this.lblOnegative);
             this.panel1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel1.Location = new System.Drawing.Point(510, 306);
+            this.panel1.Location = new System.Drawing.Point(511, 343);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 100);
             this.panel1.TabIndex = 16;
@@ -446,7 +446,7 @@
             this.panelOpositive.Controls.Add(this.lblOpositiveCount);
             this.panelOpositive.Controls.Add(this.lblBloodGroup);
             this.panelOpositive.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panelOpositive.Location = new System.Drawing.Point(279, 306);
+            this.panelOpositive.Location = new System.Drawing.Point(280, 343);
             this.panelOpositive.Name = "panelOpositive";
             this.panelOpositive.Size = new System.Drawing.Size(200, 100);
             this.panelOpositive.TabIndex = 15;
@@ -551,9 +551,21 @@
             this.MenuPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.MenuPanel.Location = new System.Drawing.Point(0, 49);
             this.MenuPanel.Name = "MenuPanel";
-            this.MenuPanel.Size = new System.Drawing.Size(242, 573);
+            this.MenuPanel.Size = new System.Drawing.Size(242, 656);
             this.MenuPanel.TabIndex = 41;
             this.MenuPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.MenuPanel_Paint);
+            // 
+            // DonationsRecordsLabel
+            // 
+            this.DonationsRecordsLabel.AutoSize = true;
+            this.DonationsRecordsLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.DonationsRecordsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DonationsRecordsLabel.ForeColor = System.Drawing.Color.White;
+            this.DonationsRecordsLabel.Location = new System.Drawing.Point(28, 168);
+            this.DonationsRecordsLabel.Name = "DonationsRecordsLabel";
+            this.DonationsRecordsLabel.Size = new System.Drawing.Size(176, 25);
+            this.DonationsRecordsLabel.TabIndex = 57;
+            this.DonationsRecordsLabel.Text = "Donation records";
             // 
             // PointerPanel
             // 
@@ -633,7 +645,7 @@
             this.LogOutLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.LogOutLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LogOutLabel.ForeColor = System.Drawing.Color.White;
-            this.LogOutLabel.Location = new System.Drawing.Point(28, 518);
+            this.LogOutLabel.Location = new System.Drawing.Point(32, 589);
             this.LogOutLabel.Name = "LogOutLabel";
             this.LogOutLabel.Size = new System.Drawing.Size(84, 25);
             this.LogOutLabel.TabIndex = 47;
@@ -661,7 +673,7 @@
             this.panelPatients.Controls.Add(this.patientsNumber);
             this.panelPatients.Controls.Add(this.patientsLabel);
             this.panelPatients.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panelPatients.Location = new System.Drawing.Point(386, 40);
+            this.panelPatients.Location = new System.Drawing.Point(387, 67);
             this.panelPatients.Name = "panelPatients";
             this.panelPatients.Size = new System.Drawing.Size(200, 100);
             this.panelPatients.TabIndex = 43;
@@ -718,7 +730,7 @@
             this.panelDonors.Controls.Add(this.donorsNumber);
             this.panelDonors.Controls.Add(this.donorsLabel);
             this.panelDonors.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panelDonors.Location = new System.Drawing.Point(157, 40);
+            this.panelDonors.Location = new System.Drawing.Point(123, 67);
             this.panelDonors.Name = "panelDonors";
             this.panelDonors.Size = new System.Drawing.Size(200, 100);
             this.panelDonors.TabIndex = 42;
@@ -765,7 +777,7 @@
             this.panel9.Controls.Add(this.transfusionsNuumber);
             this.panel9.Controls.Add(this.transfusionslabel);
             this.panel9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel9.Location = new System.Drawing.Point(617, 40);
+            this.panel9.Location = new System.Drawing.Point(651, 67);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(200, 100);
             this.panel9.TabIndex = 45;
@@ -800,27 +812,15 @@
             this.InfoPanel.Controls.Add(this.panelDonors);
             this.InfoPanel.Location = new System.Drawing.Point(242, 49);
             this.InfoPanel.Name = "InfoPanel";
-            this.InfoPanel.Size = new System.Drawing.Size(1002, 183);
+            this.InfoPanel.Size = new System.Drawing.Size(1002, 236);
             this.InfoPanel.TabIndex = 46;
             this.InfoPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.InfoPanel_Paint);
-            // 
-            // DonationsRecordsLabel
-            // 
-            this.DonationsRecordsLabel.AutoSize = true;
-            this.DonationsRecordsLabel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.DonationsRecordsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DonationsRecordsLabel.ForeColor = System.Drawing.Color.White;
-            this.DonationsRecordsLabel.Location = new System.Drawing.Point(28, 168);
-            this.DonationsRecordsLabel.Name = "DonationsRecordsLabel";
-            this.DonationsRecordsLabel.Size = new System.Drawing.Size(176, 25);
-            this.DonationsRecordsLabel.TabIndex = 57;
-            this.DonationsRecordsLabel.Text = "Donation records";
             // 
             // DashboardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1212, 622);
+            this.ClientSize = new System.Drawing.Size(1212, 705);
             this.Controls.Add(this.InfoPanel);
             this.Controls.Add(this.MenuPanel);
             this.Controls.Add(this.HeaderPanel);

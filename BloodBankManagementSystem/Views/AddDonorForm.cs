@@ -1,4 +1,6 @@
-﻿using BloodBankManagementSystem.Controllers;
+﻿using BloodBankManagementSystem.Common;
+using BloodBankManagementSystem.Controllers;
+using BloodBankManagementSystem.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,17 +11,20 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static BloodBankManagementSystem.Models.Donor;
 
 namespace BloodBankManagementSystem.Views
 {
     public partial class AddDonorForm : Form
     {
         BloodStockService bloodStockService;
+        DonorsService donorsService;
         public AddDonorForm()
         {
             InitializeComponent();
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.bloodStockService = new BloodStockService();
+            this.donorsService = new DonorsService();
         }
 
         private void AddDonor_Load(object sender, EventArgs e)
@@ -82,7 +87,57 @@ namespace BloodBankManagementSystem.Views
 
         private void AddButton_Click(object sender, EventArgs e)
         {
+            bool isValid = IsFormDataValid();
+            Donor donor;
 
+            if (isValid)
+            {
+                donor = new Donor();
+                donor.DonorFirstName = FirstNameTextBox.Text;
+                donor.DonorLastName = LastNameTextBox.Text;
+                donor.DonorAge = this.GetDonorAge();
+                if (FemaleCheckBox.Checked)
+                {
+                    donor.DonorGender = GlobalConstants.Female;
+                }
+                else
+                if (MaleCheckBox.Checked)
+                {
+                    donor.DonorGender = GlobalConstants.Male;
+                }
+                donor.DonorBirthDate = BirthdateTimePicker.Value;
+                donor.BloodGroup = BloodGroupComboBox.SelectedItem.ToString();
+                if (HasDonatedCheckBox.Checked)
+                {
+                    donor.LastDonationDate = LastDonationTimePicker.Value;
+                }
+                donor.ContactNumber = DonorContactNumberTextBox.Text;
+                donor.Address = DonorAdressTextBox.Text;
+                donorsService.AddDonor(donor);
+
+                DonorsForm donorsForm = (DonorsForm)Application.OpenForms["DonorsForm"];
+                donorsForm.RefreshData();
+                this.Close();
+
+
+            }
+            else
+            {
+                MessageBox.Show("Please enter valid data", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+        private bool IsFormDataValid()
+        {
+            bool isValid = false;
+            if ((FemaleCheckBox.Checked||MaleCheckBox.Checked) && DonorFirstNameValidation.Text == "" && DonorLastNameValidation.Text == "" && BirthDateValidation.Text == "" && DonorDonationTimeValidation.Text == "" && ContactNumberValidation.Text == "" && DonorAdressValidation.Text == "")
+            {
+                isValid = true;
+            }
+            else
+            {
+                isValid = false;
+            }
+            return isValid;
         }
 
         private void DonorFirstNameValidation_Click(object sender, EventArgs e)
@@ -156,7 +211,23 @@ namespace BloodBankManagementSystem.Views
 
         private void LastDonationTimePicker_ValueChanged(object sender, EventArgs e)
         {
-            
+            DateTime birthdate = BirthdateTimePicker.Value;
+            DateTime lastDonationDate = LastDonationTimePicker.Value;
+
+            // Check if the donor is at least 18 years old on the date of last donation
+            int ageAtDonation = lastDonationDate.Year - birthdate.Year;
+            if (birthdate.Month > lastDonationDate.Month || (birthdate.Month == lastDonationDate.Month && birthdate.Day > lastDonationDate.Day))
+            {
+                ageAtDonation--;
+            }
+            if (HasDonatedCheckBox.Checked==true && (ageAtDonation < 18 || ageAtDonation > 65))
+            {
+                DonorDonationTimeValidation.Text="The donor didnt meet the age requirements for donation at that time";
+            }
+            else
+            {
+                DonorDonationTimeValidation.Text = "";
+            }
         }
 
 
@@ -171,13 +242,7 @@ namespace BloodBankManagementSystem.Views
                 BirthDateValidation.Text = "Invalid date";
                 return;
             }
-
-            int age = today.Year - birthdate.Year;
-
-            if (birthdate.Month > today.Month || (birthdate.Month == today.Month && birthdate.Day > today.Day))
-            {
-                age--;
-            }
+            int age = this.GetDonorAge();
 
             if (age < 18 || age > 65)
             {
@@ -211,6 +276,20 @@ namespace BloodBankManagementSystem.Views
             {
                 DonorFirstNameValidation.Text = "";
             }
+        }
+
+        private int GetDonorAge()
+        {
+            DateTime birthdate = BirthdateTimePicker.Value;
+            DateTime today = DateTime.Today;
+            int age = today.Year - birthdate.Year;
+
+            if (birthdate.Month > today.Month || (birthdate.Month == today.Month && birthdate.Day > today.Day))
+            {
+                age--;
+            }
+
+            return age;
         }
     }
 }

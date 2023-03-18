@@ -10,5 +10,8 @@ namespace BloodBankManagementSystem.Common
     {
         public static string AdminRole = "Admin";
         public static string UserRole = "User";
+
+        public static string Female = "Female";
+        public static string Male = "Male";
     }
 }

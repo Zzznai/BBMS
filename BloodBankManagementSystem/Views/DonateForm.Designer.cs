@@ -48,10 +48,10 @@
             this.DashboardLabel = new System.Windows.Forms.Label();
             this.DonationVolumeLabel = new System.Windows.Forms.Label();
             this.DonationVolumeTextBox = new System.Windows.Forms.TextBox();
-            this.EditButton = new BloodBankManagementSystem.ButtonModified();
-            this.DonorsGrid = new BloodBankManagementSystem.MyDataGridView();
             this.SearchDonorsLabel = new System.Windows.Forms.Label();
             this.LastNameTextBox = new System.Windows.Forms.TextBox();
+            this.EditButton = new BloodBankManagementSystem.ButtonModified();
+            this.DonorsGrid = new BloodBankManagementSystem.MyDataGridView();
             this.HeaderPanel.SuspendLayout();
             this.MenuPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DonorsGrid)).BeginInit();
@@ -106,7 +106,7 @@
             this.MenuPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.MenuPanel.Location = new System.Drawing.Point(0, 49);
             this.MenuPanel.Name = "MenuPanel";
-            this.MenuPanel.Size = new System.Drawing.Size(250, 573);
+            this.MenuPanel.Size = new System.Drawing.Size(250, 639);
             this.MenuPanel.TabIndex = 43;
             // 
             // DonationsRecordsLabel
@@ -195,7 +195,7 @@
             this.LogOutLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.LogOutLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LogOutLabel.ForeColor = System.Drawing.Color.White;
-            this.LogOutLabel.Location = new System.Drawing.Point(28, 518);
+            this.LogOutLabel.Location = new System.Drawing.Point(28, 591);
             this.LogOutLabel.Name = "LogOutLabel";
             this.LogOutLabel.Size = new System.Drawing.Size(84, 25);
             this.LogOutLabel.TabIndex = 47;
@@ -218,7 +218,7 @@
             this.DonationVolumeLabel.AutoSize = true;
             this.DonationVolumeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DonationVolumeLabel.ForeColor = System.Drawing.Color.Salmon;
-            this.DonationVolumeLabel.Location = new System.Drawing.Point(944, 226);
+            this.DonationVolumeLabel.Location = new System.Drawing.Point(948, 289);
             this.DonationVolumeLabel.Name = "DonationVolumeLabel";
             this.DonationVolumeLabel.Size = new System.Drawing.Size(238, 29);
             this.DonationVolumeLabel.TabIndex = 66;
@@ -227,10 +227,29 @@
             // DonationVolumeTextBox
             // 
             this.DonationVolumeTextBox.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DonationVolumeTextBox.Location = new System.Drawing.Point(949, 258);
+            this.DonationVolumeTextBox.Location = new System.Drawing.Point(953, 321);
             this.DonationVolumeTextBox.Name = "DonationVolumeTextBox";
             this.DonationVolumeTextBox.Size = new System.Drawing.Size(225, 31);
             this.DonationVolumeTextBox.TabIndex = 67;
+            // 
+            // SearchDonorsLabel
+            // 
+            this.SearchDonorsLabel.AutoSize = true;
+            this.SearchDonorsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchDonorsLabel.ForeColor = System.Drawing.Color.Salmon;
+            this.SearchDonorsLabel.Location = new System.Drawing.Point(288, 89);
+            this.SearchDonorsLabel.Name = "SearchDonorsLabel";
+            this.SearchDonorsLabel.Size = new System.Drawing.Size(158, 25);
+            this.SearchDonorsLabel.TabIndex = 64;
+            this.SearchDonorsLabel.Text = "Search donors:";
+            // 
+            // LastNameTextBox
+            // 
+            this.LastNameTextBox.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LastNameTextBox.Location = new System.Drawing.Point(441, 88);
+            this.LastNameTextBox.Name = "LastNameTextBox";
+            this.LastNameTextBox.Size = new System.Drawing.Size(454, 31);
+            this.LastNameTextBox.TabIndex = 65;
             // 
             // EditButton
             // 
@@ -241,9 +260,9 @@
             this.EditButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.EditButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EditButton.ForeColor = System.Drawing.Color.White;
-            this.EditButton.Location = new System.Drawing.Point(949, 379);
+            this.EditButton.Location = new System.Drawing.Point(953, 428);
             this.EditButton.Name = "EditButton";
-            this.EditButton.Size = new System.Drawing.Size(225, 47);
+            this.EditButton.Size = new System.Drawing.Size(225, 42);
             this.EditButton.TabIndex = 68;
             this.EditButton.Text = "Donate";
             this.EditButton.UseVisualStyleBackColor = false;
@@ -282,7 +301,7 @@
             this.DonorsGrid.EnableHeadersVisualStyles = false;
             this.DonorsGrid.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DonorsGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.DonorsGrid.Location = new System.Drawing.Point(293, 132);
+            this.DonorsGrid.Location = new System.Drawing.Point(293, 150);
             this.DonorsGrid.MultiSelect = false;
             this.DonorsGrid.Name = "DonorsGrid";
             this.DonorsGrid.ReadOnly = true;
@@ -292,33 +311,14 @@
             this.DonorsGrid.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.DonorsGrid.RowTemplate.Height = 30;
             this.DonorsGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DonorsGrid.Size = new System.Drawing.Size(602, 460);
+            this.DonorsGrid.Size = new System.Drawing.Size(602, 504);
             this.DonorsGrid.TabIndex = 63;
-            // 
-            // SearchDonorsLabel
-            // 
-            this.SearchDonorsLabel.AutoSize = true;
-            this.SearchDonorsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchDonorsLabel.ForeColor = System.Drawing.Color.Salmon;
-            this.SearchDonorsLabel.Location = new System.Drawing.Point(288, 89);
-            this.SearchDonorsLabel.Name = "SearchDonorsLabel";
-            this.SearchDonorsLabel.Size = new System.Drawing.Size(158, 25);
-            this.SearchDonorsLabel.TabIndex = 64;
-            this.SearchDonorsLabel.Text = "Search donors:";
-            // 
-            // LastNameTextBox
-            // 
-            this.LastNameTextBox.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LastNameTextBox.Location = new System.Drawing.Point(441, 88);
-            this.LastNameTextBox.Name = "LastNameTextBox";
-            this.LastNameTextBox.Size = new System.Drawing.Size(454, 31);
-            this.LastNameTextBox.TabIndex = 65;
             // 
             // DonateForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1212, 622);
+            this.ClientSize = new System.Drawing.Size(1212, 688);
             this.Controls.Add(this.EditButton);
             this.Controls.Add(this.DonationVolumeTextBox);
             this.Controls.Add(this.DonationVolumeLabel);

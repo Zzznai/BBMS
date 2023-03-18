@@ -50,7 +50,6 @@
             this.BloodGroupComboBox = new System.Windows.Forms.ComboBox();
             this.FirstNameValidation = new System.Windows.Forms.Label();
             this.DonorLastNameValidation = new System.Windows.Forms.Label();
-            this.GenderValidation = new System.Windows.Forms.Label();
             this.AgeValidation = new System.Windows.Forms.Label();
             this.DonationDateValidation = new System.Windows.Forms.Label();
             this.ContactNumberValidation = new System.Windows.Forms.Label();
@@ -297,18 +296,6 @@
             this.DonorLastNameValidation.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.DonorLastNameValidation.Click += new System.EventHandler(this.DonorLastNameValidation_Click);
             // 
-            // GenderValidation
-            // 
-            this.GenderValidation.AutoSize = true;
-            this.GenderValidation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GenderValidation.ForeColor = System.Drawing.Color.Red;
-            this.GenderValidation.Location = new System.Drawing.Point(111, 200);
-            this.GenderValidation.Name = "GenderValidation";
-            this.GenderValidation.Size = new System.Drawing.Size(10, 16);
-            this.GenderValidation.TabIndex = 43;
-            this.GenderValidation.Text = " ";
-            this.GenderValidation.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
             // AgeValidation
             // 
             this.AgeValidation.AutoSize = true;
@@ -465,7 +452,6 @@
             this.Controls.Add(this.ContactNumberValidation);
             this.Controls.Add(this.DonationDateValidation);
             this.Controls.Add(this.AgeValidation);
-            this.Controls.Add(this.GenderValidation);
             this.Controls.Add(this.DonorLastNameValidation);
             this.Controls.Add(this.FirstNameValidation);
             this.Controls.Add(this.AddButton);
@@ -522,7 +508,6 @@
         private ButtonModified AddButton;
         private System.Windows.Forms.Label FirstNameValidation;
         private System.Windows.Forms.Label DonorLastNameValidation;
-        private System.Windows.Forms.Label GenderValidation;
         private System.Windows.Forms.Label AgeValidation;
         private System.Windows.Forms.Label DonationDateValidation;
         private System.Windows.Forms.Label ContactNumberValidation;

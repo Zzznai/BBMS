@@ -119,7 +119,7 @@ namespace BloodBankManagementSystem.Controllers
             }
         }
 
-        public bool AddUser(string firstName, string lastName, string email, string password )
+        public void AddUser(string firstName, string lastName, string email, string password )
         {
             DialogResult result = MessageBox.Show($"Are you sure you want to add the user {firstName} {lastName}?",
                                                   "Confirm Add User",
@@ -145,23 +145,13 @@ namespace BloodBankManagementSystem.Controllers
                         context.SaveChanges();
 
                         MessageBox.Show("User added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        return true;
                     }
-
-
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Error adding user", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return false;
                 }
             }
-            else
-            {
-                return false;
-            }
-
-            
         }
 
         public void EditUser(int userId, string firstName, string lastName, string email, string password)
@@ -197,10 +187,6 @@ namespace BloodBankManagementSystem.Controllers
                 {
                     Console.WriteLine("Error editing user: " + ex.Message);
                 }
-            }
-            else
-            {
-                
             }
         }
     }

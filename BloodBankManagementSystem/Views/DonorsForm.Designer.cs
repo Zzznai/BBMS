@@ -37,6 +37,7 @@
             this.ExitLabel = new System.Windows.Forms.Label();
             this.HeaderLabel = new System.Windows.Forms.Label();
             this.MenuPanel = new System.Windows.Forms.Panel();
+            this.DonationsRecordsLabel = new System.Windows.Forms.Label();
             this.PointerPanel = new System.Windows.Forms.Panel();
             this.RecordsLabel = new System.Windows.Forms.Label();
             this.TransferLabel = new System.Windows.Forms.Label();
@@ -45,12 +46,14 @@
             this.ManageDonorsLabel = new System.Windows.Forms.Label();
             this.LogOutLabel = new System.Windows.Forms.Label();
             this.DashboardLabel = new System.Windows.Forms.Label();
+            this.SearchDonorsTextBox = new System.Windows.Forms.TextBox();
+            this.SearchDonorsLabel = new System.Windows.Forms.Label();
             this.DonorsGrid = new BloodBankManagementSystem.MyDataGridView();
             this.RefreshButton = new BloodBankManagementSystem.ButtonModified1();
             this.DeleteButton = new BloodBankManagementSystem.ButtonModified1();
             this.EditButton = new BloodBankManagementSystem.ButtonModified1();
             this.AddButton = new BloodBankManagementSystem.ButtonModified1();
-            this.DonationsRecordsLabel = new System.Windows.Forms.Label();
+            this.DashBoardLabell = new System.Windows.Forms.Label();
             this.HeaderPanel.SuspendLayout();
             this.MenuPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DonorsGrid)).BeginInit();
@@ -94,6 +97,7 @@
             // MenuPanel
             // 
             this.MenuPanel.BackColor = System.Drawing.Color.Silver;
+            this.MenuPanel.Controls.Add(this.DashBoardLabell);
             this.MenuPanel.Controls.Add(this.DonationsRecordsLabel);
             this.MenuPanel.Controls.Add(this.PointerPanel);
             this.MenuPanel.Controls.Add(this.RecordsLabel);
@@ -106,8 +110,20 @@
             this.MenuPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.MenuPanel.Location = new System.Drawing.Point(0, 49);
             this.MenuPanel.Name = "MenuPanel";
-            this.MenuPanel.Size = new System.Drawing.Size(250, 573);
+            this.MenuPanel.Size = new System.Drawing.Size(250, 656);
             this.MenuPanel.TabIndex = 42;
+            // 
+            // DonationsRecordsLabel
+            // 
+            this.DonationsRecordsLabel.AutoSize = true;
+            this.DonationsRecordsLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.DonationsRecordsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DonationsRecordsLabel.ForeColor = System.Drawing.Color.White;
+            this.DonationsRecordsLabel.Location = new System.Drawing.Point(28, 161);
+            this.DonationsRecordsLabel.Name = "DonationsRecordsLabel";
+            this.DonationsRecordsLabel.Size = new System.Drawing.Size(176, 25);
+            this.DonationsRecordsLabel.TabIndex = 60;
+            this.DonationsRecordsLabel.Text = "Donation records";
             // 
             // PointerPanel
             // 
@@ -183,7 +199,7 @@
             this.LogOutLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.LogOutLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LogOutLabel.ForeColor = System.Drawing.Color.White;
-            this.LogOutLabel.Location = new System.Drawing.Point(28, 518);
+            this.LogOutLabel.Location = new System.Drawing.Point(28, 601);
             this.LogOutLabel.Name = "LogOutLabel";
             this.LogOutLabel.Size = new System.Drawing.Size(84, 25);
             this.LogOutLabel.TabIndex = 47;
@@ -192,16 +208,29 @@
             // 
             // DashboardLabel
             // 
-            this.DashboardLabel.AutoSize = true;
-            this.DashboardLabel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.DashboardLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DashboardLabel.ForeColor = System.Drawing.Color.White;
-            this.DashboardLabel.Location = new System.Drawing.Point(28, 40);
+            this.DashboardLabel.Location = new System.Drawing.Point(0, 0);
             this.DashboardLabel.Name = "DashboardLabel";
-            this.DashboardLabel.Size = new System.Drawing.Size(117, 25);
-            this.DashboardLabel.TabIndex = 47;
-            this.DashboardLabel.Text = "Dashboard";
-            this.DashboardLabel.Click += new System.EventHandler(this.DashboardLabel_Click);
+            this.DashboardLabel.Size = new System.Drawing.Size(100, 23);
+            this.DashboardLabel.TabIndex = 61;
+            // 
+            // SearchDonorsTextBox
+            // 
+            this.SearchDonorsTextBox.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchDonorsTextBox.Location = new System.Drawing.Point(631, 562);
+            this.SearchDonorsTextBox.Name = "SearchDonorsTextBox";
+            this.SearchDonorsTextBox.Size = new System.Drawing.Size(327, 31);
+            this.SearchDonorsTextBox.TabIndex = 66;
+            // 
+            // SearchDonorsLabel
+            // 
+            this.SearchDonorsLabel.AutoSize = true;
+            this.SearchDonorsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchDonorsLabel.ForeColor = System.Drawing.Color.Salmon;
+            this.SearchDonorsLabel.Location = new System.Drawing.Point(480, 563);
+            this.SearchDonorsLabel.Name = "SearchDonorsLabel";
+            this.SearchDonorsLabel.Size = new System.Drawing.Size(145, 25);
+            this.SearchDonorsLabel.TabIndex = 67;
+            this.SearchDonorsLabel.Text = "Search users:";
             // 
             // DonorsGrid
             // 
@@ -259,7 +288,7 @@
             this.RefreshButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RefreshButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RefreshButton.ForeColor = System.Drawing.Color.White;
-            this.RefreshButton.Location = new System.Drawing.Point(873, 545);
+            this.RefreshButton.Location = new System.Drawing.Point(873, 628);
             this.RefreshButton.Name = "RefreshButton";
             this.RefreshButton.Size = new System.Drawing.Size(132, 47);
             this.RefreshButton.TabIndex = 61;
@@ -274,12 +303,13 @@
             this.DeleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DeleteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DeleteButton.ForeColor = System.Drawing.Color.White;
-            this.DeleteButton.Location = new System.Drawing.Point(724, 545);
+            this.DeleteButton.Location = new System.Drawing.Point(724, 628);
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Size = new System.Drawing.Size(143, 47);
             this.DeleteButton.TabIndex = 60;
             this.DeleteButton.Text = "Delete";
             this.DeleteButton.UseVisualStyleBackColor = false;
+            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
             // EditButton
             // 
@@ -289,7 +319,7 @@
             this.EditButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.EditButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EditButton.ForeColor = System.Drawing.Color.White;
-            this.EditButton.Location = new System.Drawing.Point(575, 545);
+            this.EditButton.Location = new System.Drawing.Point(575, 628);
             this.EditButton.Name = "EditButton";
             this.EditButton.Size = new System.Drawing.Size(143, 47);
             this.EditButton.TabIndex = 59;
@@ -305,7 +335,7 @@
             this.AddButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddButton.ForeColor = System.Drawing.Color.White;
-            this.AddButton.Location = new System.Drawing.Point(426, 545);
+            this.AddButton.Location = new System.Drawing.Point(426, 628);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(143, 47);
             this.AddButton.TabIndex = 58;
@@ -313,23 +343,26 @@
             this.AddButton.UseVisualStyleBackColor = false;
             this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
-            // DonationsRecordsLabel
+            // DashBoardLabell
             // 
-            this.DonationsRecordsLabel.AutoSize = true;
-            this.DonationsRecordsLabel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.DonationsRecordsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DonationsRecordsLabel.ForeColor = System.Drawing.Color.White;
-            this.DonationsRecordsLabel.Location = new System.Drawing.Point(28, 161);
-            this.DonationsRecordsLabel.Name = "DonationsRecordsLabel";
-            this.DonationsRecordsLabel.Size = new System.Drawing.Size(176, 25);
-            this.DonationsRecordsLabel.TabIndex = 60;
-            this.DonationsRecordsLabel.Text = "Donation records";
+            this.DashBoardLabell.AutoSize = true;
+            this.DashBoardLabell.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.DashBoardLabell.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DashBoardLabell.ForeColor = System.Drawing.Color.White;
+            this.DashBoardLabell.Location = new System.Drawing.Point(28, 42);
+            this.DashBoardLabell.Name = "DashBoardLabell";
+            this.DashBoardLabell.Size = new System.Drawing.Size(117, 25);
+            this.DashBoardLabell.TabIndex = 68;
+            this.DashBoardLabell.Text = "Dashboard";
+            this.DashBoardLabell.Click += new System.EventHandler(this.DashBoardLabell_Click);
             // 
             // DonorsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1212, 622);
+            this.ClientSize = new System.Drawing.Size(1212, 705);
+            this.Controls.Add(this.SearchDonorsTextBox);
+            this.Controls.Add(this.SearchDonorsLabel);
             this.Controls.Add(this.DonorsGrid);
             this.Controls.Add(this.RefreshButton);
             this.Controls.Add(this.DeleteButton);
@@ -348,6 +381,7 @@
             this.MenuPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DonorsGrid)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -371,5 +405,8 @@
         private ButtonModified1 AddButton;
         private MyDataGridView DonorsGrid;
         private System.Windows.Forms.Label DonationsRecordsLabel;
+        private System.Windows.Forms.TextBox SearchDonorsTextBox;
+        private System.Windows.Forms.Label SearchDonorsLabel;
+        private System.Windows.Forms.Label DashBoardLabell;
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System.Data.Entity.Infrastructure;
 using System.Data.Entity;
 using static BloodBankManagementSystem.Models.Patients;
-using static BloodBankManagementSystem.Models.Donors;
+using static BloodBankManagementSystem.Models.Donor;
 
 namespace BloodBankManagementSystem.Models
 {
