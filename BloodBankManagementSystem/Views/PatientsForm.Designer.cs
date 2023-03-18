@@ -28,6 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PatientsForm));
             this.HeaderPanel = new System.Windows.Forms.Panel();
             this.ExitLabel = new System.Windows.Forms.Label();
@@ -42,8 +46,14 @@
             this.ManageDonorsLabel = new System.Windows.Forms.Label();
             this.LogOutLabel = new System.Windows.Forms.Label();
             this.DashboardLabel = new System.Windows.Forms.Label();
+            this.PatientsGrid = new BloodBankManagementSystem.MyDataGridView();
+            this.RefreshButton = new BloodBankManagementSystem.ButtonModified1();
+            this.DeleteButton = new BloodBankManagementSystem.ButtonModified1();
+            this.EditButton = new BloodBankManagementSystem.ButtonModified1();
+            this.AddButton = new BloodBankManagementSystem.ButtonModified1();
             this.HeaderPanel.SuspendLayout();
             this.MenuPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PatientsGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // HeaderPanel
@@ -202,20 +212,134 @@
             this.DashboardLabel.TabIndex = 47;
             this.DashboardLabel.Text = "Dashboard";
             // 
+            // PatientsGrid
+            // 
+            this.PatientsGrid.AllowUserToAddRows = false;
+            this.PatientsGrid.AllowUserToDeleteRows = false;
+            this.PatientsGrid.AllowUserToOrderColumns = true;
+            this.PatientsGrid.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.PatientsGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.PatientsGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.PatientsGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
+            this.PatientsGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.PatientsGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.PatientsGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.PatientsGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.PatientsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.PatientsGrid.Cursor = System.Windows.Forms.Cursors.Arrow;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.PatientsGrid.DefaultCellStyle = dataGridViewCellStyle3;
+            this.PatientsGrid.EnableHeadersVisualStyles = false;
+            this.PatientsGrid.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PatientsGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.PatientsGrid.Location = new System.Drawing.Point(250, 49);
+            this.PatientsGrid.MultiSelect = false;
+            this.PatientsGrid.Name = "PatientsGrid";
+            this.PatientsGrid.ReadOnly = true;
+            this.PatientsGrid.RowHeadersVisible = false;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.PatientsGrid.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.PatientsGrid.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.PatientsGrid.RowTemplate.Height = 30;
+            this.PatientsGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.PatientsGrid.Size = new System.Drawing.Size(964, 460);
+            this.PatientsGrid.TabIndex = 63;
+            // 
+            // RefreshButton
+            // 
+            this.RefreshButton.BackColor = System.Drawing.Color.Salmon;
+            this.RefreshButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RefreshButton.FlatAppearance.BorderColor = System.Drawing.Color.Salmon;
+            this.RefreshButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RefreshButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RefreshButton.ForeColor = System.Drawing.Color.White;
+            this.RefreshButton.Location = new System.Drawing.Point(875, 556);
+            this.RefreshButton.Name = "RefreshButton";
+            this.RefreshButton.Size = new System.Drawing.Size(132, 47);
+            this.RefreshButton.TabIndex = 67;
+            this.RefreshButton.Text = "Refresh";
+            this.RefreshButton.UseVisualStyleBackColor = false;
+            // 
+            // DeleteButton
+            // 
+            this.DeleteButton.BackColor = System.Drawing.Color.Salmon;
+            this.DeleteButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.DeleteButton.FlatAppearance.BorderColor = System.Drawing.Color.Salmon;
+            this.DeleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DeleteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DeleteButton.ForeColor = System.Drawing.Color.White;
+            this.DeleteButton.Location = new System.Drawing.Point(726, 556);
+            this.DeleteButton.Name = "DeleteButton";
+            this.DeleteButton.Size = new System.Drawing.Size(143, 47);
+            this.DeleteButton.TabIndex = 66;
+            this.DeleteButton.Text = "Delete";
+            this.DeleteButton.UseVisualStyleBackColor = false;
+            // 
+            // EditButton
+            // 
+            this.EditButton.BackColor = System.Drawing.Color.Salmon;
+            this.EditButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.EditButton.FlatAppearance.BorderColor = System.Drawing.Color.Salmon;
+            this.EditButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.EditButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EditButton.ForeColor = System.Drawing.Color.White;
+            this.EditButton.Location = new System.Drawing.Point(577, 556);
+            this.EditButton.Name = "EditButton";
+            this.EditButton.Size = new System.Drawing.Size(143, 47);
+            this.EditButton.TabIndex = 65;
+            this.EditButton.Text = "Edit";
+            this.EditButton.UseVisualStyleBackColor = false;
+            // 
+            // AddButton
+            // 
+            this.AddButton.BackColor = System.Drawing.Color.Salmon;
+            this.AddButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AddButton.FlatAppearance.BorderColor = System.Drawing.Color.Salmon;
+            this.AddButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddButton.ForeColor = System.Drawing.Color.White;
+            this.AddButton.Location = new System.Drawing.Point(428, 556);
+            this.AddButton.Name = "AddButton";
+            this.AddButton.Size = new System.Drawing.Size(143, 47);
+            this.AddButton.TabIndex = 64;
+            this.AddButton.Text = "Add";
+            this.AddButton.UseVisualStyleBackColor = false;
+            // 
             // PatientsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1212, 622);
+            this.Controls.Add(this.RefreshButton);
+            this.Controls.Add(this.DeleteButton);
+            this.Controls.Add(this.EditButton);
+            this.Controls.Add(this.AddButton);
+            this.Controls.Add(this.PatientsGrid);
             this.Controls.Add(this.MenuPanel);
             this.Controls.Add(this.HeaderPanel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PatientsForm";
             this.Text = "PatientsForm";
+            this.Load += new System.EventHandler(this.PatientsForm_Load);
             this.HeaderPanel.ResumeLayout(false);
             this.HeaderPanel.PerformLayout();
             this.MenuPanel.ResumeLayout(false);
             this.MenuPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PatientsGrid)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -235,5 +359,10 @@
         private System.Windows.Forms.Label ManageDonorsLabel;
         private System.Windows.Forms.Label LogOutLabel;
         private System.Windows.Forms.Label DashboardLabel;
+        private MyDataGridView PatientsGrid;
+        private ButtonModified1 RefreshButton;
+        private ButtonModified1 DeleteButton;
+        private ButtonModified1 EditButton;
+        private ButtonModified1 AddButton;
     }
 }

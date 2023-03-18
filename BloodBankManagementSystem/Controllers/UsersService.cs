@@ -42,23 +42,47 @@ namespace BloodBankManagementSystem.Controllers
                 return user;
             }
         }
-        public List<object> GetAllUsers()
+        public List<object> SearchAllUsers(string searchInput)
         {
             using (var context = new BloodBankDbContext())
             {
-                var users = context.Users.Where(u => u.Role != GlobalConstants.AdminRole)
-                                         .Select(u => new
-                                         {
-                                             u.UserID,
-                                             u.FirstName,
-                                             u.LastName,
-                                             u.Email,
-                                             u.Password
-                                         })
-                                         .ToList();
+                var usersQuery = context.Users.Where(u => u.Role != GlobalConstants.AdminRole);
+
+                if (int.TryParse(searchInput, out int userId))
+                {
+                    usersQuery = usersQuery.Where(u => u.UserID == userId);
+                }
+                else if (!string.IsNullOrWhiteSpace(searchInput))
+                {
+                    var searchTerm = searchInput.Split(' ');
+
+                    if (searchTerm.Length == 2)
+                    {
+                        var firstName = searchTerm[0];
+                        var lastName = searchTerm[1];
+
+                        usersQuery = usersQuery.Where(u => u.FirstName.Contains(firstName) && u.LastName.Contains(lastName));
+                    }
+                    else
+                    {
+                        usersQuery = usersQuery.Where(u => u.FirstName.Contains(searchInput) || u.LastName.Contains(searchInput) || u.Email.Contains(searchInput));
+                    }
+                }
+
+                var users = usersQuery.Select(u => new
+                {
+                    u.UserID,
+                    u.FirstName,
+                    u.LastName,
+                    u.Email,
+                    u.Password
+                })
+                .ToList();
+
                 return users.Cast<object>().ToList();
             }
         }
+
         public string GetUserNameByEmail(string email)
         {
             using (var context = new BloodBankDbContext())

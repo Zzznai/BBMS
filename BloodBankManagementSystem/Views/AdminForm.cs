@@ -23,7 +23,7 @@ namespace BloodBankManagementSystem.Views
 
         private void AdminForm_Load(object sender, EventArgs e)
         {
-            UserGrid.DataSource = usersService.GetAllUsers();
+            UserGrid.DataSource = usersService.SearchAllUsers(SearchUsersTextBox.Text);
             
         }
 
@@ -61,7 +61,7 @@ namespace BloodBankManagementSystem.Views
 
         public void RefreshData()
         {
-            UserGrid.DataSource = usersService.GetAllUsers();
+            UserGrid.DataSource = usersService.SearchAllUsers(SearchUsersTextBox.Text);
         }
 
         private void PointerPanel_Paint(object sender, PaintEventArgs e)
@@ -129,6 +129,11 @@ namespace BloodBankManagementSystem.Views
             int userId = (int)selectedRow.Cells["UserID"].Value;
             EditUserForm editUserForm = new EditUserForm(userId);
             editUserForm.Show();
+        }
+
+        private void SearchUsersTextBox_TextChanged(object sender, EventArgs e)
+        {
+            UserGrid.DataSource = usersService.SearchAllUsers(SearchUsersTextBox.Text);
         }
     }
 

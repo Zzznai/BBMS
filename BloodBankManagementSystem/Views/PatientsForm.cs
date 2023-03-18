@@ -15,6 +15,12 @@ namespace BloodBankManagementSystem.Views
         public PatientsForm()
         {
             InitializeComponent();
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+        }
+
+        private void PatientsForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

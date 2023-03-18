@@ -46,12 +46,12 @@
             this.ManageDonorsLabel = new System.Windows.Forms.Label();
             this.LogOutLabel = new System.Windows.Forms.Label();
             this.DashboardLabel = new System.Windows.Forms.Label();
-            this.SearchDonorsLabel = new System.Windows.Forms.Label();
-            this.LastNameTextBox = new System.Windows.Forms.TextBox();
             this.DonationVolumeLabel = new System.Windows.Forms.Label();
             this.DonationVolumeTextBox = new System.Windows.Forms.TextBox();
             this.EditButton = new BloodBankManagementSystem.ButtonModified();
             this.DonorsGrid = new BloodBankManagementSystem.MyDataGridView();
+            this.SearchDonorsLabel = new System.Windows.Forms.Label();
+            this.LastNameTextBox = new System.Windows.Forms.TextBox();
             this.HeaderPanel.SuspendLayout();
             this.MenuPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DonorsGrid)).BeginInit();
@@ -213,25 +213,6 @@
             this.DashboardLabel.TabIndex = 47;
             this.DashboardLabel.Text = "Dashboard";
             // 
-            // SearchDonorsLabel
-            // 
-            this.SearchDonorsLabel.AutoSize = true;
-            this.SearchDonorsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchDonorsLabel.ForeColor = System.Drawing.Color.Salmon;
-            this.SearchDonorsLabel.Location = new System.Drawing.Point(288, 89);
-            this.SearchDonorsLabel.Name = "SearchDonorsLabel";
-            this.SearchDonorsLabel.Size = new System.Drawing.Size(158, 25);
-            this.SearchDonorsLabel.TabIndex = 64;
-            this.SearchDonorsLabel.Text = "Search donors:";
-            // 
-            // LastNameTextBox
-            // 
-            this.LastNameTextBox.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LastNameTextBox.Location = new System.Drawing.Point(441, 88);
-            this.LastNameTextBox.Name = "LastNameTextBox";
-            this.LastNameTextBox.Size = new System.Drawing.Size(454, 31);
-            this.LastNameTextBox.TabIndex = 65;
-            // 
             // DonationVolumeLabel
             // 
             this.DonationVolumeLabel.AutoSize = true;
@@ -314,6 +295,25 @@
             this.DonorsGrid.Size = new System.Drawing.Size(602, 460);
             this.DonorsGrid.TabIndex = 63;
             // 
+            // SearchDonorsLabel
+            // 
+            this.SearchDonorsLabel.AutoSize = true;
+            this.SearchDonorsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchDonorsLabel.ForeColor = System.Drawing.Color.Salmon;
+            this.SearchDonorsLabel.Location = new System.Drawing.Point(288, 89);
+            this.SearchDonorsLabel.Name = "SearchDonorsLabel";
+            this.SearchDonorsLabel.Size = new System.Drawing.Size(158, 25);
+            this.SearchDonorsLabel.TabIndex = 64;
+            this.SearchDonorsLabel.Text = "Search donors:";
+            // 
+            // LastNameTextBox
+            // 
+            this.LastNameTextBox.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LastNameTextBox.Location = new System.Drawing.Point(441, 88);
+            this.LastNameTextBox.Name = "LastNameTextBox";
+            this.LastNameTextBox.Size = new System.Drawing.Size(454, 31);
+            this.LastNameTextBox.TabIndex = 65;
+            // 
             // DonateForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -357,10 +357,10 @@
         private System.Windows.Forms.Label LogOutLabel;
         private System.Windows.Forms.Label DashboardLabel;
         private MyDataGridView DonorsGrid;
-        private System.Windows.Forms.Label SearchDonorsLabel;
-        private System.Windows.Forms.TextBox LastNameTextBox;
         private System.Windows.Forms.Label DonationVolumeLabel;
         private System.Windows.Forms.TextBox DonationVolumeTextBox;
         private ButtonModified EditButton;
+        private System.Windows.Forms.Label SearchDonorsLabel;
+        private System.Windows.Forms.TextBox LastNameTextBox;
     }
 }
