@@ -1,6 +1,6 @@
 ﻿namespace BloodBankManagementSystem.Views
 {
-    partial class Transfer
+    partial class TransferForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Transfer));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TransferForm));
             this.SuspendLayout();
             // 
             // TransferHistoryForm

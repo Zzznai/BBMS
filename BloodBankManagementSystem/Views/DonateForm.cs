@@ -35,5 +35,20 @@ namespace BloodBankManagementSystem.Views
         {
 
         }
+
+        private void ExitLabel_Click(object sender, EventArgs e)
+        {
+            System.Environment.Exit(1);
+        }
+
+        private void HeaderPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void ManageDonorsLabel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

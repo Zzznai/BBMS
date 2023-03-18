@@ -122,14 +122,16 @@ namespace BloodBankManagementSystem.Views
 
         private void ManagePatientsLabel_Click(object sender, EventArgs e)
         {
-            this.Hide();
             PatientsForm patientsForm = new PatientsForm();
+            this.Hide();
             patientsForm.Show();
         }
 
         private void TransferLabel_Click(object sender, EventArgs e)
         {
-
+            TransferForm transferForm = new TransferForm();
+            this.Hide();
+            transferForm.Show();
         }
 
         private void lblOpositiveCount_Click(object sender, EventArgs e)
@@ -145,6 +147,20 @@ namespace BloodBankManagementSystem.Views
         private void donorsNumber_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void RecordsLabel_Click(object sender, EventArgs e)
+        {
+            TransferRecordsForm transferRecordsForm = new TransferRecordsForm();
+            this.Hide();
+            transferRecordsForm.Show();
+        }
+
+        private void DonationsRecordsLabel_Click(object sender, EventArgs e)
+        {
+            DonationRecordsForm donationRecordsForm = new DonationRecordsForm();
+            this.Hide();
+            donationRecordsForm.Show();
         }
     }
 }

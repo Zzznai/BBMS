@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace BloodBankManagementSystem.Views
 {
-    public partial class Transfer : Form
+    public partial class TransferForm : Form
     {
-        public Transfer()
+        public TransferForm()
         {
             InitializeComponent();
         }

@@ -216,11 +216,11 @@
     <Compile Include="Views\DashboardForm.Designer.cs">
       <DependentUpon>DashboardForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Transfer.cs">
+    <Compile Include="Views\TransferForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Transfer.Designer.cs">
-      <DependentUpon>Transfer.cs</DependentUpon>
+    <Compile Include="Views\TransferForm.Designer.cs">
+      <DependentUpon>TransferForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\DonorsForm.cs">
       <SubType>Form</SubType>
@@ -323,8 +323,8 @@
     <EmbeddedResource Include="Views\PatientsForm.resx">
       <DependentUpon>PatientsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Transfer.resx">
-      <DependentUpon>Transfer.cs</DependentUpon>
+    <EmbeddedResource Include="Views\TransferForm.resx">
+      <DependentUpon>TransferForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\BloodBankManagementSystem.Models.Users.datasource" />

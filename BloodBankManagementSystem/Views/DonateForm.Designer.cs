@@ -67,6 +67,7 @@
             this.HeaderPanel.Name = "HeaderPanel";
             this.HeaderPanel.Size = new System.Drawing.Size(1212, 49);
             this.HeaderPanel.TabIndex = 28;
+            this.HeaderPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.HeaderPanel_Paint);
             // 
             // ExitLabel
             // 
@@ -79,6 +80,7 @@
             this.ExitLabel.Size = new System.Drawing.Size(24, 24);
             this.ExitLabel.TabIndex = 44;
             this.ExitLabel.Text = "X";
+            this.ExitLabel.Click += new System.EventHandler(this.ExitLabel_Click);
             // 
             // HeaderLabel
             // 
@@ -189,6 +191,7 @@
             this.ManageDonorsLabel.Size = new System.Drawing.Size(162, 25);
             this.ManageDonorsLabel.TabIndex = 48;
             this.ManageDonorsLabel.Text = "Manage donors";
+            this.ManageDonorsLabel.Click += new System.EventHandler(this.ManageDonorsLabel_Click);
             // 
             // LogOutLabel
             // 
@@ -331,6 +334,7 @@
             this.Controls.Add(this.HeaderPanel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DonateForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DonateForm";
             this.Load += new System.EventHandler(this.DonateForm_Load);
             this.HeaderPanel.ResumeLayout(false);

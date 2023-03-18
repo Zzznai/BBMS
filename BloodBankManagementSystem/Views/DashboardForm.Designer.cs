@@ -566,6 +566,7 @@
             this.DonationsRecordsLabel.Size = new System.Drawing.Size(176, 25);
             this.DonationsRecordsLabel.TabIndex = 57;
             this.DonationsRecordsLabel.Text = "Donation records";
+            this.DonationsRecordsLabel.Click += new System.EventHandler(this.DonationsRecordsLabel_Click);
             // 
             // PointerPanel
             // 
@@ -586,6 +587,7 @@
             this.RecordsLabel.Size = new System.Drawing.Size(203, 25);
             this.RecordsLabel.TabIndex = 58;
             this.RecordsLabel.Text = "Transfusion records";
+            this.RecordsLabel.Click += new System.EventHandler(this.RecordsLabel_Click);
             // 
             // TransferLabel
             // 

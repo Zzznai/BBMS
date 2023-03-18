@@ -465,6 +465,7 @@
             this.Controls.Add(this.ExitLabel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "EditDonorForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "-";
             this.Load += new System.EventHandler(this.EditDonorForm_Load);
             this.ResumeLayout(false);
