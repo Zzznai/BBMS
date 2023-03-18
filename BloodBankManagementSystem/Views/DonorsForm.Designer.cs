@@ -37,6 +37,7 @@
             this.ExitLabel = new System.Windows.Forms.Label();
             this.HeaderLabel = new System.Windows.Forms.Label();
             this.MenuPanel = new System.Windows.Forms.Panel();
+            this.DashBoardLabell = new System.Windows.Forms.Label();
             this.DonationsRecordsLabel = new System.Windows.Forms.Label();
             this.PointerPanel = new System.Windows.Forms.Panel();
             this.RecordsLabel = new System.Windows.Forms.Label();
@@ -53,7 +54,6 @@
             this.DeleteButton = new BloodBankManagementSystem.ButtonModified1();
             this.EditButton = new BloodBankManagementSystem.ButtonModified1();
             this.AddButton = new BloodBankManagementSystem.ButtonModified1();
-            this.DashBoardLabell = new System.Windows.Forms.Label();
             this.HeaderPanel.SuspendLayout();
             this.MenuPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DonorsGrid)).BeginInit();
@@ -112,6 +112,19 @@
             this.MenuPanel.Name = "MenuPanel";
             this.MenuPanel.Size = new System.Drawing.Size(250, 656);
             this.MenuPanel.TabIndex = 42;
+            // 
+            // DashBoardLabell
+            // 
+            this.DashBoardLabell.AutoSize = true;
+            this.DashBoardLabell.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.DashBoardLabell.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DashBoardLabell.ForeColor = System.Drawing.Color.White;
+            this.DashBoardLabell.Location = new System.Drawing.Point(28, 42);
+            this.DashBoardLabell.Name = "DashBoardLabell";
+            this.DashBoardLabell.Size = new System.Drawing.Size(117, 25);
+            this.DashBoardLabell.TabIndex = 68;
+            this.DashBoardLabell.Text = "Dashboard";
+            this.DashBoardLabell.Click += new System.EventHandler(this.DashBoardLabell_Click);
             // 
             // DonationsRecordsLabel
             // 
@@ -220,6 +233,7 @@
             this.SearchDonorsTextBox.Name = "SearchDonorsTextBox";
             this.SearchDonorsTextBox.Size = new System.Drawing.Size(327, 31);
             this.SearchDonorsTextBox.TabIndex = 66;
+            this.SearchDonorsTextBox.TextChanged += new System.EventHandler(this.SearchDonorsTextBox_TextChanged_1);
             // 
             // SearchDonorsLabel
             // 
@@ -342,19 +356,6 @@
             this.AddButton.Text = "Add";
             this.AddButton.UseVisualStyleBackColor = false;
             this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
-            // 
-            // DashBoardLabell
-            // 
-            this.DashBoardLabell.AutoSize = true;
-            this.DashBoardLabell.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.DashBoardLabell.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DashBoardLabell.ForeColor = System.Drawing.Color.White;
-            this.DashBoardLabell.Location = new System.Drawing.Point(28, 42);
-            this.DashBoardLabell.Name = "DashBoardLabell";
-            this.DashBoardLabell.Size = new System.Drawing.Size(117, 25);
-            this.DashBoardLabell.TabIndex = 68;
-            this.DashBoardLabell.Text = "Dashboard";
-            this.DashBoardLabell.Click += new System.EventHandler(this.DashBoardLabell_Click);
             // 
             // DonorsForm
             // 

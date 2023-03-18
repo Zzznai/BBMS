@@ -22,5 +22,29 @@ namespace BloodBankManagementSystem.Views
         {
 
         }
+
+        private void FirstNameTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (FirstNameTextBox.Text.Length < 2)
+            {
+                DonorFirstNameValidation.Text = "Please enter a valid first name (at least 2 characters)";
+            }
+            else
+            {
+                DonorFirstNameValidation.Text = "";
+            }
+        }
+
+        private void LastNameTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (LastNameTextBox.Text.Length < 2)
+            {
+                DonorLastNameValidation.Text = "Please enter a valid first name (at least 2 characters)";
+            }
+            else
+            {
+                DonorLastNameValidation.Text = "";
+            }
+        }
     }
 }

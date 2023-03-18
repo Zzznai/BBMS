@@ -99,15 +99,16 @@ namespace BloodBankManagementSystem.Views
             
         }
 
-        private void SearchDonorsTextBox_TextChanged(object sender, EventArgs e)
-        {
-            DonorsGrid.DataSource = donorsService.SearchAllDonors(SearchDonorsTextBox.Text);
-        }
         private void DashBoardLabell_Click(object sender, EventArgs e)
         {
             DashboardForm dashboardForm = new DashboardForm();
             this.Hide();
             dashboardForm.ShowDialog();
+        }
+
+        private void SearchDonorsTextBox_TextChanged_1(object sender, EventArgs e)
+        {
+            RefreshData();
         }
     }
 }

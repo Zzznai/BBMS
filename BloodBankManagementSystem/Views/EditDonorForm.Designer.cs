@@ -41,7 +41,6 @@
             this.AgeValidation = new System.Windows.Forms.Label();
             this.DonorLastNameValidation = new System.Windows.Forms.Label();
             this.FirstNameValidation = new System.Windows.Forms.Label();
-            this.AddButton = new BloodBankManagementSystem.ButtonModified();
             this.BloodGroupComboBox = new System.Windows.Forms.ComboBox();
             this.DonorAdressTextBox = new System.Windows.Forms.TextBox();
             this.AdressLabel = new System.Windows.Forms.Label();
@@ -61,6 +60,7 @@
             this.FirstNameLabel = new System.Windows.Forms.Label();
             this.AddUserLabel = new System.Windows.Forms.Label();
             this.ExitLabel = new System.Windows.Forms.Label();
+            this.AddButton = new BloodBankManagementSystem.ButtonModified();
             this.SuspendLayout();
             // 
             // BirthdateTimePicker
@@ -203,22 +203,6 @@
             this.FirstNameValidation.TabIndex = 77;
             this.FirstNameValidation.Text = " ";
             this.FirstNameValidation.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // AddButton
-            // 
-            this.AddButton.BackColor = System.Drawing.Color.Salmon;
-            this.AddButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.AddButton.FlatAppearance.BorderColor = System.Drawing.Color.Red;
-            this.AddButton.FlatAppearance.BorderSize = 0;
-            this.AddButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddButton.ForeColor = System.Drawing.Color.White;
-            this.AddButton.Location = new System.Drawing.Point(174, 671);
-            this.AddButton.Name = "AddButton";
-            this.AddButton.Size = new System.Drawing.Size(137, 39);
-            this.AddButton.TabIndex = 76;
-            this.AddButton.Text = "Add";
-            this.AddButton.UseVisualStyleBackColor = false;
             // 
             // BloodGroupComboBox
             // 
@@ -364,6 +348,7 @@
             this.LastNameTextBox.Name = "LastNameTextBox";
             this.LastNameTextBox.Size = new System.Drawing.Size(321, 31);
             this.LastNameTextBox.TabIndex = 62;
+            this.LastNameTextBox.TextChanged += new System.EventHandler(this.LastNameTextBox_TextChanged);
             // 
             // LastNameLabel
             // 
@@ -383,6 +368,7 @@
             this.FirstNameTextBox.Name = "FirstNameTextBox";
             this.FirstNameTextBox.Size = new System.Drawing.Size(315, 31);
             this.FirstNameTextBox.TabIndex = 60;
+            this.FirstNameTextBox.TextChanged += new System.EventHandler(this.FirstNameTextBox_TextChanged);
             // 
             // FirstNameLabel
             // 
@@ -402,9 +388,9 @@
             this.AddUserLabel.ForeColor = System.Drawing.Color.Salmon;
             this.AddUserLabel.Location = new System.Drawing.Point(168, 27);
             this.AddUserLabel.Name = "AddUserLabel";
-            this.AddUserLabel.Size = new System.Drawing.Size(143, 31);
+            this.AddUserLabel.Size = new System.Drawing.Size(142, 31);
             this.AddUserLabel.TabIndex = 58;
-            this.AddUserLabel.Text = "Add Donor";
+            this.AddUserLabel.Text = "Edit Donor";
             this.AddUserLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // ExitLabel
@@ -418,6 +404,22 @@
             this.ExitLabel.Size = new System.Drawing.Size(24, 24);
             this.ExitLabel.TabIndex = 57;
             this.ExitLabel.Text = "X";
+            // 
+            // AddButton
+            // 
+            this.AddButton.BackColor = System.Drawing.Color.Salmon;
+            this.AddButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AddButton.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.AddButton.FlatAppearance.BorderSize = 0;
+            this.AddButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddButton.ForeColor = System.Drawing.Color.White;
+            this.AddButton.Location = new System.Drawing.Point(174, 671);
+            this.AddButton.Name = "AddButton";
+            this.AddButton.Size = new System.Drawing.Size(137, 39);
+            this.AddButton.TabIndex = 76;
+            this.AddButton.Text = "Edit";
+            this.AddButton.UseVisualStyleBackColor = false;
             // 
             // EditDonorForm
             // 
@@ -459,7 +461,7 @@
             this.Controls.Add(this.ExitLabel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "EditDonorForm";
-            this.Text = "EditDonorForm";
+            this.Text = "-";
             this.Load += new System.EventHandler(this.EditDonorForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
