@@ -49,7 +49,6 @@ namespace BloodBankManagementSystem.Controllers
                 var users = context.Users.Where(u => u.Role != GlobalConstants.AdminRole)
                                          .Select(u => new
                                          {
-                                             u.UserID,
                                              u.FirstName,
                                              u.LastName,
                                              u.Email,
