@@ -27,6 +27,9 @@ namespace BloodBankManagementSystem.Models
             public string DonorGender { get; set; }
 
             [Required]
+            public DateTime? DonorBirthDate { get; set; }
+
+            [Required]
             public int DonorAge { get; set; }
 
             [Required]

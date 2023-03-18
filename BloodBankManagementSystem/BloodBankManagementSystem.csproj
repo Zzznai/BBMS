@@ -144,6 +144,10 @@
     <Compile Include="Migrations\202303161738589_EditedBloodStock.designer.cs">
       <DependentUpon>202303161738589_EditedBloodStock.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202303181233479_AddedBirthdate.cs" />
+    <Compile Include="Migrations\202303181233479_AddedBirthdate.designer.cs">
+      <DependentUpon>202303181233479_AddedBirthdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BloodBankDbContext.cs" />
     <Compile Include="Models\BloodDonation.cs" />
@@ -268,6 +272,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202303161738589_EditedBloodStock.resx">
       <DependentUpon>202303161738589_EditedBloodStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303181233479_AddedBirthdate.resx">
+      <DependentUpon>202303181233479_AddedBirthdate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

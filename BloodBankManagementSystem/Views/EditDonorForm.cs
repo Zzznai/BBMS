@@ -15,6 +15,12 @@ namespace BloodBankManagementSystem.Views
         public EditDonorForm()
         {
             InitializeComponent();
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+        }
+
+        private void EditDonorForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

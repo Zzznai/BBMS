@@ -40,6 +40,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "EditDonorForm";
             this.Text = "EditDonorForm";
+            this.Load += new System.EventHandler(this.EditDonorForm_Load);
             this.ResumeLayout(false);
 
         }
