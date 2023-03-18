@@ -67,6 +67,10 @@ namespace BloodBankManagementSystem.Views
             {
                 isValid = true;
             }
+            else
+            {
+                isValid = false;
+            }
             return isValid;
         }
 

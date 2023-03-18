@@ -27,18 +27,27 @@ namespace BloodBankManagementSystem.Views
 
         private void EditButton_Click(object sender, EventArgs e)
         {
-            if (usersService.IsEmailUsedByAnotherUser(id, EmailTextBox.Text))
+            bool isValid = IsFormDataValid();
+            if(isValid==true)
             {
-                MessageBox.Show("A user with this email already exists. Please use a different email address.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                EmailTextBox.Clear();
+                if (usersService.IsEmailUsedByAnotherUser(id, EmailTextBox.Text))
+                {
+                    MessageBox.Show("A user with this email already exists. Please use a different email address.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    EmailTextBox.Clear();
+                }
+                else
+                {
+                    AdminForm adminForm = (AdminForm)Application.OpenForms["AdminForm"];
+                    usersService.EditUser(id, FirstNameTextBox.Text, LastNameTextBox.Text, EmailTextBox.Text, PasswordTextBox.Text);
+                    adminForm.RefreshData();
+                    this.Close();
+                }
             }
             else
             {
-                AdminForm adminForm = (AdminForm)Application.OpenForms["AdminForm"];
-                usersService.EditUser(id, FirstNameTextBox.Text, LastNameTextBox.Text, EmailTextBox.Text, PasswordTextBox.Text);
-                adminForm.RefreshData();
-                this.Close();
+                MessageBox.Show("Please enter valid data", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            
         }
 
         private bool IsFormDataValid()

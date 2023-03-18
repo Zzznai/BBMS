@@ -49,6 +49,7 @@ namespace BloodBankManagementSystem.Controllers
                 var users = context.Users.Where(u => u.Role != GlobalConstants.AdminRole)
                                          .Select(u => new
                                          {
+                                             u.UserID,
                                              u.FirstName,
                                              u.LastName,
                                              u.Email,
@@ -131,33 +132,55 @@ namespace BloodBankManagementSystem.Controllers
                     return false;
                 }
             }
+            else
+            {
+                return false;
+            }
 
-            return false;
+            
         }
 
         public void EditUser(int userId, string firstName, string lastName, string email, string password)
         {
-            try
+            DialogResult result = MessageBox.Show($"Are you sure you want to add the user {firstName} {lastName}?",
+                                                  "Confirm Add User",
+                                                  MessageBoxButtons.YesNo,
+                                                 MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
             {
-                using (var context = new BloodBankDbContext())
+                try
                 {
-                    var user = context.Users.FirstOrDefault(u => u.UserID == userId);
-
-                    if (user != null)
+                    using (var context = new BloodBankDbContext())
                     {
-                        user.FirstName = firstName;
-                        user.LastName = lastName;
-                        user.Email = email;
-                        user.Password = password;
+                        var user = context.Users.FirstOrDefault(u => u.UserID == userId);
 
-                        context.SaveChanges();
+                        if (user != null)
+                        {
+                            user.FirstName = firstName;
+                            user.LastName = lastName;
+                            user.Email = email;
+                            user.Password = password;
+                            MessageBox.Show("User edited successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            context.SaveChanges();
+                        }
+                        else
+                        {
+                            MessageBox.Show("User not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                 }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error editing user: " + ex.Message);
+                }
             }
-            catch (Exception ex)
+            else
             {
-                Console.WriteLine("Error editing user: " + ex.Message);
+                
             }
         }
     }
 }
+
+    
+

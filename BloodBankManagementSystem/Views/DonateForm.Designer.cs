@@ -46,12 +46,12 @@
             this.ManageDonorsLabel = new System.Windows.Forms.Label();
             this.LogOutLabel = new System.Windows.Forms.Label();
             this.DashboardLabel = new System.Windows.Forms.Label();
-            this.DonorsGrid = new BloodBankManagementSystem.MyDataGridView();
             this.SearchDonorsLabel = new System.Windows.Forms.Label();
             this.LastNameTextBox = new System.Windows.Forms.TextBox();
             this.DonationVolumeLabel = new System.Windows.Forms.Label();
             this.DonationVolumeTextBox = new System.Windows.Forms.TextBox();
             this.EditButton = new BloodBankManagementSystem.ButtonModified();
+            this.DonorsGrid = new BloodBankManagementSystem.MyDataGridView();
             this.HeaderPanel.SuspendLayout();
             this.MenuPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DonorsGrid)).BeginInit();
@@ -213,6 +213,60 @@
             this.DashboardLabel.TabIndex = 47;
             this.DashboardLabel.Text = "Dashboard";
             // 
+            // SearchDonorsLabel
+            // 
+            this.SearchDonorsLabel.AutoSize = true;
+            this.SearchDonorsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchDonorsLabel.ForeColor = System.Drawing.Color.Salmon;
+            this.SearchDonorsLabel.Location = new System.Drawing.Point(288, 89);
+            this.SearchDonorsLabel.Name = "SearchDonorsLabel";
+            this.SearchDonorsLabel.Size = new System.Drawing.Size(158, 25);
+            this.SearchDonorsLabel.TabIndex = 64;
+            this.SearchDonorsLabel.Text = "Search donors:";
+            // 
+            // LastNameTextBox
+            // 
+            this.LastNameTextBox.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LastNameTextBox.Location = new System.Drawing.Point(441, 88);
+            this.LastNameTextBox.Name = "LastNameTextBox";
+            this.LastNameTextBox.Size = new System.Drawing.Size(454, 31);
+            this.LastNameTextBox.TabIndex = 65;
+            // 
+            // DonationVolumeLabel
+            // 
+            this.DonationVolumeLabel.AutoSize = true;
+            this.DonationVolumeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DonationVolumeLabel.ForeColor = System.Drawing.Color.Salmon;
+            this.DonationVolumeLabel.Location = new System.Drawing.Point(944, 226);
+            this.DonationVolumeLabel.Name = "DonationVolumeLabel";
+            this.DonationVolumeLabel.Size = new System.Drawing.Size(238, 29);
+            this.DonationVolumeLabel.TabIndex = 66;
+            this.DonationVolumeLabel.Text = "Donation Volume (L):";
+            // 
+            // DonationVolumeTextBox
+            // 
+            this.DonationVolumeTextBox.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DonationVolumeTextBox.Location = new System.Drawing.Point(949, 258);
+            this.DonationVolumeTextBox.Name = "DonationVolumeTextBox";
+            this.DonationVolumeTextBox.Size = new System.Drawing.Size(225, 31);
+            this.DonationVolumeTextBox.TabIndex = 67;
+            // 
+            // EditButton
+            // 
+            this.EditButton.BackColor = System.Drawing.Color.Salmon;
+            this.EditButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.EditButton.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.EditButton.FlatAppearance.BorderSize = 0;
+            this.EditButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.EditButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EditButton.ForeColor = System.Drawing.Color.White;
+            this.EditButton.Location = new System.Drawing.Point(949, 379);
+            this.EditButton.Name = "EditButton";
+            this.EditButton.Size = new System.Drawing.Size(225, 47);
+            this.EditButton.TabIndex = 68;
+            this.EditButton.Text = "Donate";
+            this.EditButton.UseVisualStyleBackColor = false;
+            // 
             // DonorsGrid
             // 
             this.DonorsGrid.AllowUserToAddRows = false;
@@ -259,60 +313,6 @@
             this.DonorsGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DonorsGrid.Size = new System.Drawing.Size(602, 460);
             this.DonorsGrid.TabIndex = 63;
-            // 
-            // SearchDonorsLabel
-            // 
-            this.SearchDonorsLabel.AutoSize = true;
-            this.SearchDonorsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchDonorsLabel.ForeColor = System.Drawing.Color.Salmon;
-            this.SearchDonorsLabel.Location = new System.Drawing.Point(288, 89);
-            this.SearchDonorsLabel.Name = "SearchDonorsLabel";
-            this.SearchDonorsLabel.Size = new System.Drawing.Size(158, 25);
-            this.SearchDonorsLabel.TabIndex = 64;
-            this.SearchDonorsLabel.Text = "Search donors:";
-            // 
-            // LastNameTextBox
-            // 
-            this.LastNameTextBox.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LastNameTextBox.Location = new System.Drawing.Point(441, 88);
-            this.LastNameTextBox.Name = "LastNameTextBox";
-            this.LastNameTextBox.Size = new System.Drawing.Size(454, 31);
-            this.LastNameTextBox.TabIndex = 65;
-            // 
-            // DonationVolumeLabel
-            // 
-            this.DonationVolumeLabel.AutoSize = true;
-            this.DonationVolumeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DonationVolumeLabel.ForeColor = System.Drawing.Color.Salmon;
-            this.DonationVolumeLabel.Location = new System.Drawing.Point(944, 210);
-            this.DonationVolumeLabel.Name = "DonationVolumeLabel";
-            this.DonationVolumeLabel.Size = new System.Drawing.Size(214, 25);
-            this.DonationVolumeLabel.TabIndex = 66;
-            this.DonationVolumeLabel.Text = "Donation Volume (L):";
-            // 
-            // DonationVolumeTextBox
-            // 
-            this.DonationVolumeTextBox.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DonationVolumeTextBox.Location = new System.Drawing.Point(949, 258);
-            this.DonationVolumeTextBox.Name = "DonationVolumeTextBox";
-            this.DonationVolumeTextBox.Size = new System.Drawing.Size(209, 31);
-            this.DonationVolumeTextBox.TabIndex = 67;
-            // 
-            // EditButton
-            // 
-            this.EditButton.BackColor = System.Drawing.Color.Salmon;
-            this.EditButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.EditButton.FlatAppearance.BorderColor = System.Drawing.Color.Red;
-            this.EditButton.FlatAppearance.BorderSize = 0;
-            this.EditButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.EditButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EditButton.ForeColor = System.Drawing.Color.White;
-            this.EditButton.Location = new System.Drawing.Point(970, 419);
-            this.EditButton.Name = "EditButton";
-            this.EditButton.Size = new System.Drawing.Size(165, 47);
-            this.EditButton.TabIndex = 68;
-            this.EditButton.Text = "Donate";
-            this.EditButton.UseVisualStyleBackColor = false;
             // 
             // DonateForm
             // 

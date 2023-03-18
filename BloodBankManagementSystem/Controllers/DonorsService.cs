@@ -30,6 +30,25 @@ namespace BloodBankManagementSystem.Controllers
                 return donors.Cast<object>().ToList();
             }
         }
+        public List<object> GetAllDonorsForDonation()
+        {
+            using (var context = new BloodBankDbContext())
+            {
+                var donors = context.Donors.Select(d => new
+                {
+                    Id = d.DonorID,
+                    FirstName = d.DonorFirstName,
+                    LastName = d.DonorLastName,
+                    Gender = d.DonorGender,
+                    Age = d.DonorAge,
+                    d.BloodGroup,
+                    LastDonationDate = d.LastDonationDate == null ? "-" : d.LastDonationDate.ToString()
+                })
+                              .ToList();
+
+                return donors.Cast<object>().ToList();
+            }
+        }
         public int GetDonorsCount()
         {
             using (var context = new BloodBankDbContext())

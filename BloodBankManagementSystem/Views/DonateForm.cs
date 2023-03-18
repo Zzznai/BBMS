@@ -23,7 +23,7 @@ namespace BloodBankManagementSystem.Views
 
         private void DonateForm_Load(object sender, EventArgs e)
         {
-
+            DonorsGrid.DataSource = donorsService.GetAllDonorsForDonation();
         }
     }
 }
