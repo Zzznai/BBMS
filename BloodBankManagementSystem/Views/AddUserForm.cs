@@ -37,16 +37,8 @@ namespace BloodBankManagementSystem.Views
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-            bool isValid;
-            if (FirstNameValidation.Text == "" && LastNameValidation.Text == "" && EmailValidation.Text == "" && PasswordValidation.Text == "")
-            {
-                isValid = true;
-            }
-            else
-            {
-                isValid = false;
-            }
 
+            bool isValid = IsFormDataValid();
             if (isValid == true)
             {
                 if (usersService.IsEmailUsed(EmailTextBox.Text))
@@ -66,6 +58,16 @@ namespace BloodBankManagementSystem.Views
             {                
                 MessageBox.Show("Please enter valid data", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private bool IsFormDataValid()
+        {
+            bool isValid = false;
+            if (FirstNameValidation.Text == "" && LastNameValidation.Text == "" && EmailValidation.Text == "" && PasswordValidation.Text == "")
+            {
+                isValid = true;
+            }
+            return isValid;
         }
 
         // Helper method to validate email address
@@ -128,7 +130,6 @@ namespace BloodBankManagementSystem.Views
             {
                 PasswordValidation.Text = "";
             }
-
         }
     }
 }

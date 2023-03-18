@@ -41,6 +41,29 @@ namespace BloodBankManagementSystem.Views
             }
         }
 
+        private bool IsFormDataValid()
+        {
+            bool isValid = false;
+            if (FirstNameValidation.Text == "" && LastNameValidation.Text == "" && EmailValidation.Text == "" && PasswordValidation.Text == "")
+            {
+                isValid = true;
+            }
+            return isValid;
+        }
+
+        private bool IsValidEmail(string email)
+        {
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return addr.Address == email;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
         private void ExitLabel_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -63,22 +86,50 @@ namespace BloodBankManagementSystem.Views
 
         private void FirstNameTextBox_TextChanged(object sender, EventArgs e)
         {
-
+            if (FirstNameTextBox.Text.Length < 2)
+            {
+                FirstNameValidation.Text = "Please enter a valid first name (at least 2 characters)";
+            }
+            else
+            {
+                FirstNameValidation.Text = "";
+            }
         }
 
         private void LastNameTextBox_TextChanged(object sender, EventArgs e)
         {
-
+            if (LastNameTextBox.Text.Length < 2)
+            {
+                LastNameValidation.Text = "Please enter a valid last name (at least 2 characters)";
+            }
+            else
+            {
+                LastNameValidation.Text = "";
+            }
         }
 
         private void EmailTextBox_TextChanged(object sender, EventArgs e)
         {
-
+            if (!IsValidEmail(EmailTextBox.Text))
+            {
+                EmailValidation.Text = "Please enter a valid email address";
+            }
+            else
+            {
+                EmailValidation.Text = "";
+            }
         }
 
         private void PasswordTextBox_TextChanged(object sender, EventArgs e)
         {
-
+            if (PasswordTextBox.Text.Length < 7)
+            {
+                PasswordValidation.Text = "Please enter a valid password (at least 7 characters)";
+            }
+            else
+            {
+                PasswordValidation.Text = "";
+            }
         }
     }
 }

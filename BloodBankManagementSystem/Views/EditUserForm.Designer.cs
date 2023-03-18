@@ -40,6 +40,10 @@
             this.EditUserLabel = new System.Windows.Forms.Label();
             this.ExitLabel = new System.Windows.Forms.Label();
             this.EditButton = new BloodBankManagementSystem.ButtonModified();
+            this.FirstNameValidation = new System.Windows.Forms.Label();
+            this.LastNameValidation = new System.Windows.Forms.Label();
+            this.EmailValidation = new System.Windows.Forms.Label();
+            this.PasswordValidation = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // FirstNameTextBox
@@ -164,12 +168,64 @@
             this.EditButton.UseVisualStyleBackColor = false;
             this.EditButton.Click += new System.EventHandler(this.EditButton_Click);
             // 
+            // FirstNameValidation
+            // 
+            this.FirstNameValidation.AutoSize = true;
+            this.FirstNameValidation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FirstNameValidation.ForeColor = System.Drawing.Color.Red;
+            this.FirstNameValidation.Location = new System.Drawing.Point(147, 81);
+            this.FirstNameValidation.Name = "FirstNameValidation";
+            this.FirstNameValidation.Size = new System.Drawing.Size(10, 16);
+            this.FirstNameValidation.TabIndex = 33;
+            this.FirstNameValidation.Text = " ";
+            this.FirstNameValidation.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // LastNameValidation
+            // 
+            this.LastNameValidation.AutoSize = true;
+            this.LastNameValidation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LastNameValidation.ForeColor = System.Drawing.Color.Red;
+            this.LastNameValidation.Location = new System.Drawing.Point(147, 147);
+            this.LastNameValidation.Name = "LastNameValidation";
+            this.LastNameValidation.Size = new System.Drawing.Size(10, 16);
+            this.LastNameValidation.TabIndex = 34;
+            this.LastNameValidation.Text = " ";
+            this.LastNameValidation.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // EmailValidation
+            // 
+            this.EmailValidation.AutoSize = true;
+            this.EmailValidation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EmailValidation.ForeColor = System.Drawing.Color.Red;
+            this.EmailValidation.Location = new System.Drawing.Point(92, 215);
+            this.EmailValidation.Name = "EmailValidation";
+            this.EmailValidation.Size = new System.Drawing.Size(10, 16);
+            this.EmailValidation.TabIndex = 35;
+            this.EmailValidation.Text = " ";
+            this.EmailValidation.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // PasswordValidation
+            // 
+            this.PasswordValidation.AutoSize = true;
+            this.PasswordValidation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PasswordValidation.ForeColor = System.Drawing.Color.Red;
+            this.PasswordValidation.Location = new System.Drawing.Point(138, 284);
+            this.PasswordValidation.Name = "PasswordValidation";
+            this.PasswordValidation.Size = new System.Drawing.Size(10, 16);
+            this.PasswordValidation.TabIndex = 36;
+            this.PasswordValidation.Text = " ";
+            this.PasswordValidation.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // EditUserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(496, 479);
+            this.Controls.Add(this.PasswordValidation);
+            this.Controls.Add(this.EmailValidation);
+            this.Controls.Add(this.LastNameValidation);
+            this.Controls.Add(this.FirstNameValidation);
             this.Controls.Add(this.FirstNameTextBox);
             this.Controls.Add(this.LastNameTextBox);
             this.Controls.Add(this.PasswordTextBox);
@@ -204,5 +260,9 @@
         private System.Windows.Forms.Label EmailLabel;
         private System.Windows.Forms.Label EditUserLabel;
         private System.Windows.Forms.Label ExitLabel;
+        private System.Windows.Forms.Label FirstNameValidation;
+        private System.Windows.Forms.Label LastNameValidation;
+        private System.Windows.Forms.Label EmailValidation;
+        private System.Windows.Forms.Label PasswordValidation;
     }
 }
