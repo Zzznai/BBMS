@@ -375,7 +375,7 @@
             this.DonorDonationTimeValidation.AutoSize = true;
             this.DonorDonationTimeValidation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DonorDonationTimeValidation.ForeColor = System.Drawing.Color.Red;
-            this.DonorDonationTimeValidation.Location = new System.Drawing.Point(223, 443);
+            this.DonorDonationTimeValidation.Location = new System.Drawing.Point(17, 443);
             this.DonorDonationTimeValidation.Name = "DonorDonationTimeValidation";
             this.DonorDonationTimeValidation.Size = new System.Drawing.Size(10, 16);
             this.DonorDonationTimeValidation.TabIndex = 53;

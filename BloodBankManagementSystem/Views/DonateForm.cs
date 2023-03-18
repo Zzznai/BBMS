@@ -30,5 +30,10 @@ namespace BloodBankManagementSystem.Views
         {
 
         }
+
+        private void DonationsRecordsLabel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

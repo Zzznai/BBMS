@@ -71,6 +71,7 @@
             this.BirthdateTimePicker.Name = "BirthdateTimePicker";
             this.BirthdateTimePicker.Size = new System.Drawing.Size(216, 31);
             this.BirthdateTimePicker.TabIndex = 88;
+            this.BirthdateTimePicker.ValueChanged += new System.EventHandler(this.BirthdateTimePicker_ValueChanged);
             // 
             // BirthDateValidation
             // 
@@ -283,6 +284,7 @@
             this.HasDonatedCheckBox.TabIndex = 68;
             this.HasDonatedCheckBox.Text = "Has the donor previously donated blood?";
             this.HasDonatedCheckBox.UseVisualStyleBackColor = true;
+            this.HasDonatedCheckBox.CheckedChanged += new System.EventHandler(this.HasDonatedCheckBox_CheckedChanged);
             // 
             // BirthdateLabel
             // 
@@ -317,6 +319,7 @@
             this.MaleCheckBox.TabIndex = 65;
             this.MaleCheckBox.Text = "Male";
             this.MaleCheckBox.UseVisualStyleBackColor = true;
+            this.MaleCheckBox.CheckedChanged += new System.EventHandler(this.MaleCheckBox_CheckedChanged);
             // 
             // FemaleCheckBox
             // 
@@ -329,6 +332,7 @@
             this.FemaleCheckBox.TabIndex = 64;
             this.FemaleCheckBox.Text = "Female";
             this.FemaleCheckBox.UseVisualStyleBackColor = true;
+            this.FemaleCheckBox.CheckedChanged += new System.EventHandler(this.FemaleCheckBox_CheckedChanged);
             // 
             // GenderLabel
             // 

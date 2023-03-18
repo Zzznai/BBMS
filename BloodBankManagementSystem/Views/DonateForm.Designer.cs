@@ -120,6 +120,7 @@
             this.DonationsRecordsLabel.Size = new System.Drawing.Size(176, 25);
             this.DonationsRecordsLabel.TabIndex = 60;
             this.DonationsRecordsLabel.Text = "Donation records";
+            this.DonationsRecordsLabel.Click += new System.EventHandler(this.DonationsRecordsLabel_Click);
             // 
             // PointerPanel
             // 
@@ -219,7 +220,7 @@
             this.DonationVolumeLabel.AutoSize = true;
             this.DonationVolumeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DonationVolumeLabel.ForeColor = System.Drawing.Color.Salmon;
-            this.DonationVolumeLabel.Location = new System.Drawing.Point(948, 289);
+            this.DonationVolumeLabel.Location = new System.Drawing.Point(938, 289);
             this.DonationVolumeLabel.Name = "DonationVolumeLabel";
             this.DonationVolumeLabel.Size = new System.Drawing.Size(238, 29);
             this.DonationVolumeLabel.TabIndex = 66;
@@ -228,7 +229,7 @@
             // DonationVolumeTextBox
             // 
             this.DonationVolumeTextBox.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DonationVolumeTextBox.Location = new System.Drawing.Point(953, 321);
+            this.DonationVolumeTextBox.Location = new System.Drawing.Point(943, 321);
             this.DonationVolumeTextBox.Name = "DonationVolumeTextBox";
             this.DonationVolumeTextBox.Size = new System.Drawing.Size(225, 31);
             this.DonationVolumeTextBox.TabIndex = 67;
@@ -261,7 +262,7 @@
             this.EditButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.EditButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EditButton.ForeColor = System.Drawing.Color.White;
-            this.EditButton.Location = new System.Drawing.Point(953, 428);
+            this.EditButton.Location = new System.Drawing.Point(943, 428);
             this.EditButton.Name = "EditButton";
             this.EditButton.Size = new System.Drawing.Size(225, 42);
             this.EditButton.TabIndex = 68;
