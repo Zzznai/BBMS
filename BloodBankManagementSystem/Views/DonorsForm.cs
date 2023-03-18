@@ -110,5 +110,19 @@ namespace BloodBankManagementSystem.Views
         {
             RefreshData();
         }
+
+        private void ManageDonorsLabel_Click(object sender, EventArgs e)
+        {
+            DonorsForm donorsForm = new DonorsForm();
+            this.Hide();
+            donorsForm.ShowDialog();
+        }
+
+        private void DonateLabel_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            DonateForm donateForm = new DonateForm();
+            donateForm.Show();
+        }
     }
 }

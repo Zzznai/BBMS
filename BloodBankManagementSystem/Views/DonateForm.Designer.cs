@@ -207,11 +207,12 @@
             this.DashboardLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.DashboardLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DashboardLabel.ForeColor = System.Drawing.Color.White;
-            this.DashboardLabel.Location = new System.Drawing.Point(28, 40);
+            this.DashboardLabel.Location = new System.Drawing.Point(28, 45);
             this.DashboardLabel.Name = "DashboardLabel";
             this.DashboardLabel.Size = new System.Drawing.Size(117, 25);
             this.DashboardLabel.TabIndex = 47;
             this.DashboardLabel.Text = "Dashboard";
+            this.DashboardLabel.Click += new System.EventHandler(this.DashboardLabel_Click);
             // 
             // DonationVolumeLabel
             // 

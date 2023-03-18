@@ -25,5 +25,10 @@ namespace BloodBankManagementSystem.Views
         {
             DonorsGrid.DataSource = donorsService.GetAllDonorsForDonation();
         }
+
+        private void DashboardLabel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

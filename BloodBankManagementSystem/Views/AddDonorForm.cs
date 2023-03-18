@@ -220,14 +220,23 @@ namespace BloodBankManagementSystem.Views
             {
                 ageAtDonation--;
             }
-            if (HasDonatedCheckBox.Checked==true && (ageAtDonation < 18 || ageAtDonation > 65))
+            if (HasDonatedCheckBox.Checked==true)
             {
-                DonorDonationTimeValidation.Text="The donor didnt meet the age requirements for donation at that time";
+                if ((ageAtDonation < 18 || ageAtDonation > 65))
+                {
+                    DonorDonationTimeValidation.Text = "The donor didnt meet the age requirements for donation at that time";
+                }
+                else
+                if (lastDonationDate > DateTime.Today)
+                {
+                    DonorDonationTimeValidation.Text = "The last donation date cannot be in the future";
+                }
+                else
+                {
+                    DonorDonationTimeValidation.Text = "";
+                }
             }
-            else
-            {
-                DonorDonationTimeValidation.Text = "";
-            }
+            
         }
 
 
