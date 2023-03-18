@@ -56,6 +56,11 @@ namespace BloodBankManagementSystem.Views
 
         private void RefreshButton_Click(object sender, EventArgs e)
         {
+            RefreshData();
+        }
+
+        public void RefreshData()
+        {
             UserGrid.DataSource = usersService.GetAllUsers();
         }
 
@@ -97,6 +102,7 @@ namespace BloodBankManagementSystem.Views
                 {
                     usersService.DeleteUser(userId);
                     MessageBox.Show("User deleted successfully.");
+                    this.RefreshData();
                 }
                 catch (Exception ex)
                 {
@@ -104,7 +110,6 @@ namespace BloodBankManagementSystem.Views
                 }
             }
         }
-
 
         private void AddEmployeeButton_Click(object sender, EventArgs e)
         {
@@ -114,7 +119,15 @@ namespace BloodBankManagementSystem.Views
 
         private void EditButton_Click(object sender, EventArgs e)
         {
-            EditUserForm editUserForm = new EditUserForm();
+            if (UserGrid.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a user to edit.");
+                return;
+            }
+
+            DataGridViewRow selectedRow = UserGrid.SelectedRows[0];
+            int userId = (int)selectedRow.Cells["UserID"].Value;
+            EditUserForm editUserForm = new EditUserForm(userId);
             editUserForm.Show();
         }
     }

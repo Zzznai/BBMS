@@ -17,6 +17,7 @@ namespace BloodBankManagementSystem.Views
     public partial class AddUserForm : Form
     {
         UsersService usersService;
+
         public AddUserForm()
         {
             InitializeComponent();
@@ -55,7 +56,9 @@ namespace BloodBankManagementSystem.Views
                 }
                 else
                 {
+                    AdminForm adminForm = (AdminForm)Application.OpenForms["AdminForm"];
                     usersService.AddUser(FirstNameTextBox.Text, LastNameTextBox.Text, EmailTextBox.Text, PasswordTextBox.Text);
+                    adminForm.RefreshData();
                     this.Close();
                 }
             }

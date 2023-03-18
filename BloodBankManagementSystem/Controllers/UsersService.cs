@@ -9,6 +9,15 @@ namespace BloodBankManagementSystem.Controllers
 {
     public class UsersService
     {
+        public Users GetUserById(int id)
+        {
+            using (var context = new BloodBankDbContext())
+            {
+                var user = context.Users.FirstOrDefault(u => u.UserID == id);
+                return user;
+            }
+        }
+
         public bool IsUserValid(string email, string password)
         {
             using (var context = new BloodBankDbContext())
@@ -78,6 +87,14 @@ namespace BloodBankManagementSystem.Controllers
             }
         }
 
+        public bool IsEmailUsedByAnotherUser(int id, string email)
+        {
+            using (var context = new BloodBankDbContext())
+            {
+                return context.Users.Any(u => u.Email == email && u.UserID != id);
+            }
+        }
+
         public bool AddUser(string firstName, string lastName, string email, string password )
         {
             DialogResult result = MessageBox.Show($"Are you sure you want to add the user {firstName} {lastName}?",
@@ -119,7 +136,6 @@ namespace BloodBankManagementSystem.Controllers
             return false;
         }
 
-
         public void EditUser(int userId, string firstName, string lastName, string email, string password)
         {
             try
@@ -144,8 +160,5 @@ namespace BloodBankManagementSystem.Controllers
                 Console.WriteLine("Error editing user: " + ex.Message);
             }
         }
-
-
-
     }
 }
