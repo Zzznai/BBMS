@@ -1,0 +1,352 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F3E0E855-7064-439A-90D1-9EE5988C5606}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>BloodBankManagementSystem</RootNamespace>
+    <AssemblyName>BloodBankManagementSystem</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Shared.v22.2, Version=22.2.20222.16, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Infragistics4.Win.AppStylistSupport.v22.2, Version=22.2.20222.16, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="Infragistics4.Win.DataVisualization.Barcode.v22.2, Version=22.2.20222.16, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="Infragistics4.Win.DataVisualization.Shared.v22.2, Version=22.2.20222.16, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Infragistics4.Win.DataVisualization.UltraDataChart.v22.2, Version=22.2.20222.16, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="Infragistics4.Win.Misc.v22.2, Version=22.2.20222.16, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="Infragistics4.Win.Portable.Core.v22.2, Version=22.2.20222.16, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Infragistics4.Win.SupportDialogs.v22.2, Version=22.2.20222.16, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="Infragistics4.Win.UltraWinCalcManager.v22.2.FormulaBuilder, Version=22.2.20222.16, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Infragistics4.Win.UltraWinEditors.v22.2, Version=22.2.20222.16, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Infragistics4.Win.UltraWinExplorerBar.v22.2, Version=22.2.20222.16, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Infragistics4.Win.UltraWinGrid.v22.2, Version=22.2.20222.16, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Infragistics4.Win.UltraWinListView.v22.2, Version=22.2.20222.16, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Infragistics4.Win.UltraWinTabControl.v22.2, Version=22.2.20222.16, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Infragistics4.Win.UltraWinToolbars.v22.2, Version=22.2.20222.16, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Infragistics4.Win.UltraWinTree.v22.2, Version=22.2.20222.16, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Infragistics4.Win.v22.2, Version=22.2.20222.16, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="MetroFramework, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroFramework.RunTime.1.2.0.3\lib\net40-Client\MetroFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Design, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroFramework.Design.1.2.0.3\lib\net40\MetroFramework.Design.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroFramework.Fonts.1.2.0.3\lib\net40\MetroFramework.Fonts.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ButtonModified1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ButtonModified.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Common\GlobalConstants.cs" />
+    <Compile Include="Controllers\BloodStockService.cs" />
+    <Compile Include="Controllers\BloodTransfusionService.cs" />
+    <Compile Include="Controllers\DonorsService.cs" />
+    <Compile Include="Controllers\PatientsService.cs" />
+    <Compile Include="Controllers\UsersService.cs" />
+    <Compile Include="Migrations\202303131906289_FirstTry.cs" />
+    <Compile Include="Migrations\202303131906289_FirstTry.designer.cs">
+      <DependentUpon>202303131906289_FirstTry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303141222382_Trying.cs" />
+    <Compile Include="Migrations\202303141222382_Trying.designer.cs">
+      <DependentUpon>202303141222382_Trying.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303141227311_EditedDataBase.cs" />
+    <Compile Include="Migrations\202303141227311_EditedDataBase.designer.cs">
+      <DependentUpon>202303141227311_EditedDataBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303141337353_AddesCaseSensitivity.cs" />
+    <Compile Include="Migrations\202303141337353_AddesCaseSensitivity.designer.cs">
+      <DependentUpon>202303141337353_AddesCaseSensitivity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303151326469_UpdatedDatabase.cs" />
+    <Compile Include="Migrations\202303151326469_UpdatedDatabase.designer.cs">
+      <DependentUpon>202303151326469_UpdatedDatabase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303161406388_ChangedDonorTable.cs" />
+    <Compile Include="Migrations\202303161406388_ChangedDonorTable.designer.cs">
+      <DependentUpon>202303161406388_ChangedDonorTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303161738589_EditedBloodStock.cs" />
+    <Compile Include="Migrations\202303161738589_EditedBloodStock.designer.cs">
+      <DependentUpon>202303161738589_EditedBloodStock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\BloodBankDbContext.cs" />
+    <Compile Include="Models\BloodDonation.cs" />
+    <Compile Include="Models\BloodStock.cs" />
+    <Compile Include="Models\BloodTransfusion.cs" />
+    <Compile Include="Models\Donors.cs" />
+    <Compile Include="Models\LoggedUser.cs" />
+    <Compile Include="Models\Patients.cs" />
+    <Compile Include="Models\Users.cs" />
+    <Compile Include="MyDataGridView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\AddDonorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AddDonorForm.Designer.cs">
+      <DependentUpon>AddDonorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AddUserForm.Designer.cs">
+      <DependentUpon>AddUserForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DonateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\DonateForm.Designer.cs">
+      <DependentUpon>DonateForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DonationRecordsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\DonationRecordsForm.Designer.cs">
+      <DependentUpon>DonationRecordsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EditUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\EditUserForm.Designer.cs">
+      <DependentUpon>EditUserForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EmployeeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\EmployeeForm.Designer.cs">
+      <DependentUpon>EmployeeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AdminForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AdminForm.Designer.cs">
+      <DependentUpon>AdminForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DashboardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\DashboardForm.Designer.cs">
+      <DependentUpon>DashboardForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Transfer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Transfer.Designer.cs">
+      <DependentUpon>Transfer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DonorsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\DonorsForm.Designer.cs">
+      <DependentUpon>DonorsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\IntroForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\IntroForm.designer.cs">
+      <DependentUpon>IntroForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PatientsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\PatientsForm.Designer.cs">
+      <DependentUpon>PatientsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TransferRecordsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\TransferRecordsForm.Designer.cs">
+      <DependentUpon>TransferRecordsForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Migrations\202303131906289_FirstTry.resx">
+      <DependentUpon>202303131906289_FirstTry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303141222382_Trying.resx">
+      <DependentUpon>202303141222382_Trying.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303141227311_EditedDataBase.resx">
+      <DependentUpon>202303141227311_EditedDataBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303141337353_AddesCaseSensitivity.resx">
+      <DependentUpon>202303141337353_AddesCaseSensitivity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303151326469_UpdatedDatabase.resx">
+      <DependentUpon>202303151326469_UpdatedDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303161406388_ChangedDonorTable.resx">
+      <DependentUpon>202303161406388_ChangedDonorTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303161738589_EditedBloodStock.resx">
+      <DependentUpon>202303161738589_EditedBloodStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Views\AddDonorForm.resx">
+      <DependentUpon>AddDonorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AddUserForm.resx">
+      <DependentUpon>AddUserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AdminForm.resx">
+      <DependentUpon>AdminForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DashboardForm.resx">
+      <DependentUpon>DashboardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DonateForm.resx">
+      <DependentUpon>DonateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DonorsForm.resx">
+      <DependentUpon>DonorsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\EditUserForm.resx">
+      <DependentUpon>EditUserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\EmployeeForm.resx">
+      <DependentUpon>EmployeeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\IntroForm.resx">
+      <DependentUpon>IntroForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PatientsForm.resx">
+      <DependentUpon>PatientsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Transfer.resx">
+      <DependentUpon>Transfer.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\BloodBankManagementSystem.Models.Users.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+</Project>
