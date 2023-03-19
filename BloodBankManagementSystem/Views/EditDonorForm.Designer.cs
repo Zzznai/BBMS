@@ -213,6 +213,7 @@
             this.BloodGroupComboBox.Name = "BloodGroupComboBox";
             this.BloodGroupComboBox.Size = new System.Drawing.Size(128, 30);
             this.BloodGroupComboBox.TabIndex = 75;
+            this.BloodGroupComboBox.SelectedIndexChanged += new System.EventHandler(this.BloodGroupComboBox_SelectedIndexChanged);
             // 
             // DonorAdressTextBox
             // 
@@ -221,6 +222,7 @@
             this.DonorAdressTextBox.Name = "DonorAdressTextBox";
             this.DonorAdressTextBox.Size = new System.Drawing.Size(343, 31);
             this.DonorAdressTextBox.TabIndex = 74;
+            this.DonorAdressTextBox.TextChanged += new System.EventHandler(this.DonorAdressTextBox_TextChanged);
             // 
             // AdressLabel
             // 
@@ -240,6 +242,7 @@
             this.DonorContactNumberTextBox.Name = "DonorContactNumberTextBox";
             this.DonorContactNumberTextBox.Size = new System.Drawing.Size(259, 31);
             this.DonorContactNumberTextBox.TabIndex = 72;
+            this.DonorContactNumberTextBox.TextChanged += new System.EventHandler(this.DonorContactNumberTextBox_TextChanged);
             // 
             // LastDonationTimePicker
             // 
@@ -249,6 +252,7 @@
             this.LastDonationTimePicker.Name = "LastDonationTimePicker";
             this.LastDonationTimePicker.Size = new System.Drawing.Size(216, 31);
             this.LastDonationTimePicker.TabIndex = 69;
+            this.LastDonationTimePicker.ValueChanged += new System.EventHandler(this.LastDonationTimePicker_ValueChanged);
             // 
             // LastDonationTimeLabel
             // 

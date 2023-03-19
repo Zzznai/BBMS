@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -118,6 +119,70 @@ namespace BloodBankManagementSystem.Views
             {
                 HasDonatedCheckBox.Checked = false;
             }
+        }
+
+        private void LastDonationTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime birthdate = BirthdateTimePicker.Value;
+            DateTime lastDonationDate = LastDonationTimePicker.Value;
+
+            // Check if the donor is at least 18 years old on the date of last donation
+            int ageAtDonation = lastDonationDate.Year - birthdate.Year;
+            if (birthdate.Month > lastDonationDate.Month || (birthdate.Month == lastDonationDate.Month && birthdate.Day > lastDonationDate.Day))
+            {
+                ageAtDonation--;
+            }
+            if (HasDonatedCheckBox.Checked == true)
+            {
+                DateTime minValidDonationTime = DateTime.Now.AddHours(1);
+
+                if (lastDonationDate > minValidDonationTime)
+                {
+                    DonorDonationTimeValidation.Text = "The last donation date cannot be in the future";
+                }
+                else
+                if ((ageAtDonation < 18 || ageAtDonation > 65))
+                {
+                    DonorDonationTimeValidation.Text = "The donor didnt meet the age requirements for donation at that time";
+                }
+                else
+                {
+                    DonorDonationTimeValidation.Text = "";
+                }
+            }
+        }
+
+        private void DonorAdressTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (DonorAdressTextBox.Text.Length < 5)
+            {
+                DonorAdressValidation.Text = "Please enter a valid address (at least 5 characters)";
+            }
+            else
+            {
+                DonorAdressValidation.Text = "";
+            }
+        }
+
+        private void DonorContactNumberTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (!IsValidPhoneNumber(DonorContactNumberTextBox.Text))
+            {
+                ContactNumberValidation.Text = "Please enter a valid phone number";
+            }
+            else
+            {
+                ContactNumberValidation.Text = "";
+            }
+        }
+        private bool IsValidPhoneNumber(string phoneNumber)
+        {
+            return Regex.Match(phoneNumber, @"^\+?[0-9]{1,3}[\s.-]?[0-9]{1,10}[\s.-]?[0-9]{1,10}$").Success;
+        }
+
+        private void BloodGroupComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -222,7 +222,9 @@ namespace BloodBankManagementSystem.Views
             }
             if (HasDonatedCheckBox.Checked==true)
             {
-                if (lastDonationDate > DateTime.Today)
+                DateTime minValidDonationTime = DateTime.Now.AddHours(1);
+
+                if (lastDonationDate > minValidDonationTime)
                 {
                     DonorDonationTimeValidation.Text = "The last donation date cannot be in the future";
                 }
@@ -299,6 +301,11 @@ namespace BloodBankManagementSystem.Views
             }
 
             return age;
+        }
+
+        private void BloodGroupComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

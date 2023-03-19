@@ -156,7 +156,7 @@ namespace BloodBankManagementSystem.Controllers
 
         public void EditUser(int userId, string firstName, string lastName, string email, string password)
         {
-            DialogResult result = MessageBox.Show($"Are you sure you want to add the user {firstName} {lastName}?",
+            DialogResult result = MessageBox.Show($"Are you sure you want to edit the user {firstName} {lastName}?",
                                                   "Confirm Add User",
                                                   MessageBoxButtons.YesNo,
                                                  MessageBoxIcon.Question);

@@ -270,6 +270,7 @@
             this.BloodGroupComboBox.Name = "BloodGroupComboBox";
             this.BloodGroupComboBox.Size = new System.Drawing.Size(128, 30);
             this.BloodGroupComboBox.TabIndex = 39;
+            this.BloodGroupComboBox.SelectedIndexChanged += new System.EventHandler(this.BloodGroupComboBox_SelectedIndexChanged);
             // 
             // FirstNameValidation
             // 
