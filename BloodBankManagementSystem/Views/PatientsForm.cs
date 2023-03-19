@@ -46,5 +46,10 @@ namespace BloodBankManagementSystem.Views
         {
             RefreshData();
         }
+
+        private void ExitLabel_Click(object sender, EventArgs e)
+        {
+            System.Environment.Exit(1);
+        }
     }
 }

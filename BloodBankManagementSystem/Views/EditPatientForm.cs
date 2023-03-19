@@ -16,5 +16,10 @@ namespace BloodBankManagementSystem.Views
         {
             InitializeComponent();
         }
+
+        private void ExitLabel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

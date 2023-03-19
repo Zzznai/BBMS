@@ -109,6 +109,8 @@ namespace BloodBankManagementSystem.Views
             }
         }
 
+
+
         private void AddEmployeeButton_Click(object sender, EventArgs e)
         {
             AddUserForm addUserForm = new AddUserForm();
@@ -131,7 +133,7 @@ namespace BloodBankManagementSystem.Views
 
         private void SearchUsersTextBox_TextChanged(object sender, EventArgs e)
         {
-            UserGrid.DataSource = usersService.SearchAllUsers(SearchUsersTextBox.Text);
+            RefreshData();
         }
     }
 

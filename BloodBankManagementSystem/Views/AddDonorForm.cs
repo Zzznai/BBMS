@@ -34,6 +34,7 @@ namespace BloodBankManagementSystem.Views
             LastDonationTimeLabel.Visible = false;
             List<string> bloodGroups = bloodStockService.GetAllBloodGroupsSortedById();
             BloodGroupComboBox.DataSource = bloodGroups;
+            
 
         }
 
@@ -129,7 +130,7 @@ namespace BloodBankManagementSystem.Views
         private bool IsFormDataValid()
         {
             bool isValid = false;
-            if ((FemaleCheckBox.Checked||MaleCheckBox.Checked) && DonorFirstNameValidation.Text == "" && DonorLastNameValidation.Text == "" && BirthDateValidation.Text == "" && DonorDonationTimeValidation.Text == "" && ContactNumberValidation.Text == "" && DonorAdressValidation.Text == "")
+            if ((FemaleCheckBox.Checked||MaleCheckBox.Checked) && DonorFirstNameValidation.Text == "" && DonorLastNameValidation.Text == "" && BirthDateValidation.Text == "" && (DonorDonationTimeValidation.Text == " " || DonorDonationTimeValidation.Text == "") && ContactNumberValidation.Text == "" && DonorAdressValidation.Text == "")
             {
                 isValid = true;
             }

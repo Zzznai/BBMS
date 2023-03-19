@@ -80,9 +80,9 @@
             this.BirthDateValidation.ForeColor = System.Drawing.Color.Red;
             this.BirthDateValidation.Location = new System.Drawing.Point(125, 259);
             this.BirthDateValidation.Name = "BirthDateValidation";
-            this.BirthDateValidation.Size = new System.Drawing.Size(10, 16);
+            this.BirthDateValidation.Size = new System.Drawing.Size(296, 16);
             this.BirthDateValidation.TabIndex = 84;
-            this.BirthDateValidation.Text = " ";
+            this.BirthDateValidation.Text = " Age must be between 18 and 65 to donate blood";
             this.BirthDateValidation.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // DonorNumberValidation
