@@ -16,5 +16,17 @@ namespace BloodBankManagementSystem.Views
         {
             InitializeComponent();
         }
+
+        private void PFirstNameTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (PFirstNameTextBox.Text.Length < 2)
+            {
+                PFirstNameValidation.Text = "Please enter a valid first name (at least 2 characters)";
+            }
+            else
+            {
+                PFirstNameValidation.Text = "";
+            }
+        }
     }
 }

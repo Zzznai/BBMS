@@ -22,5 +22,11 @@ namespace BloodBankManagementSystem.Views
         {
 
         }
+
+        private void AddButton_Click(object sender, EventArgs e)
+        {
+            AddPatientForm addPatientForm = new AddPatientForm();
+            addPatientForm.ShowDialog();
+        }
     }
 }

@@ -50,5 +50,10 @@ namespace BloodBankManagementSystem.Views
         {
 
         }
+
+        private void DonateLabel_Click(object sender, EventArgs e)
+        {
+            this.Refresh();
+        }
     }
 }

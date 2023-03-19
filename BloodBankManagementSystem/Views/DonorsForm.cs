@@ -38,11 +38,6 @@ namespace BloodBankManagementSystem.Views
             loginForm.Show();
         }
 
-        private void RefreshButton_Click(object sender, EventArgs e)
-        {
-            this.RefreshData();
-        }
-
         private void UserGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -55,13 +50,14 @@ namespace BloodBankManagementSystem.Views
 
         private void EditButton_Click(object sender, EventArgs e)
         {
-
+            EditDonorForm editDonorForm = new EditDonorForm();
+            editDonorForm.ShowDialog();
         }
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-            AddDonorForm addDonor=new AddDonorForm();
-            addDonor.ShowDialog();
+            AddDonorForm addDonorForm=new AddDonorForm();
+            addDonorForm.ShowDialog();
         }
 
         public void RefreshData()
@@ -113,9 +109,7 @@ namespace BloodBankManagementSystem.Views
 
         private void ManageDonorsLabel_Click(object sender, EventArgs e)
         {
-            DonorsForm donorsForm = new DonorsForm();
-            this.Hide();
-            donorsForm.ShowDialog();
+            this.Refresh();
         }
 
         private void DonateLabel_Click(object sender, EventArgs e)
@@ -123,6 +117,11 @@ namespace BloodBankManagementSystem.Views
             this.Hide();
             DonateForm donateForm = new DonateForm();
             donateForm.Show();
+        }
+
+        private void RefreshButton_Click_1(object sender, EventArgs e)
+        {
+            this.RefreshData();
         }
     }
 }

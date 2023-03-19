@@ -76,9 +76,7 @@ namespace BloodBankManagementSystem.Views
 
         private void ManagaEmpLabel_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            AdminForm adminForm = new AdminForm();
-            adminForm.Show();
+            this.Refresh();
         }
 
         private void DeleteButton_Click(object sender, EventArgs e)

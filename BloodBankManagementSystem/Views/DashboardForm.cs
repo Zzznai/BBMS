@@ -91,9 +91,7 @@ namespace BloodBankManagementSystem.Views
 
         private void DashboardLabel_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            DashboardForm dashboardForm = new DashboardForm();
-            dashboardForm.Show();
+            this.Refresh();
         }
 
         private void LogOutLabel_Click(object sender, EventArgs e)

@@ -305,7 +305,7 @@ namespace BloodBankManagementSystem.Views
 
         private void BloodGroupComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            BloodGroupComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
         }
     }
 }

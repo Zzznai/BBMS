@@ -182,7 +182,17 @@ namespace BloodBankManagementSystem.Views
 
         private void BloodGroupComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            BloodGroupComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+        }
 
+        private void AddButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ExitLabel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

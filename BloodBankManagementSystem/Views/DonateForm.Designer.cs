@@ -179,6 +179,7 @@
             this.DonateLabel.Size = new System.Drawing.Size(81, 25);
             this.DonateLabel.TabIndex = 56;
             this.DonateLabel.Text = "Donate";
+            this.DonateLabel.Click += new System.EventHandler(this.DonateLabel_Click);
             // 
             // ManageDonorsLabel
             // 

@@ -5,7 +5,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BloodBankManagementSystem.Models
 {
-
     public partial class Users
     {
         [Key]

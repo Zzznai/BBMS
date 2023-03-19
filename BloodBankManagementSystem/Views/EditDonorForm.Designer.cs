@@ -412,6 +412,7 @@
             this.ExitLabel.Size = new System.Drawing.Size(24, 24);
             this.ExitLabel.TabIndex = 57;
             this.ExitLabel.Text = "X";
+            this.ExitLabel.Click += new System.EventHandler(this.ExitLabel_Click);
             // 
             // AddButton
             // 
@@ -428,6 +429,7 @@
             this.AddButton.TabIndex = 76;
             this.AddButton.Text = "Edit";
             this.AddButton.UseVisualStyleBackColor = false;
+            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // EditDonorForm
             // 

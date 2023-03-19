@@ -310,6 +310,7 @@
             this.RefreshButton.TabIndex = 61;
             this.RefreshButton.Text = "Refresh";
             this.RefreshButton.UseVisualStyleBackColor = false;
+            this.RefreshButton.Click += new System.EventHandler(this.RefreshButton_Click_1);
             // 
             // DeleteButton
             // 

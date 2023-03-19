@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddDonorForm));
             this.ExitLabel = new System.Windows.Forms.Label();
-            this.AddUserLabel = new System.Windows.Forms.Label();
+            this.AddDonorLabel = new System.Windows.Forms.Label();
             this.FirstNameLabel = new System.Windows.Forms.Label();
             this.FirstNameTextBox = new System.Windows.Forms.TextBox();
             this.LastNameLabel = new System.Windows.Forms.Label();
@@ -76,17 +76,17 @@
             this.ExitLabel.Text = "X";
             this.ExitLabel.Click += new System.EventHandler(this.ExitLabel_Click);
             // 
-            // AddUserLabel
+            // AddDonorLabel
             // 
-            this.AddUserLabel.AutoSize = true;
-            this.AddUserLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddUserLabel.ForeColor = System.Drawing.Color.Salmon;
-            this.AddUserLabel.Location = new System.Drawing.Point(168, 26);
-            this.AddUserLabel.Name = "AddUserLabel";
-            this.AddUserLabel.Size = new System.Drawing.Size(143, 31);
-            this.AddUserLabel.TabIndex = 13;
-            this.AddUserLabel.Text = "Add Donor";
-            this.AddUserLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.AddDonorLabel.AutoSize = true;
+            this.AddDonorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddDonorLabel.ForeColor = System.Drawing.Color.Salmon;
+            this.AddDonorLabel.Location = new System.Drawing.Point(168, 26);
+            this.AddDonorLabel.Name = "AddDonorLabel";
+            this.AddDonorLabel.Size = new System.Drawing.Size(143, 31);
+            this.AddDonorLabel.TabIndex = 13;
+            this.AddDonorLabel.Text = "Add Donor";
+            this.AddDonorLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // FirstNameLabel
             // 
@@ -473,7 +473,7 @@
             this.Controls.Add(this.LastNameLabel);
             this.Controls.Add(this.FirstNameTextBox);
             this.Controls.Add(this.FirstNameLabel);
-            this.Controls.Add(this.AddUserLabel);
+            this.Controls.Add(this.AddDonorLabel);
             this.Controls.Add(this.ExitLabel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddDonorForm";
@@ -488,7 +488,7 @@
         #endregion
 
         private System.Windows.Forms.Label ExitLabel;
-        private System.Windows.Forms.Label AddUserLabel;
+        private System.Windows.Forms.Label AddDonorLabel;
         private System.Windows.Forms.Label FirstNameLabel;
         private System.Windows.Forms.TextBox FirstNameTextBox;
         private System.Windows.Forms.Label LastNameLabel;
