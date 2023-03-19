@@ -194,5 +194,10 @@ namespace BloodBankManagementSystem.Views
         {
             this.Close();
         }
+
+        private void GenderLabel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

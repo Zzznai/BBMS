@@ -210,12 +210,6 @@
     <Compile Include="Views\EditUserForm.Designer.cs">
       <DependentUpon>EditUserForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\EmployeeForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\EmployeeForm.Designer.cs">
-      <DependentUpon>EmployeeForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\AdminForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -323,11 +317,11 @@
     <EmbeddedResource Include="Views\EditDonorForm.resx">
       <DependentUpon>EditDonorForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\EditPatientForm.resx">
+      <DependentUpon>EditPatientForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\EditUserForm.resx">
       <DependentUpon>EditUserForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\EmployeeForm.resx">
-      <DependentUpon>EmployeeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\IntroForm.resx">
       <DependentUpon>IntroForm.cs</DependentUpon>

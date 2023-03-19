@@ -348,6 +348,7 @@
             this.GenderLabel.Size = new System.Drawing.Size(100, 29);
             this.GenderLabel.TabIndex = 63;
             this.GenderLabel.Text = "Gender:";
+            this.GenderLabel.Click += new System.EventHandler(this.GenderLabel_Click);
             // 
             // LastNameTextBox
             // 
@@ -472,7 +473,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "EditDonorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "-";
+            this.Text = "EditDonorFOrm";
             this.Load += new System.EventHandler(this.EditDonorForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

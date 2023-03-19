@@ -154,6 +154,7 @@
             this.RefreshButton.TabIndex = 67;
             this.RefreshButton.Text = "Refresh";
             this.RefreshButton.UseVisualStyleBackColor = false;
+            this.RefreshButton.Click += new System.EventHandler(this.RefreshButton_Click);
             // 
             // DeleteButton
             // 
@@ -338,6 +339,7 @@
             this.SearchPatientsTextBox.Name = "SearchPatientsTextBox";
             this.SearchPatientsTextBox.Size = new System.Drawing.Size(327, 31);
             this.SearchPatientsTextBox.TabIndex = 69;
+            this.SearchPatientsTextBox.TextChanged += new System.EventHandler(this.SearchPatientsTextBox_TextChanged);
             // 
             // SearchPatientsLabel
             // 
@@ -366,6 +368,7 @@
             this.Controls.Add(this.HeaderPanel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PatientsForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PatientsForm";
             this.Load += new System.EventHandler(this.PatientsForm_Load);
             this.HeaderPanel.ResumeLayout(false);
