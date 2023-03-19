@@ -89,6 +89,10 @@
             this.transfusionsNuumber = new System.Windows.Forms.Label();
             this.transfusionslabel = new System.Windows.Forms.Label();
             this.InfoPanel = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.DonationPictureBox = new System.Windows.Forms.PictureBox();
+            this.donationNumber = new System.Windows.Forms.Label();
+            this.donationLabel = new System.Windows.Forms.Label();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -106,6 +110,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.DonorPictureBox)).BeginInit();
             this.panel9.SuspendLayout();
             this.InfoPanel.SuspendLayout();
+            this.panel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DonationPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // lblUserTitle
@@ -675,7 +681,7 @@
             this.panelPatients.Controls.Add(this.patientsNumber);
             this.panelPatients.Controls.Add(this.patientsLabel);
             this.panelPatients.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panelPatients.Location = new System.Drawing.Point(387, 67);
+            this.panelPatients.Location = new System.Drawing.Point(269, 72);
             this.panelPatients.Name = "panelPatients";
             this.panelPatients.Size = new System.Drawing.Size(200, 100);
             this.panelPatients.TabIndex = 43;
@@ -732,7 +738,7 @@
             this.panelDonors.Controls.Add(this.donorsNumber);
             this.panelDonors.Controls.Add(this.donorsLabel);
             this.panelDonors.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panelDonors.Location = new System.Drawing.Point(123, 67);
+            this.panelDonors.Location = new System.Drawing.Point(38, 72);
             this.panelDonors.Name = "panelDonors";
             this.panelDonors.Size = new System.Drawing.Size(200, 100);
             this.panelDonors.TabIndex = 42;
@@ -779,7 +785,7 @@
             this.panel9.Controls.Add(this.transfusionsNuumber);
             this.panel9.Controls.Add(this.transfusionslabel);
             this.panel9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel9.Location = new System.Drawing.Point(651, 67);
+            this.panel9.Location = new System.Drawing.Point(731, 70);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(200, 100);
             this.panel9.TabIndex = 45;
@@ -810,6 +816,7 @@
             // InfoPanel
             // 
             this.InfoPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.InfoPanel.Controls.Add(this.panel8);
             this.InfoPanel.Controls.Add(this.panel9);
             this.InfoPanel.Controls.Add(this.panelPatients);
             this.InfoPanel.Controls.Add(this.panelDonors);
@@ -818,6 +825,52 @@
             this.InfoPanel.Size = new System.Drawing.Size(1002, 236);
             this.InfoPanel.TabIndex = 46;
             this.InfoPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.InfoPanel_Paint);
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.Transparent;
+            this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel8.Controls.Add(this.DonationPictureBox);
+            this.panel8.Controls.Add(this.donationNumber);
+            this.panel8.Controls.Add(this.donationLabel);
+            this.panel8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel8.Location = new System.Drawing.Point(500, 71);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(200, 100);
+            this.panel8.TabIndex = 47;
+            // 
+            // DonationPictureBox
+            // 
+            this.DonationPictureBox.BackColor = System.Drawing.Color.Transparent;
+            this.DonationPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("DonationPictureBox.Image")));
+            this.DonationPictureBox.Location = new System.Drawing.Point(152, -1);
+            this.DonationPictureBox.Name = "DonationPictureBox";
+            this.DonationPictureBox.Size = new System.Drawing.Size(47, 55);
+            this.DonationPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.DonationPictureBox.TabIndex = 45;
+            this.DonationPictureBox.TabStop = false;
+            // 
+            // donationNumber
+            // 
+            this.donationNumber.AutoSize = true;
+            this.donationNumber.Font = new System.Drawing.Font("Segoe UI", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.donationNumber.ForeColor = System.Drawing.Color.Salmon;
+            this.donationNumber.Location = new System.Drawing.Point(3, -2);
+            this.donationNumber.Name = "donationNumber";
+            this.donationNumber.Size = new System.Drawing.Size(46, 47);
+            this.donationNumber.TabIndex = 1;
+            this.donationNumber.Text = "N";
+            // 
+            // donationLabel
+            // 
+            this.donationLabel.AutoSize = true;
+            this.donationLabel.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.donationLabel.ForeColor = System.Drawing.Color.Salmon;
+            this.donationLabel.Location = new System.Drawing.Point(3, 52);
+            this.donationLabel.Name = "donationLabel";
+            this.donationLabel.Size = new System.Drawing.Size(174, 45);
+            this.donationLabel.TabIndex = 0;
+            this.donationLabel.Text = "Donations";
             // 
             // DashboardForm
             // 
@@ -871,6 +924,9 @@
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             this.InfoPanel.ResumeLayout(false);
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DonationPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -938,5 +994,9 @@
         private System.Windows.Forms.Label WelcomeLabel;
         private System.Windows.Forms.Panel PointerPanel;
         private System.Windows.Forms.Label DonationsRecordsLabel;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.PictureBox DonationPictureBox;
+        private System.Windows.Forms.Label donationNumber;
+        private System.Windows.Forms.Label donationLabel;
     }
 }

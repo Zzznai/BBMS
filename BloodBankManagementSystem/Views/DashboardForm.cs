@@ -16,18 +16,20 @@ namespace BloodBankManagementSystem.Views
     public partial class DashboardForm : Form
     {
         UsersService usersService;
-        DonorsService donorsService = new DonorsService();
-        PatientsService patientsService = new PatientsService();
+        DonorsService donorsService;
+        PatientsService patientsService;
         BloodStockService bloodStockService;
         BloodTransfusionService bloodTransfusion;
+        DonationService donationService;
 
         public DashboardForm()
         {
             this.usersService = new UsersService();
             this.donorsService = new DonorsService();
-            this.patientsService=new PatientsService();
+            this.patientsService = new PatientsService();
             this.bloodStockService = new BloodStockService();
             this.bloodTransfusion = new BloodTransfusionService();
+            this.donationService = new DonationService();
             InitializeComponent();
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
         }
@@ -38,6 +40,7 @@ namespace BloodBankManagementSystem.Views
             donorsNumber.Text = $"{donorsService.GetDonorsCount()}";
             patientsNumber.Text = $"{patientsService.GetPatientsCount()}";
             transfusionsNuumber.Text = $"{bloodTransfusion.GetBloodTransfusionsCount()}";
+            donationNumber.Text = $"{donationService.GetAllDonationsCount()}";
             SetBloodGroupCount("O+", lblOpositiveCount);
             SetBloodGroupCount("O-", lblOnegativeCount);
             SetBloodGroupCount("A+", lblApositiveCount);

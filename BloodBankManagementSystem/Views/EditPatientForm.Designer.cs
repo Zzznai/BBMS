@@ -129,6 +129,7 @@
             this.PAdressTextBox.Name = "PAdressTextBox";
             this.PAdressTextBox.Size = new System.Drawing.Size(343, 31);
             this.PAdressTextBox.TabIndex = 95;
+            this.PAdressTextBox.TextChanged += new System.EventHandler(this.PAdressTextBox_TextChanged);
             // 
             // PAdressLabel
             // 
@@ -148,6 +149,7 @@
             this.PContactNumberTextBox.Name = "PContactNumberTextBox";
             this.PContactNumberTextBox.Size = new System.Drawing.Size(259, 31);
             this.PContactNumberTextBox.TabIndex = 93;
+            this.PContactNumberTextBox.TextChanged += new System.EventHandler(this.PContactNumberTextBox_TextChanged);
             // 
             // PContactNumberLabel
             // 
@@ -168,6 +170,7 @@
             this.BloodGroupComboBox.Name = "BloodGroupComboBox";
             this.BloodGroupComboBox.Size = new System.Drawing.Size(128, 30);
             this.BloodGroupComboBox.TabIndex = 91;
+            this.BloodGroupComboBox.SelectedIndexChanged += new System.EventHandler(this.BloodGroupComboBox_SelectedIndexChanged);
             // 
             // BloodGroupLabel
             // 
@@ -188,6 +191,7 @@
             this.PBirthdateTimePicker.Name = "PBirthdateTimePicker";
             this.PBirthdateTimePicker.Size = new System.Drawing.Size(216, 31);
             this.PBirthdateTimePicker.TabIndex = 89;
+            this.PBirthdateTimePicker.ValueChanged += new System.EventHandler(this.PBirthdateTimePicker_ValueChanged);
             // 
             // PBirthdateValidation
             // 
@@ -223,6 +227,7 @@
             this.MaleCheckBox.TabIndex = 86;
             this.MaleCheckBox.Text = "Male";
             this.MaleCheckBox.UseVisualStyleBackColor = true;
+            this.MaleCheckBox.CheckedChanged += new System.EventHandler(this.MaleCheckBox_CheckedChanged);
             // 
             // FemaleCheckBox
             // 
@@ -235,6 +240,7 @@
             this.FemaleCheckBox.TabIndex = 85;
             this.FemaleCheckBox.Text = "Female";
             this.FemaleCheckBox.UseVisualStyleBackColor = true;
+            this.FemaleCheckBox.CheckedChanged += new System.EventHandler(this.FemaleCheckBox_CheckedChanged);
             // 
             // PGenderLabel
             // 
@@ -266,6 +272,7 @@
             this.PLastNameTextBox.Name = "PLastNameTextBox";
             this.PLastNameTextBox.Size = new System.Drawing.Size(321, 31);
             this.PLastNameTextBox.TabIndex = 82;
+            this.PLastNameTextBox.TextChanged += new System.EventHandler(this.PLastNameTextBox_TextChanged);
             // 
             // PLastNameLabel
             // 
@@ -309,6 +316,7 @@
             this.PFirstNameTextBox.Name = "PFirstNameTextBox";
             this.PFirstNameTextBox.Size = new System.Drawing.Size(315, 31);
             this.PFirstNameTextBox.TabIndex = 78;
+            this.PFirstNameTextBox.TextChanged += new System.EventHandler(this.PFirstNameTextBox_TextChanged);
             // 
             // PFirstNameLabel
             // 
@@ -382,6 +390,7 @@
             this.Name = "EditPatientForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EditPatientForm";
+            this.Load += new System.EventHandler(this.EditPatientForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

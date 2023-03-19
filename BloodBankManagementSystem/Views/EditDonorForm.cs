@@ -244,7 +244,7 @@ namespace BloodBankManagementSystem.Views
                     donor.LastDonationDate = LastDonationTimePicker.Value;
                     if (!donor.BloodGroup.Equals(BloodGroupComboBox.SelectedItem.ToString()))
                     {
-                        MessageBox.Show("You can't change the blood group if the donor donated previously", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("You can't change the blood group if the donor has donated previously", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         BloodGroupComboBox.SelectedItem = donor.BloodGroup;
                         return;
                     }

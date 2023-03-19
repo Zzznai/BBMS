@@ -3,25 +3,23 @@ using BloodBankManagementSystem.Controllers;
 using BloodBankManagementSystem.Models;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace BloodBankManagementSystem.Views
 {
     public partial class AddPatientForm : Form
     {
         BloodStockService bloodStockService;
+        PatientsService patientsService;
         public AddPatientForm()
         {
             InitializeComponent();
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.bloodStockService = new BloodStockService();
+            this.patientsService= new PatientsService();
+            
         }
 
         private void PFirstNameTextBox_TextChanged(object sender, EventArgs e)
@@ -68,7 +66,7 @@ namespace BloodBankManagementSystem.Views
         {
             DateTime birthdate = PBirthdateTimePicker.Value;
 
-            if (birthdate > DateTime.Now.AddHours(1))
+            if (birthdate > DateTime.Now.AddHours(1) || birthdate.Year < 1900)
             {
                 PBirthdateValidation.Text = "Invalid date";
                 return;
@@ -78,6 +76,7 @@ namespace BloodBankManagementSystem.Views
                 PBirthdateValidation.Text = "";
             }
             int age = this.GetDonorAge();
+            
            
         }
         private int GetDonorAge()
@@ -103,6 +102,7 @@ namespace BloodBankManagementSystem.Views
         {
             List<string> bloodGroups = bloodStockService.GetAllBloodGroupsSortedById();
             BloodGroupComboBox.DataSource = bloodGroups;
+
         }
 
         private void ExitLabel_Click(object sender, EventArgs e)
@@ -137,6 +137,56 @@ namespace BloodBankManagementSystem.Views
             {
                 PAdressValidation.Text = "";
             }
+        }
+
+        private void AddButton_Click(object sender, EventArgs e)
+        {
+            bool isValid = IsFormDataValid();
+            Patient patient;
+            if(isValid)
+            {
+                patient = new Patient();
+                patient.PatientFirstName = PFirstNameTextBox.Text;
+                patient.PatientLastName = PLastNameTextBox.Text;
+                patient.PatientAge = this.GetDonorAge();
+                if (FemaleCheckBox.Checked)
+                {
+                    patient.PatientGender = GlobalConstants.Female;
+                }
+                else
+                if (MaleCheckBox.Checked)
+                {
+                    patient.PatientGender = GlobalConstants.Male;
+                }
+                patient.PatientBirthDate = PBirthdateTimePicker.Value;
+                patient.BloodGroup = BloodGroupComboBox.SelectedItem.ToString();
+                patient.ContactNumber = PContactNumberTextBox.Text;
+                patient.Address = PAdressTextBox.Text;
+                patientsService.AddPatient(patient);
+
+                PatientsForm patientsForm = (PatientsForm)Application.OpenForms["PatientsForm"];
+                patientsForm.RefreshData();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Please enter valid data", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+        }
+
+        private bool IsFormDataValid()
+        {
+            bool isValid = false;
+            if ((FemaleCheckBox.Checked || MaleCheckBox.Checked) && PFirstNameValidation.Text == "" && PLastNameValidation.Text == "" && PBirthdateValidation.Text == "" && ContactNumberValidation.Text == "" && PAdressValidation.Text == "")
+            {
+                isValid = true;
+            }
+            else
+            {
+                isValid = false;
+            }
+            return isValid;
         }
     }
 }

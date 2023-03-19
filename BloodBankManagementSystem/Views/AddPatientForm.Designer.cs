@@ -312,6 +312,7 @@
             this.AddButton.TabIndex = 70;
             this.AddButton.Text = "Add";
             this.AddButton.UseVisualStyleBackColor = false;
+            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // PAdressTextBox
             // 

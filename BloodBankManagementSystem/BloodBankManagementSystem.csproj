@@ -114,6 +114,7 @@
     <Compile Include="Controllers\BloodStockService.cs" />
     <Compile Include="Controllers\BloodTransfusionService.cs" />
     <Compile Include="Controllers\DonorsService.cs" />
+    <Compile Include="Controllers\DonationService.cs" />
     <Compile Include="Controllers\PatientsService.cs" />
     <Compile Include="Controllers\UsersService.cs" />
     <Compile Include="Migrations\202303131906289_FirstTry.cs" />

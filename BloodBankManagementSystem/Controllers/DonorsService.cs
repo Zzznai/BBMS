@@ -176,18 +176,5 @@ namespace BloodBankManagementSystem.Controllers
                 }
             }
         }
-
-        public void DeleteUser(int donorId)
-        {
-            using (var context = new BloodBankDbContext())
-            {
-                var donor = context.Donors.FirstOrDefault(u => u.DonorID == donorId);
-                if (donor != null)
-                {
-                    context.Donors.Remove(donor);
-                    context.SaveChanges();
-                }
-            }
-        }
     }
 }

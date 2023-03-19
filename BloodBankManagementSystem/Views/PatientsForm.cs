@@ -51,5 +51,19 @@ namespace BloodBankManagementSystem.Views
         {
             System.Environment.Exit(1);
         }
+
+        private void EditButton_Click(object sender, EventArgs e)
+        {
+            if (PatientsGrid.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a donor to edit.");
+                return;
+            }
+
+            DataGridViewRow selectedRow = PatientsGrid.SelectedRows[0];
+            int patientId = (int)selectedRow.Cells["Id"].Value;
+            EditPatientForm editPatientForm = new EditPatientForm(patientId);
+            editPatientForm.ShowDialog();
+        }
     }
 }

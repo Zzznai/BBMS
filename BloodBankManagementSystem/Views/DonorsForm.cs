@@ -73,8 +73,6 @@ namespace BloodBankManagementSystem.Views
              DonorsGrid.DataSource = donorsService.SearchAllDonors(SearchDonorsTextBox.Text);
         }
 
-        
-
         private void DashBoardLabell_Click(object sender, EventArgs e)
         {
             DashboardForm dashboardForm = new DashboardForm();
