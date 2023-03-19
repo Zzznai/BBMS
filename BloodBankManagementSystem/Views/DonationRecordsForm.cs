@@ -27,7 +27,12 @@ namespace BloodBankManagementSystem.Views
 
         public void RefreshData()
         {
-            this.DonationGrid.DataSource = this.donationService.GetAllDonations();
+            this.DonationGrid.DataSource = this.donationService.SearchAllDonations(SearchDonorsTextBox.Text);
+        }
+
+        private void SearchDonorsTextBox_TextChanged(object sender, EventArgs e)
+        {
+            this.RefreshData();
         }
     }
 }

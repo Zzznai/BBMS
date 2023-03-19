@@ -348,6 +348,9 @@
     <EmbeddedResource Include="Views\TransferForm.resx">
       <DependentUpon>TransferForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\TransferRecordsForm.resx">
+      <DependentUpon>TransferRecordsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\BloodBankManagementSystem.Models.Users.datasource" />
     <None Include="Properties\Settings.settings">

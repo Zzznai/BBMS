@@ -18,16 +18,40 @@ namespace BloodBankManagementSystem.Controllers
             }
         }
 
-        public List<object> GetAllDonations()
+        public List<object> SearchAllDonations(string searchInput)
         {
             using (var context = new BloodBankDbContext())
             {
-                var donations = context.BloodDonations.Select(d => new
+                var donationsQuery = context.BloodDonations.AsQueryable();
+
+                if (!string.IsNullOrWhiteSpace(searchInput))
                 {
-                    d.DonationID,
+                    var searchTerm = searchInput.Split(' ');
+
+                    if (searchTerm.Length == 2)
+                    {
+                        var firstName = searchTerm[0];
+                        var lastName = searchTerm[1];
+
+                        donationsQuery = donationsQuery.Where(d =>
+                            d.Donor.DonorFirstName.Contains(firstName) &&
+                            d.Donor.DonorLastName.Contains(lastName));
+                    }
+                    else
+                    {
+                        donationsQuery = donationsQuery.Where(d =>
+                            (d.Donor.DonorFirstName.Contains(searchInput) ||
+                            d.Donor.DonorLastName.Contains(searchInput)) ||
+                            d.Donor.BloodGroup.Contains(searchInput));
+                    }
+                }
+
+                var donations = donationsQuery.Select(d => new
+                {
+                    Id = d.DonationID,
                     d.DonationDate,
-                    d.Donor.DonorFirstName,
-                    d.Donor.DonorLastName,
+                    DonorFirstName = d.Donor.DonorFirstName,
+                    DonorLastName = d.Donor.DonorLastName,
                     d.Donor.BloodGroup,
                     d.QuantityInLiters,
                     d.Donor.DonorAge

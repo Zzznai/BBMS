@@ -120,5 +120,10 @@ namespace BloodBankManagementSystem.Views
         {
             this.GetBloodGroupForPatient();
         }
+
+        private void TransferVolumeTextBox_TextChanged(object sender, EventArgs e)
+        {
+            BloodGroupComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+        }
     }
 }

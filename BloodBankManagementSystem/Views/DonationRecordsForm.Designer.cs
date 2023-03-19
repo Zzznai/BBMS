@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DonationRecordsForm));
             this.HeaderPanel = new System.Windows.Forms.Panel();
             this.ExitLabel = new System.Windows.Forms.Label();
@@ -48,8 +48,8 @@
             this.LogOutLabel = new System.Windows.Forms.Label();
             this.DashboardLabel = new System.Windows.Forms.Label();
             this.DonationGrid = new BloodBankManagementSystem.MyDataGridView();
-            this.SearchUsersTextBox = new System.Windows.Forms.TextBox();
-            this.SearchUsersLabel = new System.Windows.Forms.Label();
+            this.SearchDonorsTextBox = new System.Windows.Forms.TextBox();
+            this.SearchDonorsLabel = new System.Windows.Forms.Label();
             this.HeaderPanel.SuspendLayout();
             this.MenuPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DonationGrid)).BeginInit();
@@ -225,31 +225,31 @@
             this.DonationGrid.AllowUserToDeleteRows = false;
             this.DonationGrid.AllowUserToOrderColumns = true;
             this.DonationGrid.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            this.DonationGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.DonationGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DonationGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DonationGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
             this.DonationGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DonationGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.DonationGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DonationGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DonationGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.DonationGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DonationGrid.Cursor = System.Windows.Forms.Cursors.Arrow;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DonationGrid.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DonationGrid.DefaultCellStyle = dataGridViewCellStyle3;
             this.DonationGrid.EnableHeadersVisualStyles = false;
             this.DonationGrid.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DonationGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
@@ -258,40 +258,41 @@
             this.DonationGrid.Name = "DonationGrid";
             this.DonationGrid.ReadOnly = true;
             this.DonationGrid.RowHeadersVisible = false;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
-            this.DonationGrid.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.DonationGrid.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.DonationGrid.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.DonationGrid.RowTemplate.Height = 30;
             this.DonationGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DonationGrid.Size = new System.Drawing.Size(962, 503);
             this.DonationGrid.TabIndex = 63;
             // 
-            // SearchUsersTextBox
+            // SearchDonorsTextBox
             // 
-            this.SearchUsersTextBox.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchUsersTextBox.Location = new System.Drawing.Point(630, 613);
-            this.SearchUsersTextBox.Name = "SearchUsersTextBox";
-            this.SearchUsersTextBox.Size = new System.Drawing.Size(315, 31);
-            this.SearchUsersTextBox.TabIndex = 66;
+            this.SearchDonorsTextBox.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchDonorsTextBox.Location = new System.Drawing.Point(642, 613);
+            this.SearchDonorsTextBox.Name = "SearchDonorsTextBox";
+            this.SearchDonorsTextBox.Size = new System.Drawing.Size(315, 31);
+            this.SearchDonorsTextBox.TabIndex = 66;
+            this.SearchDonorsTextBox.TextChanged += new System.EventHandler(this.SearchDonorsTextBox_TextChanged);
             // 
-            // SearchUsersLabel
+            // SearchDonorsLabel
             // 
-            this.SearchUsersLabel.AutoSize = true;
-            this.SearchUsersLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchUsersLabel.ForeColor = System.Drawing.Color.Salmon;
-            this.SearchUsersLabel.Location = new System.Drawing.Point(461, 614);
-            this.SearchUsersLabel.Name = "SearchUsersLabel";
-            this.SearchUsersLabel.Size = new System.Drawing.Size(174, 25);
-            this.SearchUsersLabel.TabIndex = 67;
-            this.SearchUsersLabel.Text = "Search by users:";
+            this.SearchDonorsLabel.AutoSize = true;
+            this.SearchDonorsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchDonorsLabel.ForeColor = System.Drawing.Color.Salmon;
+            this.SearchDonorsLabel.Location = new System.Drawing.Point(461, 614);
+            this.SearchDonorsLabel.Name = "SearchDonorsLabel";
+            this.SearchDonorsLabel.Size = new System.Drawing.Size(187, 25);
+            this.SearchDonorsLabel.TabIndex = 67;
+            this.SearchDonorsLabel.Text = "Search by donors:";
             // 
             // DonationRecordsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1212, 688);
-            this.Controls.Add(this.SearchUsersTextBox);
-            this.Controls.Add(this.SearchUsersLabel);
+            this.Controls.Add(this.SearchDonorsTextBox);
+            this.Controls.Add(this.SearchDonorsLabel);
             this.Controls.Add(this.DonationGrid);
             this.Controls.Add(this.MenuPanel);
             this.Controls.Add(this.HeaderPanel);
@@ -326,7 +327,7 @@
         private System.Windows.Forms.Label LogOutLabel;
         private System.Windows.Forms.Label DashboardLabel;
         private MyDataGridView DonationGrid;
-        private System.Windows.Forms.TextBox SearchUsersTextBox;
-        private System.Windows.Forms.Label SearchUsersLabel;
+        private System.Windows.Forms.TextBox SearchDonorsTextBox;
+        private System.Windows.Forms.Label SearchDonorsLabel;
     }
 }

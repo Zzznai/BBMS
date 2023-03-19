@@ -251,6 +251,7 @@
             this.TransferVolumeTextBox.Name = "TransferVolumeTextBox";
             this.TransferVolumeTextBox.Size = new System.Drawing.Size(225, 31);
             this.TransferVolumeTextBox.TabIndex = 74;
+            this.TransferVolumeTextBox.TextChanged += new System.EventHandler(this.TransferVolumeTextBox_TextChanged);
             // 
             // TransferVolumeLabel
             // 
