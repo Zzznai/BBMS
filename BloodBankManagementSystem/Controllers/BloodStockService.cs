@@ -10,6 +10,17 @@ namespace BloodBankManagementSystem.Controllers
 {
     public class BloodStockService
     {
+        public BloodStock GetBloodStock(string bloodGroup)
+        {
+            using (var context = new BloodBankDbContext())
+            {
+                var bloodStock = context.BloodStock
+                    .Where(bs => bs.BloodGroup == bloodGroup)
+                    .FirstOrDefault();
+
+                return bloodStock;
+            }
+        }
         public decimal GetQuantityByBloodGroup(string bloodGroup)
         {
             using (var context = new BloodBankDbContext())

@@ -15,11 +15,16 @@ namespace BloodBankManagementSystem.Views
 {
     public partial class TransferForm : Form
     {
-        PatientsService patientsService;  
+        PatientsService patientsService;
+        BloodStockService bloodStockService;
+        BloodTransfusionService bloodTransfusionService;
+
         public TransferForm()
         {
             InitializeComponent();
             this.patientsService = new PatientsService();
+            this.bloodStockService = new BloodStockService();
+            this.bloodTransfusionService = new BloodTransfusionService();
         }
 
         private void TransferForm_Load(object sender, EventArgs e)
@@ -45,20 +50,45 @@ namespace BloodBankManagementSystem.Views
                 MessageBox.Show("Please select a patient to transfer blood.");
                 return;
             }
+
+            bool isValid = IsFormValid();
+
+            if (isValid)
+            {
+                try
+                {
+                    decimal neededQuantity = decimal.Parse(TransferVolumeTextBox.Text);
+                    BloodStock bloodStock = bloodStockService.GetBloodStock(BloodGroupComboBox.SelectedItem.ToString());
+                    if (bloodStock!= null) 
+                    {
+                        DataGridViewRow selectedRow = PatientsGrid.SelectedRows[0];
+                        int patientId = (int)selectedRow.Cells["Id"].Value;
+
+                        Patient patient = this.patientsService.GetPatientById(patientId);
+
+                        this.bloodTransfusionService.AddBloodTransfusion(patient, bloodStock, neededQuantity);
+                        MessageBox.Show($"Successful blood transfer for Patient: {patient.PatientFirstName} {patient.PatientLastName}, Transfer info: {bloodStock.BloodGroup}, quantity: {neededQuantity}");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
         }
 
         public bool IsFormValid()
         {
-            decimal donationVolume;
-            if (decimal.TryParse(TransferVolumeTextBox.Text, out donationVolume))
+            decimal transferVolume;
+            if (decimal.TryParse(TransferVolumeTextBox.Text, out transferVolume))
             {
-                if (donationVolume >= 0.25m && donationVolume <= 0.50m)
+                if (transferVolume >= 0.110m && transferVolume <= 0.550m)
                 {
                     TransferVolumeValidation.Text = "";
                 }
                 else
                 {
-                    TransferVolumeValidation.Text = "Donation volume must be between 0.25 and 0.50";
+                    TransferVolumeValidation.Text = "Transfer volume must be between 0.25 and 0.50";
                 }
             }
             else

@@ -240,7 +240,7 @@
             this.TransferButton.Name = "TransferButton";
             this.TransferButton.Size = new System.Drawing.Size(225, 42);
             this.TransferButton.TabIndex = 75;
-            this.TransferButton.Text = "Donate";
+            this.TransferButton.Text = "Transfer";
             this.TransferButton.UseVisualStyleBackColor = false;
             this.TransferButton.Click += new System.EventHandler(this.TransferButton_Click);
             // 
