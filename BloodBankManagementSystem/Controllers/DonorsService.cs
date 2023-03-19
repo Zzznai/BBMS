@@ -85,11 +85,34 @@ namespace BloodBankManagementSystem.Controllers
         }
 
 
-        public List<object> GetAllDonorsForDonation()
+        public List<object> SearchAllDonorsForDonation(string searchInput)
         {
             using (var context = new BloodBankDbContext())
             {
-                var donors = context.Donors.Select(d => new
+                var donorsQuery = context.Donors.AsQueryable();
+
+                if (int.TryParse(searchInput, out int donorId))
+                {
+                    donorsQuery = donorsQuery.Where(d => d.DonorID == donorId);
+                }
+                else if (!string.IsNullOrWhiteSpace(searchInput))
+                {
+                    var searchTerm = searchInput.Split(' ');
+
+                    if (searchTerm.Length == 2)
+                    {
+                        var firstName = searchTerm[0];
+                        var lastName = searchTerm[1];
+
+                        donorsQuery = donorsQuery.Where(d => d.DonorFirstName.Contains(firstName) && d.DonorLastName.Contains(lastName));
+                    }
+                    else
+                    {
+                        donorsQuery = donorsQuery.Where(d => d.DonorFirstName.Contains(searchInput) || d.DonorLastName.Contains(searchInput));
+                    }
+                }
+
+                var donors = donorsQuery.Select(d => new
                 {
                     Id = d.DonorID,
                     FirstName = d.DonorFirstName,
@@ -97,13 +120,14 @@ namespace BloodBankManagementSystem.Controllers
                     Gender = d.DonorGender,
                     Age = d.DonorAge,
                     d.BloodGroup,
-                    LastDonationDate = d.LastDonationDate == null ? "-" : d.LastDonationDate.ToString()
+                    LastDonationDate = d.LastDonationDate == null ? "-" : d.LastDonationDate.ToString(),
                 })
-                              .ToList();
+                .ToList();
 
                 return donors.Cast<object>().ToList();
             }
         }
+
         public int GetDonorsCount()
         {
             using (var context = new BloodBankDbContext())
