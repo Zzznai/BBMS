@@ -12,7 +12,7 @@ namespace BloodBankManagementSystem.Models
         public int TransferID { get; set; }
 
         [Required]
-        public int SourceStockID { get; set; }
+        public int BloodStockId { get; set; }
 
         [Required]
         public int DestinationPatientID { get; set; }
@@ -27,7 +27,10 @@ namespace BloodBankManagementSystem.Models
         [Required]
         public decimal QuantityInLiters { get; set; }
 
-        [ForeignKey("SourceStockID")]
-        public virtual BloodStock SourceStock { get; set; }
+        [ForeignKey("BloodStockId")]
+        public virtual BloodStock BloodStock { get; set; }
+
+        [ForeignKey("DestinationPatientID")]
+        public virtual Patient Patient { get; set; }
     }
 }

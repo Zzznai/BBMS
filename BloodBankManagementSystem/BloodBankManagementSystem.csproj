@@ -110,6 +110,7 @@
     <Compile Include="ButtonModified.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Common\BloodCompatibility.cs" />
     <Compile Include="Common\BloodGroups.cs" />
     <Compile Include="Common\GlobalConstants.cs" />
     <Compile Include="Controllers\BloodStockService.cs" />
@@ -149,6 +150,10 @@
     <Compile Include="Migrations\202303181233479_AddedBirthdate.cs" />
     <Compile Include="Migrations\202303181233479_AddedBirthdate.designer.cs">
       <DependentUpon>202303181233479_AddedBirthdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303191651266_ImproveBloodTransfusion.cs" />
+    <Compile Include="Migrations\202303191651266_ImproveBloodTransfusion.designer.cs">
+      <DependentUpon>202303191651266_ImproveBloodTransfusion.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BloodBankDbContext.cs" />
@@ -283,6 +288,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202303181233479_AddedBirthdate.resx">
       <DependentUpon>202303181233479_AddedBirthdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303191651266_ImproveBloodTransfusion.resx">
+      <DependentUpon>202303191651266_ImproveBloodTransfusion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
