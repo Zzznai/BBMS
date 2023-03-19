@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BloodBankManagementSystem.Controllers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,21 @@ namespace BloodBankManagementSystem.Views
 {
     public partial class DonationRecordsForm : Form
     {
+        private DonationService donationService;
         public DonationRecordsForm()
         {
             InitializeComponent();
+            this.donationService = new DonationService();
+        }
+
+        private void DonationRecordsForm_Load(object sender, EventArgs e)
+        {
+            this.RefreshData();
+        }
+
+        public void RefreshData()
+        {
+            this.DonationGrid.DataSource = this.donationService.GetAllDonations();
         }
     }
 }

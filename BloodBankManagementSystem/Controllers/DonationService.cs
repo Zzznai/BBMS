@@ -18,6 +18,26 @@ namespace BloodBankManagementSystem.Controllers
             }
         }
 
+        public List<object> GetAllDonations()
+        {
+            using (var context = new BloodBankDbContext())
+            {
+                var donations = context.BloodDonations.Select(d => new
+                {
+                    d.DonationID,
+                    d.DonationDate,
+                    d.Donor.DonorFirstName,
+                    d.Donor.DonorLastName,
+                    d.Donor.BloodGroup,
+                    d.QuantityInLiters,
+                    d.Donor.DonorAge
+                })
+                .ToList();
+
+                return donations.Cast<object>().ToList();
+            }
+        }
+
         public void AddDonation(Donor donor, decimal quantityInLiters)
         {
             try

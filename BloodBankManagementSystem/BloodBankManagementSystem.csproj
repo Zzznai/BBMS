@@ -110,6 +110,7 @@
     <Compile Include="ButtonModified.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Common\BloodGroups.cs" />
     <Compile Include="Common\GlobalConstants.cs" />
     <Compile Include="Controllers\BloodStockService.cs" />
     <Compile Include="Controllers\BloodTransfusionService.cs" />
@@ -311,6 +312,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\DonateForm.resx">
       <DependentUpon>DonateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DonationRecordsForm.resx">
+      <DependentUpon>DonationRecordsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\DonorsForm.resx">
       <DependentUpon>DonorsForm.cs</DependentUpon>

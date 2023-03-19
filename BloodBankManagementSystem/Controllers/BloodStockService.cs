@@ -1,4 +1,5 @@
-﻿using BloodBankManagementSystem.Models;
+﻿using BloodBankManagementSystem.Common;
+using BloodBankManagementSystem.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,5 +36,45 @@ namespace BloodBankManagementSystem.Controllers
             }
         }
 
+        public void AddBlood(string bloodGroup, decimal quantity)
+        {
+            try
+            {
+                if (BloodGroups.GetAllBloodGroups().Any(b=>b.Equals(bloodGroup)))
+                {
+                    using (var context = new BloodBankDbContext())
+                    {
+                        var bloodStock = context.BloodStock
+                            .Where(bs => bs.BloodGroup == bloodGroup)
+                            .FirstOrDefault();
+
+                        if (bloodStock == null)
+                        {
+                            bloodStock = new BloodStock()
+                            {
+                                BloodGroup = bloodGroup,
+                                QuantityInLiters = quantity
+                            };
+
+                            context.BloodStock.Add(bloodStock);
+                        }
+                        else
+                        {
+                            bloodStock.QuantityInLiters += quantity;
+                        }
+
+                        context.SaveChanges();
+                    }
+                }
+                else
+                {
+                    throw new Exception("This blood group doesn't exist");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

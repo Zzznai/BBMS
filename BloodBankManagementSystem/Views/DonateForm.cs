@@ -14,12 +14,14 @@ namespace BloodBankManagementSystem.Views
 {
     public partial class DonateForm : Form
     {
+        BloodStockService bloodStockService;
         DonorsService donorsService;
         DonationService donationService;
         public DonateForm()
         {
             InitializeComponent();
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.bloodStockService = new BloodStockService();
             this.donorsService = new DonorsService();
             this.donationService = new DonationService();
         }
@@ -35,7 +37,9 @@ namespace BloodBankManagementSystem.Views
 
         private void DashboardLabel_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            DashboardForm dashboardForm = new DashboardForm();
+            dashboardForm.Show();
         }
 
         private void DonationsRecordsLabel_Click(object sender, EventArgs e)
@@ -112,6 +116,9 @@ namespace BloodBankManagementSystem.Views
 
                     this.DonationVolumeTextBox.Clear();
                     this.RefreshData();
+
+                    this.bloodStockService.AddBlood(donor.BloodGroup, quantity);
+
                     MessageBox.Show($"Donor: {donor.DonorFirstName} {donor.DonorLastName} successfully donated {quantity}l blood");
                 }
                 catch (Exception ex)
