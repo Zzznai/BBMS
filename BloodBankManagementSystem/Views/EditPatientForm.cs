@@ -21,5 +21,10 @@ namespace BloodBankManagementSystem.Views
         {
             this.Close();
         }
+
+        private void AditButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

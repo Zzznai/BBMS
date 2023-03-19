@@ -75,6 +75,15 @@ namespace BloodBankManagementSystem.Controllers
             }
         }
 
+        public Donor GetDonorById(int id)
+        {
+            using (var context = new BloodBankDbContext())
+            {
+                var donor = context.Donors.FirstOrDefault(d => d.DonorID == id);
+                return donor;
+            }
+        }
+
 
         public List<object> GetAllDonorsForDonation()
         {

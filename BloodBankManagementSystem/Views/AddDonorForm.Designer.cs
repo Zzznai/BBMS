@@ -175,6 +175,7 @@
             this.BloodGroupLabel.Size = new System.Drawing.Size(156, 29);
             this.BloodGroupLabel.TabIndex = 28;
             this.BloodGroupLabel.Text = "Blood Group:";
+            this.BloodGroupLabel.Click += new System.EventHandler(this.BloodGroupLabel_Click);
             // 
             // BirthdateLabel
             // 

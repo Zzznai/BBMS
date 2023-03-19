@@ -34,8 +34,6 @@ namespace BloodBankManagementSystem.Views
             LastDonationTimeLabel.Visible = false;
             List<string> bloodGroups = bloodStockService.GetAllBloodGroupsSortedById();
             BloodGroupComboBox.DataSource = bloodGroups;
-            
-
         }
 
         private void FemaleCheckBox_CheckedChanged(object sender, EventArgs e)
@@ -119,8 +117,6 @@ namespace BloodBankManagementSystem.Views
                 DonorsForm donorsForm = (DonorsForm)Application.OpenForms["DonorsForm"];
                 donorsForm.RefreshData();
                 this.Close();
-
-
             }
             else
             {
@@ -307,6 +303,11 @@ namespace BloodBankManagementSystem.Views
         private void BloodGroupComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             BloodGroupComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+        }
+
+        private void BloodGroupLabel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

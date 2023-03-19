@@ -38,7 +38,6 @@
             this.HeaderLabel = new System.Windows.Forms.Label();
             this.PatientsGrid = new BloodBankManagementSystem.MyDataGridView();
             this.RefreshButton = new BloodBankManagementSystem.ButtonModified1();
-            this.DeleteButton = new BloodBankManagementSystem.ButtonModified1();
             this.EditButton = new BloodBankManagementSystem.ButtonModified1();
             this.AddButton = new BloodBankManagementSystem.ButtonModified1();
             this.MenuPanel = new System.Windows.Forms.Panel();
@@ -149,28 +148,13 @@
             this.RefreshButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RefreshButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RefreshButton.ForeColor = System.Drawing.Color.White;
-            this.RefreshButton.Location = new System.Drawing.Point(877, 628);
+            this.RefreshButton.Location = new System.Drawing.Point(820, 628);
             this.RefreshButton.Name = "RefreshButton";
             this.RefreshButton.Size = new System.Drawing.Size(132, 47);
             this.RefreshButton.TabIndex = 67;
             this.RefreshButton.Text = "Refresh";
             this.RefreshButton.UseVisualStyleBackColor = false;
             this.RefreshButton.Click += new System.EventHandler(this.RefreshButton_Click);
-            // 
-            // DeleteButton
-            // 
-            this.DeleteButton.BackColor = System.Drawing.Color.Salmon;
-            this.DeleteButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.DeleteButton.FlatAppearance.BorderColor = System.Drawing.Color.Salmon;
-            this.DeleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DeleteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DeleteButton.ForeColor = System.Drawing.Color.White;
-            this.DeleteButton.Location = new System.Drawing.Point(728, 628);
-            this.DeleteButton.Name = "DeleteButton";
-            this.DeleteButton.Size = new System.Drawing.Size(143, 47);
-            this.DeleteButton.TabIndex = 66;
-            this.DeleteButton.Text = "Delete";
-            this.DeleteButton.UseVisualStyleBackColor = false;
             // 
             // EditButton
             // 
@@ -180,7 +164,7 @@
             this.EditButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.EditButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EditButton.ForeColor = System.Drawing.Color.White;
-            this.EditButton.Location = new System.Drawing.Point(579, 628);
+            this.EditButton.Location = new System.Drawing.Point(671, 628);
             this.EditButton.Name = "EditButton";
             this.EditButton.Size = new System.Drawing.Size(143, 47);
             this.EditButton.TabIndex = 65;
@@ -195,7 +179,7 @@
             this.AddButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddButton.ForeColor = System.Drawing.Color.White;
-            this.AddButton.Location = new System.Drawing.Point(430, 628);
+            this.AddButton.Location = new System.Drawing.Point(522, 628);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(143, 47);
             this.AddButton.TabIndex = 64;
@@ -362,7 +346,6 @@
             this.Controls.Add(this.SearchPatientsLabel);
             this.Controls.Add(this.MenuPanel);
             this.Controls.Add(this.RefreshButton);
-            this.Controls.Add(this.DeleteButton);
             this.Controls.Add(this.EditButton);
             this.Controls.Add(this.AddButton);
             this.Controls.Add(this.PatientsGrid);
@@ -389,7 +372,6 @@
         private System.Windows.Forms.Label HeaderLabel;
         private MyDataGridView PatientsGrid;
         private ButtonModified1 RefreshButton;
-        private ButtonModified1 DeleteButton;
         private ButtonModified1 EditButton;
         private ButtonModified1 AddButton;
         private System.Windows.Forms.Panel MenuPanel;

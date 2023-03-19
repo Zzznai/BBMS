@@ -19,12 +19,15 @@ namespace BloodBankManagementSystem.Views
         DonorsService donorsService = new DonorsService();
         PatientsService patientsService = new PatientsService();
         BloodStockService bloodStockService;
+        BloodTransfusionService bloodTransfusion;
+
         public DashboardForm()
         {
             this.usersService = new UsersService();
             this.donorsService = new DonorsService();
             this.patientsService=new PatientsService();
             this.bloodStockService = new BloodStockService();
+            this.bloodTransfusion = new BloodTransfusionService();
             InitializeComponent();
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
         }
@@ -34,6 +37,7 @@ namespace BloodBankManagementSystem.Views
             this.WelcomeLabel.Text = $"Welcome, {LoggedUser.Name}";
             donorsNumber.Text = $"{donorsService.GetDonorsCount()}";
             patientsNumber.Text = $"{patientsService.GetPatientsCount()}";
+            transfusionsNuumber.Text = $"{bloodTransfusion.GetBloodTransfusionsCount()}";
             SetBloodGroupCount("O+", lblOpositiveCount);
             SetBloodGroupCount("O-", lblOnegativeCount);
             SetBloodGroupCount("A+", lblApositiveCount);
@@ -159,6 +163,11 @@ namespace BloodBankManagementSystem.Views
             DonationRecordsForm donationRecordsForm = new DonationRecordsForm();
             this.Hide();
             donationRecordsForm.Show();
+        }
+
+        private void transfusionsNuumber_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -120,6 +120,7 @@
             this.AditButton.TabIndex = 96;
             this.AditButton.Text = "Edit";
             this.AditButton.UseVisualStyleBackColor = false;
+            this.AditButton.Click += new System.EventHandler(this.AditButton_Click);
             // 
             // PAdressTextBox
             // 

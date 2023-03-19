@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BloodBankManagementSystem.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,12 @@ namespace BloodBankManagementSystem.Controllers
 {
     public class BloodTransfusionService
     {
+        public int GetBloodTransfusionsCount()
+        {
+            using (var context = new BloodBankDbContext())
+            {
+                return context.BloodTransfusion.Count();
+            }
+        }
     }
 }

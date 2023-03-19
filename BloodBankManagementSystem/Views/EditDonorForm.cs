@@ -1,4 +1,8 @@
-﻿using System;
+﻿using BloodBankManagementSystem.Common;
+using BloodBankManagementSystem.Controllers;
+using BloodBankManagementSystem.Models;
+using Infragistics.Portable.Graphics.Media;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,14 +17,44 @@ namespace BloodBankManagementSystem.Views
 {
     public partial class EditDonorForm : Form
     {
-        public EditDonorForm()
+        private int id;
+        private BloodStockService bloodStockService;
+        private DonorsService donorsService;
+
+        public EditDonorForm(int id)
         {
             InitializeComponent();
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.id = id;
+            this.donorsService = new DonorsService();
+            this.bloodStockService = new BloodStockService();
         }
 
         private void EditDonorForm_Load(object sender, EventArgs e)
         {
+            List<string> bloodGroups = bloodStockService.GetAllBloodGroupsSortedById();
+            BloodGroupComboBox.DataSource = bloodGroups;
+            Donor donor = donorsService.GetDonorById(id);
+
+            if (donor == null)
+            {
+                MessageBox.Show("This donor doesn't exist", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+            this.FirstNameTextBox.Text = donor.DonorFirstName;
+            this.LastNameTextBox.Text = donor.DonorLastName;
+            this.FemaleCheckBox.Checked = donor.DonorGender.Equals(GlobalConstants.Female);
+            this.MaleCheckBox.Checked = donor.DonorGender.Equals(GlobalConstants.Male);
+            this.BirthdateTimePicker.Value = donor.DonorBirthDate.Value;
+            this.BloodGroupComboBox.SelectedItem = donor.BloodGroup;
+            this.DonorContactNumberTextBox.Text = donor.ContactNumber;
+            this.DonorAdressTextBox.Text = donor.Address;
+            this.HasDonatedCheckBox.Checked = donor.LastDonationDate != null;
+            this.HasDonatedCheckBox.Enabled = donor.LastDonationDate == null;
+            this.LastDonationTimePicker.Enabled = donor.LastDonationDate == null;
+            this.LastDonationTimePicker.Value = this.HasDonatedCheckBox.Checked ? donor.LastDonationDate.Value : DateTime.Now;
+            this.LastDonationTimePicker.Visible = this.HasDonatedCheckBox.Checked ? true : false;
+            this.LastDonationTimeLabel.Visible = this.HasDonatedCheckBox.Checked ? true : false;
 
         }
 
@@ -185,9 +219,63 @@ namespace BloodBankManagementSystem.Views
             BloodGroupComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
-        private void AddButton_Click(object sender, EventArgs e)
+        private void EditButton_Click(object sender, EventArgs e)
         {
+            bool isValid = IsFormDataValid();
+            Donor donor = this.donorsService.GetDonorById(id);
 
+            if (isValid)
+            {
+                donor.DonorFirstName = FirstNameTextBox.Text;
+                donor.DonorLastName = LastNameTextBox.Text;
+                donor.DonorAge = this.GetDonorAge();
+                if (FemaleCheckBox.Checked)
+                {
+                    donor.DonorGender = GlobalConstants.Female;
+                }
+                else
+                if (MaleCheckBox.Checked)
+                {
+                    donor.DonorGender = GlobalConstants.Male;
+                }
+                donor.DonorBirthDate = BirthdateTimePicker.Value;
+                if (HasDonatedCheckBox.Checked)
+                {
+                    donor.LastDonationDate = LastDonationTimePicker.Value;
+                    if (!donor.BloodGroup.Equals(BloodGroupComboBox.SelectedItem.ToString()))
+                    {
+                        MessageBox.Show("You can't change the blood group if the donor donated previously", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        BloodGroupComboBox.SelectedItem = donor.BloodGroup;
+                        return;
+                    }
+                }
+                donor.BloodGroup = BloodGroupComboBox.SelectedItem.ToString();
+                donor.ContactNumber = DonorContactNumberTextBox.Text;
+                donor.Address = DonorAdressTextBox.Text;
+                donorsService.EditDonor(donor);
+
+                DonorsForm donorsForm = (DonorsForm)Application.OpenForms["DonorsForm"];
+                donorsForm.RefreshData();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Please enter valid data", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private bool IsFormDataValid()
+        {
+            bool isValid = false;
+            if ((FemaleCheckBox.Checked || MaleCheckBox.Checked) && DonorFirstNameValidation.Text == "" && DonorLastNameValidation.Text == "" && BirthDateValidation.Text == "" && (DonorDonationTimeValidation.Text == " " || DonorDonationTimeValidation.Text == "") && ContactNumberValidation.Text == "" && DonorAdressValidation.Text == "")
+            {
+                isValid = true;
+            }
+            else
+            {
+                isValid = false;
+            }
+            return isValid;
         }
 
         private void ExitLabel_Click(object sender, EventArgs e)

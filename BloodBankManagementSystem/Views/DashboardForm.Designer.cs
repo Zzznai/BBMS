@@ -794,6 +794,7 @@
             this.transfusionsNuumber.Size = new System.Drawing.Size(46, 47);
             this.transfusionsNuumber.TabIndex = 1;
             this.transfusionsNuumber.Text = "N";
+            this.transfusionsNuumber.Click += new System.EventHandler(this.transfusionsNuumber_Click);
             // 
             // transfusionslabel
             // 

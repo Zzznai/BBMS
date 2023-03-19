@@ -430,7 +430,7 @@
             this.AddButton.TabIndex = 76;
             this.AddButton.Text = "Edit";
             this.AddButton.UseVisualStyleBackColor = false;
-            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
+            this.AddButton.Click += new System.EventHandler(this.EditButton_Click);
             // 
             // EditDonorForm
             // 

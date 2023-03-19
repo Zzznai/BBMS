@@ -50,7 +50,15 @@ namespace BloodBankManagementSystem.Views
 
         private void EditButton_Click(object sender, EventArgs e)
         {
-            EditDonorForm editDonorForm = new EditDonorForm();
+            if (DonorsGrid.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a donor to edit.");
+                return;
+            }
+
+            DataGridViewRow selectedRow = DonorsGrid.SelectedRows[0];
+            int donorId = (int)selectedRow.Cells["Id"].Value;
+            EditDonorForm editDonorForm = new EditDonorForm(donorId);
             editDonorForm.ShowDialog();
         }
 
@@ -65,35 +73,7 @@ namespace BloodBankManagementSystem.Views
              DonorsGrid.DataSource = donorsService.SearchAllDonors(SearchDonorsTextBox.Text);
         }
 
-        private void DeleteButton_Click(object sender, EventArgs e)
-        {
-              if (DonorsGrid.SelectedRows.Count == 0)
-              {
-                    MessageBox.Show("Please select a donor to delete.");
-                    return;
-              }
-
-              DataGridViewRow selectedRow = DonorsGrid.SelectedRows[0];
-              int Id= (int)selectedRow.Cells["Id"].Value;
-              string firstName = selectedRow.Cells["FirstName"].Value.ToString();
-              string lastName = selectedRow.Cells["LastName"].Value.ToString();
-
-              DialogResult result = MessageBox.Show($"Do you want to delete the donor {firstName} {lastName} ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-              if (result == DialogResult.Yes)
-              {
-                  try
-                  {
-                      donorsService.DeleteUser(Id);
-                      MessageBox.Show("Donor deleted successfully.");
-                      this.RefreshData();
-                  }
-                  catch (Exception ex)
-                  {
-                       MessageBox.Show($"Error deleting donor: {ex.Message}");
-                  }
-              }
-            
-        }
+        
 
         private void DashBoardLabell_Click(object sender, EventArgs e)
         {
@@ -122,6 +102,11 @@ namespace BloodBankManagementSystem.Views
         private void RefreshButton_Click_1(object sender, EventArgs e)
         {
             this.RefreshData();
+        }
+
+        private void DeleteButton_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
