@@ -23,7 +23,7 @@ namespace BloodBankManagementSystem.Views
 
         private void AdminForm_Load(object sender, EventArgs e)
         {
-            UserGrid.DataSource = usersService.SearchAllUsers(SearchUsersTextBox.Text);
+            this.RefreshData();
             
         }
 

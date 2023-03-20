@@ -44,7 +44,9 @@ namespace BloodBankManagementSystem.Views
 
         private void DonationsRecordsLabel_Click(object sender, EventArgs e)
         {
-
+            DonationRecordsForm donationRecordsForm = new DonationRecordsForm();
+            this.Hide();
+            donationRecordsForm.Show();
         }
 
         private void ExitLabel_Click(object sender, EventArgs e)
@@ -59,7 +61,9 @@ namespace BloodBankManagementSystem.Views
 
         private void ManageDonorsLabel_Click(object sender, EventArgs e)
         {
-
+            DonorsForm donorsForm = new DonorsForm();
+            this.Hide();
+            donorsForm.ShowDialog();
         }
 
         private void DonateLabel_Click(object sender, EventArgs e)
@@ -157,6 +161,27 @@ namespace BloodBankManagementSystem.Views
             }
 
             return false;
+        }
+
+        private void ManagePatientsLabel_Click(object sender, EventArgs e)
+        {
+            PatientsForm patientsForm = new PatientsForm();
+            this.Hide();
+            patientsForm.Show();
+        }
+
+        private void TransferLabel_Click(object sender, EventArgs e)
+        {
+            TransferForm transferForm = new TransferForm();
+            this.Hide();
+            transferForm.Show();
+        }
+
+        private void RecordsLabel_Click(object sender, EventArgs e)
+        {
+            TransferRecordsForm transferRecordsForm = new TransferRecordsForm();
+            this.Hide();
+            transferRecordsForm.Show();
         }
     }
 }

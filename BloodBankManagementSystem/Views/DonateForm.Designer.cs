@@ -144,6 +144,7 @@
             this.RecordsLabel.Size = new System.Drawing.Size(203, 25);
             this.RecordsLabel.TabIndex = 58;
             this.RecordsLabel.Text = "Transfusion records";
+            this.RecordsLabel.Click += new System.EventHandler(this.RecordsLabel_Click);
             // 
             // TransferLabel
             // 
@@ -156,6 +157,7 @@
             this.TransferLabel.Size = new System.Drawing.Size(92, 25);
             this.TransferLabel.TabIndex = 57;
             this.TransferLabel.Text = "Transfer";
+            this.TransferLabel.Click += new System.EventHandler(this.TransferLabel_Click);
             // 
             // ManagePatientsLabel
             // 
@@ -168,6 +170,7 @@
             this.ManagePatientsLabel.Size = new System.Drawing.Size(172, 25);
             this.ManagePatientsLabel.TabIndex = 48;
             this.ManagePatientsLabel.Text = "Manage patients";
+            this.ManagePatientsLabel.Click += new System.EventHandler(this.ManagePatientsLabel_Click);
             // 
             // DonateLabel
             // 

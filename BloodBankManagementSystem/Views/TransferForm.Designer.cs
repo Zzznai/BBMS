@@ -47,14 +47,14 @@
             this.LogOutLabel = new System.Windows.Forms.Label();
             this.DashboardLabel = new System.Windows.Forms.Label();
             this.TransferVolumeValidation = new System.Windows.Forms.Label();
-            this.TransferButton = new BloodBankManagementSystem.ButtonModified();
             this.TransferVolumeTextBox = new System.Windows.Forms.TextBox();
             this.TransferVolumeLabel = new System.Windows.Forms.Label();
             this.SearchTextBox = new System.Windows.Forms.TextBox();
             this.SearchPatientsLabel = new System.Windows.Forms.Label();
-            this.PatientsGrid = new BloodBankManagementSystem.MyDataGridView();
             this.BloodGroupComboBox = new System.Windows.Forms.ComboBox();
             this.BloodGroupLabel = new System.Windows.Forms.Label();
+            this.TransferButton = new BloodBankManagementSystem.ButtonModified();
+            this.PatientsGrid = new BloodBankManagementSystem.MyDataGridView();
             this.HeaderPanel.SuspendLayout();
             this.MenuPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PatientsGrid)).BeginInit();
@@ -123,6 +123,7 @@
             this.DonationsRecordsLabel.Size = new System.Drawing.Size(176, 25);
             this.DonationsRecordsLabel.TabIndex = 60;
             this.DonationsRecordsLabel.Text = "Donation records";
+            this.DonationsRecordsLabel.Click += new System.EventHandler(this.DonationsRecordsLabel_Click);
             // 
             // PointerPanel
             // 
@@ -143,6 +144,7 @@
             this.RecordsLabel.Size = new System.Drawing.Size(203, 25);
             this.RecordsLabel.TabIndex = 58;
             this.RecordsLabel.Text = "Transfusion records";
+            this.RecordsLabel.Click += new System.EventHandler(this.RecordsLabel_Click);
             // 
             // TransferLabel
             // 
@@ -155,6 +157,7 @@
             this.TransferLabel.Size = new System.Drawing.Size(92, 25);
             this.TransferLabel.TabIndex = 57;
             this.TransferLabel.Text = "Transfer";
+            this.TransferLabel.Click += new System.EventHandler(this.TransferLabel_Click);
             // 
             // ManagePatientsLabel
             // 
@@ -167,6 +170,7 @@
             this.ManagePatientsLabel.Size = new System.Drawing.Size(172, 25);
             this.ManagePatientsLabel.TabIndex = 48;
             this.ManagePatientsLabel.Text = "Manage patients";
+            this.ManagePatientsLabel.Click += new System.EventHandler(this.ManagePatientsLabel_Click);
             // 
             // DonateLabel
             // 
@@ -179,6 +183,7 @@
             this.DonateLabel.Size = new System.Drawing.Size(81, 25);
             this.DonateLabel.TabIndex = 56;
             this.DonateLabel.Text = "Donate";
+            this.DonateLabel.Click += new System.EventHandler(this.DonateLabel_Click);
             // 
             // ManageDonorsLabel
             // 
@@ -191,6 +196,7 @@
             this.ManageDonorsLabel.Size = new System.Drawing.Size(162, 25);
             this.ManageDonorsLabel.TabIndex = 48;
             this.ManageDonorsLabel.Text = "Manage donors";
+            this.ManageDonorsLabel.Click += new System.EventHandler(this.ManageDonorsLabel_Click);
             // 
             // LogOutLabel
             // 
@@ -215,6 +221,7 @@
             this.DashboardLabel.Size = new System.Drawing.Size(117, 25);
             this.DashboardLabel.TabIndex = 47;
             this.DashboardLabel.Text = "Dashboard";
+            this.DashboardLabel.Click += new System.EventHandler(this.DashboardLabel_Click);
             // 
             // TransferVolumeValidation
             // 
@@ -226,23 +233,6 @@
             this.TransferVolumeValidation.Size = new System.Drawing.Size(10, 16);
             this.TransferVolumeValidation.TabIndex = 76;
             this.TransferVolumeValidation.Text = " ";
-            // 
-            // TransferButton
-            // 
-            this.TransferButton.BackColor = System.Drawing.Color.Salmon;
-            this.TransferButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.TransferButton.FlatAppearance.BorderColor = System.Drawing.Color.Red;
-            this.TransferButton.FlatAppearance.BorderSize = 0;
-            this.TransferButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.TransferButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TransferButton.ForeColor = System.Drawing.Color.White;
-            this.TransferButton.Location = new System.Drawing.Point(942, 442);
-            this.TransferButton.Name = "TransferButton";
-            this.TransferButton.Size = new System.Drawing.Size(225, 42);
-            this.TransferButton.TabIndex = 75;
-            this.TransferButton.Text = "Transfer";
-            this.TransferButton.UseVisualStyleBackColor = false;
-            this.TransferButton.Click += new System.EventHandler(this.TransferButton_Click);
             // 
             // TransferVolumeTextBox
             // 
@@ -283,6 +273,44 @@
             this.SearchPatientsLabel.Size = new System.Drawing.Size(168, 25);
             this.SearchPatientsLabel.TabIndex = 71;
             this.SearchPatientsLabel.Text = "Search patients:";
+            // 
+            // BloodGroupComboBox
+            // 
+            this.BloodGroupComboBox.Font = new System.Drawing.Font("Century Gothic", 14.25F);
+            this.BloodGroupComboBox.FormattingEnabled = true;
+            this.BloodGroupComboBox.Location = new System.Drawing.Point(942, 365);
+            this.BloodGroupComboBox.Name = "BloodGroupComboBox";
+            this.BloodGroupComboBox.Size = new System.Drawing.Size(225, 30);
+            this.BloodGroupComboBox.TabIndex = 78;
+            this.BloodGroupComboBox.SelectedIndexChanged += new System.EventHandler(this.BloodGroupComboBox_SelectedIndexChanged);
+            // 
+            // BloodGroupLabel
+            // 
+            this.BloodGroupLabel.AutoSize = true;
+            this.BloodGroupLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BloodGroupLabel.ForeColor = System.Drawing.Color.Salmon;
+            this.BloodGroupLabel.Location = new System.Drawing.Point(937, 322);
+            this.BloodGroupLabel.Name = "BloodGroupLabel";
+            this.BloodGroupLabel.Size = new System.Drawing.Size(156, 29);
+            this.BloodGroupLabel.TabIndex = 77;
+            this.BloodGroupLabel.Text = "Blood Group:";
+            // 
+            // TransferButton
+            // 
+            this.TransferButton.BackColor = System.Drawing.Color.Salmon;
+            this.TransferButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.TransferButton.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.TransferButton.FlatAppearance.BorderSize = 0;
+            this.TransferButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.TransferButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TransferButton.ForeColor = System.Drawing.Color.White;
+            this.TransferButton.Location = new System.Drawing.Point(942, 442);
+            this.TransferButton.Name = "TransferButton";
+            this.TransferButton.Size = new System.Drawing.Size(225, 42);
+            this.TransferButton.TabIndex = 75;
+            this.TransferButton.Text = "Transfer";
+            this.TransferButton.UseVisualStyleBackColor = false;
+            this.TransferButton.Click += new System.EventHandler(this.TransferButton_Click);
             // 
             // PatientsGrid
             // 
@@ -332,26 +360,6 @@
             this.PatientsGrid.TabIndex = 70;
             this.PatientsGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PatientsGrid_CellContentClick);
             // 
-            // BloodGroupComboBox
-            // 
-            this.BloodGroupComboBox.Font = new System.Drawing.Font("Century Gothic", 14.25F);
-            this.BloodGroupComboBox.FormattingEnabled = true;
-            this.BloodGroupComboBox.Location = new System.Drawing.Point(942, 365);
-            this.BloodGroupComboBox.Name = "BloodGroupComboBox";
-            this.BloodGroupComboBox.Size = new System.Drawing.Size(225, 30);
-            this.BloodGroupComboBox.TabIndex = 78;
-            // 
-            // BloodGroupLabel
-            // 
-            this.BloodGroupLabel.AutoSize = true;
-            this.BloodGroupLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BloodGroupLabel.ForeColor = System.Drawing.Color.Salmon;
-            this.BloodGroupLabel.Location = new System.Drawing.Point(937, 322);
-            this.BloodGroupLabel.Name = "BloodGroupLabel";
-            this.BloodGroupLabel.Size = new System.Drawing.Size(156, 29);
-            this.BloodGroupLabel.TabIndex = 77;
-            this.BloodGroupLabel.Text = "Blood Group:";
-            // 
             // TransferForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -370,6 +378,7 @@
             this.Controls.Add(this.HeaderPanel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TransferForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TransferForm";
             this.Load += new System.EventHandler(this.TransferForm_Load);
             this.HeaderPanel.ResumeLayout(false);

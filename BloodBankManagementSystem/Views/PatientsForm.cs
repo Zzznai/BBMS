@@ -65,5 +65,52 @@ namespace BloodBankManagementSystem.Views
             EditPatientForm editPatientForm = new EditPatientForm(patientId);
             editPatientForm.ShowDialog();
         }
+
+        private void DashBoardLabell_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            DashboardForm dashboardForm = new DashboardForm();
+            dashboardForm.Show();
+        }
+
+        private void DonateLabel_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            DonateForm donateForm = new DonateForm();
+            donateForm.Show();
+        }
+
+        private void ManageDonorsLabel_Click(object sender, EventArgs e)
+        {
+            DonorsForm donorsForm = new DonorsForm();
+            this.Hide();
+            donorsForm.ShowDialog();
+        }
+
+        private void ManagePatientsLabel_Click(object sender, EventArgs e)
+        {
+            this.Refresh();
+        }
+
+        private void DonationsRecordsLabel_Click(object sender, EventArgs e)
+        {
+            DonationRecordsForm donationRecordsForm = new DonationRecordsForm();
+            this.Hide();
+            donationRecordsForm.Show();
+        }
+
+        private void TransferLabel_Click(object sender, EventArgs e)
+        {
+            TransferForm transferForm = new TransferForm();
+            this.Hide();
+            transferForm.Show();
+        }
+
+        private void RecordsLabel_Click(object sender, EventArgs e)
+        {
+            TransferRecordsForm transferRecordsForm = new TransferRecordsForm();
+            this.Hide();
+            transferRecordsForm.Show();
+        }
     }
 }

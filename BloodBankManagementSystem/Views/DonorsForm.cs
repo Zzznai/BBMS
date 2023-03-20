@@ -106,5 +106,33 @@ namespace BloodBankManagementSystem.Views
         {
 
         }
+
+        private void DonationsRecordsLabel_Click(object sender, EventArgs e)
+        {
+            DonationRecordsForm donationRecordsForm = new DonationRecordsForm();
+            this.Hide();
+            donationRecordsForm.Show();
+        }
+
+        private void ManagePatientsLabel_Click(object sender, EventArgs e)
+        {
+            PatientsForm patientsForm = new PatientsForm();
+            this.Hide();
+            patientsForm.Show();
+        }
+
+        private void TransferLabel_Click(object sender, EventArgs e)
+        {
+            TransferForm transferForm = new TransferForm();
+            this.Hide();
+            transferForm.Show();
+        }
+
+        private void RecordsLabel_Click(object sender, EventArgs e)
+        {
+            TransferRecordsForm transferRecordsForm = new TransferRecordsForm();
+            this.Hide();
+            transferRecordsForm.Show();
+        }
     }
 }

@@ -25,6 +25,7 @@ namespace BloodBankManagementSystem.Views
             this.patientsService = new PatientsService();
             this.bloodStockService = new BloodStockService();
             this.bloodTransfusionService = new BloodTransfusionService();
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
         }
 
         private void TransferForm_Load(object sender, EventArgs e)
@@ -36,6 +37,7 @@ namespace BloodBankManagementSystem.Views
         public void RefreshData()
         {
             PatientsGrid.DataSource = patientsService.SearchAllPatients(SearchTextBox.Text);
+            this.GetBloodGroupForPatient();
         }
 
         private void SearchTextBox_TextChanged(object sender, EventArgs e)
@@ -106,6 +108,12 @@ namespace BloodBankManagementSystem.Views
 
         private void GetBloodGroupForPatient()
         {
+            if (PatientsGrid.SelectedRows.Count == 0)
+            {
+                BloodGroupComboBox.DataSource = null; // Set the data source to null to clear the ComboBox
+                return;
+            }
+
             DataGridViewRow selectedRow = PatientsGrid.SelectedRows[0];
             int patientId = (int)selectedRow.Cells["Id"].Value;
 
@@ -114,9 +122,10 @@ namespace BloodBankManagementSystem.Views
             List<string> compatibleBloodGroups = BloodCompatibility.GetRecipientsByGroup(patient.BloodGroup);
 
             this.BloodGroupComboBox.DataSource = compatibleBloodGroups;
+
         }
 
-        private void PatientsGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void PatientsGrid_SelectionChanged(object sender, EventArgs e)
         {
             this.GetBloodGroupForPatient();
         }
@@ -124,6 +133,63 @@ namespace BloodBankManagementSystem.Views
         private void TransferVolumeTextBox_TextChanged(object sender, EventArgs e)
         {
             BloodGroupComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+        }
+
+        private void BloodGroupComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PatientsGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            this.GetBloodGroupForPatient();
+        }
+
+        private void DashboardLabel_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            DashboardForm dashboardForm = new DashboardForm();
+            dashboardForm.Show();
+        }
+
+        private void ManageDonorsLabel_Click(object sender, EventArgs e)
+        {
+            DonorsForm donorsForm = new DonorsForm();
+            this.Hide();
+            donorsForm.ShowDialog();
+        }
+
+        private void TransferLabel_Click(object sender, EventArgs e)
+        {
+            this.Refresh();
+        }
+
+        private void DonateLabel_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            DonateForm donateForm = new DonateForm();
+            donateForm.Show();
+        }
+
+        private void DonationsRecordsLabel_Click(object sender, EventArgs e)
+        {
+            DonationRecordsForm donationRecordsForm = new DonationRecordsForm();
+            this.Hide();
+            donationRecordsForm.Show();
+        }
+
+        private void ManagePatientsLabel_Click(object sender, EventArgs e)
+        {
+            PatientsForm patientsForm = new PatientsForm();
+            this.Hide();
+            patientsForm.Show();
+        }
+
+        private void RecordsLabel_Click(object sender, EventArgs e)
+        {
+            TransferRecordsForm transferRecordsForm = new TransferRecordsForm();
+            this.Hide();
+            transferRecordsForm.Show();
         }
     }
 }
