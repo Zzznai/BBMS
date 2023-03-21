@@ -237,9 +237,9 @@
             this.TransferVolumeValidation.ForeColor = System.Drawing.Color.Red;
             this.TransferVolumeValidation.Location = new System.Drawing.Point(912, 475);
             this.TransferVolumeValidation.Name = "TransferVolumeValidation";
-            this.TransferVolumeValidation.Size = new System.Drawing.Size(304, 16);
+            this.TransferVolumeValidation.Size = new System.Drawing.Size(10, 16);
             this.TransferVolumeValidation.TabIndex = 76;
-            this.TransferVolumeValidation.Text = " Transfer volume must be between 0.10 and 0.55 L.";
+            this.TransferVolumeValidation.Text = " ";
             this.TransferVolumeValidation.Click += new System.EventHandler(this.TransferVolumeValidation_Click);
             // 
             // TransferVolumeTextBox

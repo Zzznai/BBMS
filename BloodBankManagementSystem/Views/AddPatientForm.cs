@@ -200,7 +200,7 @@ namespace BloodBankManagementSystem.Views
         private bool IsFormDataValid()
         {
             bool isValid = false;
-            if ((FemaleCheckBox.Checked || MaleCheckBox.Checked) && PFirstNameValidation.Text == "" && PLastNameValidation.Text == "" && PBirthdateValidation.Text == "" && ContactNumberValidation.Text == "" && PAdressValidation.Text == "")
+            if ((FemaleCheckBox.Checked || MaleCheckBox.Checked) && PFirstNameValidation.Text == "" && PLastNameValidation.Text == "" && (PBirthdateValidation.Text == "" || PBirthdateValidation.Text == " ") && ContactNumberValidation.Text == "" && PAdressValidation.Text == "")
             {
                 isValid = true;
             }

@@ -46,7 +46,6 @@
             this.PBirthdateLabel = new System.Windows.Forms.Label();
             this.BloodGroupComboBox = new System.Windows.Forms.ComboBox();
             this.BloodGroupLabel = new System.Windows.Forms.Label();
-            this.PNumberValidation = new System.Windows.Forms.Label();
             this.PAdressValidation = new System.Windows.Forms.Label();
             this.AddressValidation = new System.Windows.Forms.Label();
             this.ContactNumberValidation = new System.Windows.Forms.Label();
@@ -249,18 +248,6 @@
             this.BloodGroupLabel.TabIndex = 64;
             this.BloodGroupLabel.Text = "Blood Group:";
             // 
-            // PNumberValidation
-            // 
-            this.PNumberValidation.AutoSize = true;
-            this.PNumberValidation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PNumberValidation.ForeColor = System.Drawing.Color.Red;
-            this.PNumberValidation.Location = new System.Drawing.Point(200, 394);
-            this.PNumberValidation.Name = "PNumberValidation";
-            this.PNumberValidation.Size = new System.Drawing.Size(10, 16);
-            this.PNumberValidation.TabIndex = 73;
-            this.PNumberValidation.Text = " ";
-            this.PNumberValidation.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
             // PAdressValidation
             // 
             this.PAdressValidation.AutoSize = true;
@@ -290,7 +277,7 @@
             this.ContactNumberValidation.AutoSize = true;
             this.ContactNumberValidation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ContactNumberValidation.ForeColor = System.Drawing.Color.Red;
-            this.ContactNumberValidation.Location = new System.Drawing.Point(200, 394);
+            this.ContactNumberValidation.Location = new System.Drawing.Point(200, 393);
             this.ContactNumberValidation.Name = "ContactNumberValidation";
             this.ContactNumberValidation.Size = new System.Drawing.Size(10, 16);
             this.ContactNumberValidation.TabIndex = 71;
@@ -360,7 +347,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(490, 617);
-            this.Controls.Add(this.PNumberValidation);
             this.Controls.Add(this.PAdressValidation);
             this.Controls.Add(this.AddressValidation);
             this.Controls.Add(this.ContactNumberValidation);
@@ -415,7 +401,6 @@
         private System.Windows.Forms.Label PBirthdateLabel;
         private System.Windows.Forms.ComboBox BloodGroupComboBox;
         private System.Windows.Forms.Label BloodGroupLabel;
-        private System.Windows.Forms.Label PNumberValidation;
         private System.Windows.Forms.Label PAdressValidation;
         private System.Windows.Forms.Label AddressValidation;
         private System.Windows.Forms.Label ContactNumberValidation;

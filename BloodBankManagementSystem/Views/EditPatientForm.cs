@@ -1,14 +1,8 @@
 ﻿using BloodBankManagementSystem.Common;
 using BloodBankManagementSystem.Controllers;
 using BloodBankManagementSystem.Models;
-using Infragistics.Portable.Graphics.Media;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -26,7 +20,7 @@ namespace BloodBankManagementSystem.Views
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.bloodStockService = new BloodStockService();
             this.patientsService = new PatientsService();
-            this.id= id;
+            this.id = id;
         }
 
         private async void ExitLabel_Click(object sender, EventArgs e)
@@ -43,7 +37,7 @@ namespace BloodBankManagementSystem.Views
         {
             bool isValid = IsFormDataValid();
             Patient patient = this.patientsService.GetPatientById(id);
-            if(isValid)
+            if (isValid)
             {
                 patient.PatientFirstName = PFirstNameTextBox.Text;
                 patient.PatientLastName = PLastNameTextBox.Text;
@@ -66,10 +60,22 @@ namespace BloodBankManagementSystem.Views
                 patient.BloodGroup = BloodGroupComboBox.SelectedItem.ToString();
                 patient.ContactNumber = PContactNumberTextBox.Text;
                 patient.Address = PAdressTextBox.Text;
-                patientsService.EditPatient(patient);
-                PatientsForm patientsForm = (PatientsForm)Application.OpenForms["PatientsForm"];
-                patientsForm.RefreshData();
-                this.Close();
+
+                DialogResult result = MessageBox.Show($"Are you sure you want to edit the patient {patient.PatientFirstName} {patient.PatientLastName}?",
+                                                  "Confirm Edit Patient",
+                                                  MessageBoxButtons.YesNo,
+                                                  MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    patientsService.EditPatient(patient);
+                    PatientsForm patientsForm = (PatientsForm)Application.OpenForms["PatientsForm"];
+                    patientsForm.RefreshData();
+                    this.Close();
+                }
+                else
+                {
+                    return;
+                }
             }
             else
             {
@@ -219,6 +225,5 @@ namespace BloodBankManagementSystem.Views
             }
             return isValid;
         }
-
     }
 }

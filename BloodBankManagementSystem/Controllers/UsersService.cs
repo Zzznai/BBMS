@@ -30,7 +30,7 @@ namespace BloodBankManagementSystem.Controllers
         {
             using (var context = new BloodBankDbContext())
             {
-                var isAdmin = context.Users.Any(u => u.Email==email && u.Role == GlobalConstants.AdminRole);
+                var isAdmin = context.Users.Any(u => u.Email == email && u.Role == GlobalConstants.AdminRole);
                 return isAdmin;
             }
         }
@@ -104,7 +104,7 @@ namespace BloodBankManagementSystem.Controllers
             }
         }
         public bool IsEmailUsed(string email)
-        { 
+        {
             using (var context = new BloodBankDbContext())
             {
                 return context.Users.Any(u => u.Email == email);
@@ -119,7 +119,7 @@ namespace BloodBankManagementSystem.Controllers
             }
         }
 
-        public void AddUser(string firstName, string lastName, string email, string password )
+        public void AddUser(string firstName, string lastName, string email, string password)
         {
             try
             {
@@ -177,5 +177,5 @@ namespace BloodBankManagementSystem.Controllers
     }
 }
 
-    
+
 

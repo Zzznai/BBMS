@@ -152,9 +152,8 @@ namespace BloodBankManagementSystem.Views
 
                         this.DonationVolumeTextBox.Clear();
                         this.RefreshData();
-
                         this.bloodStockService.AddBlood(donor.BloodGroup, quantity);
-
+                        DonationVolumeValidation.Text = " ";
                         MessageBox.Show($"Donor: {donor.DonorFirstName} {donor.DonorLastName} successfully donated {quantity}l blood");
                     }
                     else
