@@ -2,6 +2,9 @@
 
 namespace BloodBankManagementSystem.Models
 {
+    /// <summary>
+    /// Represents a DbContext for the Blood Bank Management System, providing access to the application's data store.
+    /// </summary>
     public class BloodBankDbContext : DbContext
     {
         public BloodBankDbContext()

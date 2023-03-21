@@ -5,6 +5,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BloodBankManagementSystem.Models
 {
+    /// <summary>
+    /// Represents a stock of blood in the Blood Bank Management System.
+    /// </summary>
     public partial class BloodStock
     {
         [Key]

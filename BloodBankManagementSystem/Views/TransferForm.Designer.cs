@@ -418,6 +418,7 @@
             this.BloodStockDataGridView.Size = new System.Drawing.Size(227, 279);
             this.BloodStockDataGridView.TabIndex = 79;
             this.BloodStockDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.BloodStockDataGridView_CellContentClick);
+            this.BloodStockDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.BloodStockDataGridView_CellClick);
             // 
             // TransferForm
             // 

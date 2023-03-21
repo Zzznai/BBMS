@@ -22,7 +22,6 @@ namespace BloodBankManagementSystem.Views
             this.bloodTransfusionService = new BloodTransfusionService();
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             BloodStockDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            BloodStockDataGridView.DefaultCellStyle.SelectionBackColor = BloodStockDataGridView.DefaultCellStyle.BackColor;
             BloodGroupComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
 
         }
@@ -144,13 +143,13 @@ namespace BloodBankManagementSystem.Views
             decimal transferVolume;
             if (decimal.TryParse(TransferVolumeTextBox.Text, out transferVolume))
             {
-                if (transferVolume >= 0.100m && transferVolume <= 0.550m)
+                if (transferVolume >= 0.100m && transferVolume <= 0.750m)
                 {
                     TransferVolumeValidation.Text = "";
                 }
                 else
                 {
-                    TransferVolumeValidation.Text = "Transfer volume must be between 0.10 and 0.55 L.";
+                    TransferVolumeValidation.Text = "Transfer volume must be between 0.10 and 0.75 L.";
                 }
             }
             else
@@ -238,7 +237,17 @@ namespace BloodBankManagementSystem.Views
 
         private void BloodStockDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            BloodStockDataGridView.CurrentCell = null;
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                BloodStockDataGridView.ClearSelection();
+            }
+        }
+        private void BloodStockDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                BloodStockDataGridView.ClearSelection();
+            }
         }
 
         private async void ExitLabel_Click(object sender, EventArgs e)

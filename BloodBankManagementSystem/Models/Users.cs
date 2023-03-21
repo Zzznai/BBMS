@@ -1,10 +1,12 @@
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
+
 namespace BloodBankManagementSystem.Models
 {
+    /// <summary>
+    /// Represents a user in the Blood Bank Management System.
+    /// </summary>
     public partial class Users
     {
         [Key]

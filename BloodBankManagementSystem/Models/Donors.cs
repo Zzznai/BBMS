@@ -5,6 +5,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BloodBankManagementSystem.Models
 {
+    /// <summary>
+    /// Represents a donor in the Blood Bank Management System.
+    /// </summary> 
     public class Donor
     {
         [Key]

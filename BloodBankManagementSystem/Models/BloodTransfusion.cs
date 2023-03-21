@@ -5,6 +5,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BloodBankManagementSystem.Models
 {
+    /// <summary>
+    /// Represents a record of a blood transfusion in the Blood Bank Management System.
+    /// </summary>
     public partial class BloodTransfusion
     {
         [Key]

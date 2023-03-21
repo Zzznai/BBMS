@@ -9,6 +9,9 @@ using static BloodBankManagementSystem.Models.Donor;
 
 namespace BloodBankManagementSystem.Models
 {
+    /// <summary>
+    /// Represents a record of a blood donation in the Blood Bank Management System.
+    /// </summary>
     public partial class BloodDonation
     {
         [Key]
