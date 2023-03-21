@@ -99,6 +99,23 @@ namespace BloodBankManagementSystem.Views
 
         private void DonationVolumeTextBox_TextChanged(object sender, EventArgs e)
         {
+            decimal donationVolume;
+            if (decimal.TryParse(DonationVolumeTextBox.Text, out donationVolume))
+            {
+                if (donationVolume >= 0.25m && donationVolume <= 0.50m)
+                {
+                    DonationVolumeValidation.Text = "";
+                }
+                else
+                {
+                    DonationVolumeValidation.Text = "Donation volume must be between 0.25 and 0.50";
+                }
+            }
+            else
+            {
+                DonationVolumeValidation.Text = "Invalid input";
+            }
+
         }
 
         private void DonateButton_Click(object sender, EventArgs e)
@@ -120,7 +137,7 @@ namespace BloodBankManagementSystem.Views
                     Donor donor = this.donorsService.GetDonorById(donorId);
                     decimal quantity = decimal.Parse(this.DonationVolumeTextBox.Text);
 
-                    DialogResult result = MessageBox.Show($"Are you sure you want to donate {quantity}L of blood from {donor.DonorFirstName} {donor.DonorFirstName}?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    DialogResult result = MessageBox.Show($"Are you sure you want to donate {quantity}L of {donor.BloodGroup} blood from {donor.DonorFirstName} {donor.DonorLastName} ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if(result == DialogResult.Yes)
                     {
                         if (donor != null)
@@ -135,9 +152,8 @@ namespace BloodBankManagementSystem.Views
 
                         this.DonationVolumeTextBox.Clear();
                         this.RefreshData();
-
                         this.bloodStockService.AddBlood(donor.BloodGroup, quantity);
-
+                        DonationVolumeValidation.Text = " ";
                         MessageBox.Show($"Donor: {donor.DonorFirstName} {donor.DonorLastName} successfully donated {quantity}l blood");
                     }
                     else
@@ -159,23 +175,6 @@ namespace BloodBankManagementSystem.Views
 
         public bool IsFormValid()
         {
-            decimal donationVolume;
-            if (decimal.TryParse(DonationVolumeTextBox.Text, out donationVolume))
-            {
-                if (donationVolume >= 0.25m && donationVolume <= 0.50m)
-                {
-                    DonationVolumeValidation.Text = "";
-                }
-                else
-                {
-                    DonationVolumeValidation.Text = "Donation volume must be between 0.25 and 0.50";
-                }
-            }
-            else
-            {
-                DonationVolumeValidation.Text = "Invalid input";
-            }
-
             if (DonationVolumeValidation.Text == "")
             {
                 return true;

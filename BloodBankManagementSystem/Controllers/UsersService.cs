@@ -30,7 +30,7 @@ namespace BloodBankManagementSystem.Controllers
         {
             using (var context = new BloodBankDbContext())
             {
-                var isAdmin = context.Users.Any(u => u.Email==email && u.Role == GlobalConstants.AdminRole);
+                var isAdmin = context.Users.Any(u => u.Email == email && u.Role == GlobalConstants.AdminRole);
                 return isAdmin;
             }
         }
@@ -104,7 +104,7 @@ namespace BloodBankManagementSystem.Controllers
             }
         }
         public bool IsEmailUsed(string email)
-        { 
+        {
             using (var context = new BloodBankDbContext())
             {
                 return context.Users.Any(u => u.Email == email);
@@ -119,78 +119,63 @@ namespace BloodBankManagementSystem.Controllers
             }
         }
 
-        public void AddUser(string firstName, string lastName, string email, string password )
+        public void AddUser(string firstName, string lastName, string email, string password)
         {
-            DialogResult result = MessageBox.Show($"Are you sure you want to add the user {firstName} {lastName}?",
-                                                  "Confirm Add User",
-                                                  MessageBoxButtons.YesNo,
-                                                  MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
+            try
             {
-                try
+                using (var context = new BloodBankDbContext())
                 {
-                    
-                    using (var context = new BloodBankDbContext())
+                    Users newUser = new Users()
                     {
-                        Users newUser = new Users()
-                        {
-                            FirstName = firstName,
-                            LastName = lastName,
-                            Email = email,
-                            Password = password,
-                            Role = GlobalConstants.UserRole
-                        };
+                        FirstName = firstName,
+                        LastName = lastName,
+                        Email = email,
+                        Password = password,
+                        Role = GlobalConstants.UserRole
+                    };
 
-                        context.Users.Add(newUser);
-                        context.SaveChanges();
+                    context.Users.Add(newUser);
+                    context.SaveChanges();
 
-                        MessageBox.Show("User added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
+                    MessageBox.Show("User added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error adding user", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error adding user", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         public void EditUser(int userId, string firstName, string lastName, string email, string password)
         {
-            DialogResult result = MessageBox.Show($"Are you sure you want to edit the user {firstName} {lastName}?",
-                                                  "Confirm Add User",
-                                                  MessageBoxButtons.YesNo,
-                                                 MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
+            try
             {
-                try
+                using (var context = new BloodBankDbContext())
                 {
-                    using (var context = new BloodBankDbContext())
-                    {
-                        var user = context.Users.FirstOrDefault(u => u.UserID == userId);
+                    var user = context.Users.FirstOrDefault(u => u.UserID == userId);
 
-                        if (user != null)
-                        {
-                            user.FirstName = firstName;
-                            user.LastName = lastName;
-                            user.Email = email;
-                            user.Password = password;
-                            MessageBox.Show("User edited successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            context.SaveChanges();
-                        }
-                        else
-                        {
-                            MessageBox.Show("User not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
+                    if (user != null)
+                    {
+                        user.FirstName = firstName;
+                        user.LastName = lastName;
+                        user.Email = email;
+                        user.Password = password;
+                        MessageBox.Show("User edited successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        context.SaveChanges();
+                    }
+                    else
+                    {
+                        MessageBox.Show("User not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("Error editing user: " + ex.Message);
-                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error editing user: " + ex.Message);
             }
         }
     }
 }
 
-    
+
 

@@ -2,8 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BloodBankManagementSystem.Controllers
@@ -27,66 +25,54 @@ namespace BloodBankManagementSystem.Controllers
         }
         public void AddPatient(Patient patient)
         {
-            DialogResult result = MessageBox.Show($"Are you sure you want to add the patient {patient.PatientFirstName} {patient.PatientLastName}?",
-                                                  "Confirm Add Patient",
-                                                  MessageBoxButtons.YesNo,
-                                                  MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
+            try
             {
-                try
+                using (var context = new BloodBankDbContext())
                 {
-                    using (var context = new BloodBankDbContext())
-                    {
-                        context.Patients.Add(patient);
-                        context.SaveChanges();
-                        
-                        MessageBox.Show("Patient added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
+                    context.Patients.Add(patient);
+                    context.SaveChanges();
+
+                    MessageBox.Show("Patient added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error adding patient", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error adding patient", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         public void EditPatient(Patient patient)
         {
-            DialogResult result = MessageBox.Show($"Are you sure you want to edit the patient {patient.PatientFirstName} {patient.PatientLastName}?",
-                                                  "Confirm Edit Patient",
-                                                  MessageBoxButtons.YesNo,
-                                                  MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
-                try
-                {
-                    using (var context = new BloodBankDbContext())
-                    {
-                        var existingPatient = context.Patients.FirstOrDefault(p => p.PatientID == patient.PatientID);
-                        if (existingPatient != null)
-                        {
-                            existingPatient.PatientFirstName = patient.PatientFirstName;
-                            existingPatient.PatientLastName = patient.PatientLastName;
-                            existingPatient.PatientGender = patient.PatientGender;
-                            existingPatient.PatientBirthDate = patient.PatientBirthDate;
-                            existingPatient.PatientAge = patient.PatientAge;
-                            existingPatient.BloodGroup = patient.BloodGroup;
-                            existingPatient.ContactNumber = patient.ContactNumber;
-                            existingPatient.Address = patient.Address;
 
-                            context.SaveChanges();
-                            MessageBox.Show("Patient updated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                        else
-                        {
-                            MessageBox.Show("Patient not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
+            try
+            {
+                using (var context = new BloodBankDbContext())
+                {
+                    var existingPatient = context.Patients.FirstOrDefault(p => p.PatientID == patient.PatientID);
+                    if (existingPatient != null)
+                    {
+                        existingPatient.PatientFirstName = patient.PatientFirstName;
+                        existingPatient.PatientLastName = patient.PatientLastName;
+                        existingPatient.PatientGender = patient.PatientGender;
+                        existingPatient.PatientBirthDate = patient.PatientBirthDate;
+                        existingPatient.PatientAge = patient.PatientAge;
+                        existingPatient.BloodGroup = patient.BloodGroup;
+                        existingPatient.ContactNumber = patient.ContactNumber;
+                        existingPatient.Address = patient.Address;
+
+                        context.SaveChanges();
+                        MessageBox.Show("Patient updated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Patient not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error editing patient", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error editing patient", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         public void DeletePatient(int PatientId)

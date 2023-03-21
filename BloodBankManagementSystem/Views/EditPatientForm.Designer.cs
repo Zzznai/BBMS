@@ -29,10 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditPatientForm));
-            this.PNumberValidation = new System.Windows.Forms.Label();
             this.PAdressValidation = new System.Windows.Forms.Label();
             this.AddressValidation = new System.Windows.Forms.Label();
-            this.ContactNumberValidation = new System.Windows.Forms.Label();
             this.AditButton = new BloodBankManagementSystem.ButtonModified();
             this.PAdressTextBox = new System.Windows.Forms.TextBox();
             this.PAdressLabel = new System.Windows.Forms.Label();
@@ -55,19 +53,8 @@
             this.PFirstNameLabel = new System.Windows.Forms.Label();
             this.EditPatientLabel = new System.Windows.Forms.Label();
             this.ExitLabel = new System.Windows.Forms.Label();
+            this.ContactNumberValidation = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // PNumberValidation
-            // 
-            this.PNumberValidation.AutoSize = true;
-            this.PNumberValidation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PNumberValidation.ForeColor = System.Drawing.Color.Red;
-            this.PNumberValidation.Location = new System.Drawing.Point(200, 394);
-            this.PNumberValidation.Name = "PNumberValidation";
-            this.PNumberValidation.Size = new System.Drawing.Size(10, 16);
-            this.PNumberValidation.TabIndex = 99;
-            this.PNumberValidation.Text = " ";
-            this.PNumberValidation.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // PAdressValidation
             // 
@@ -92,18 +79,6 @@
             this.AddressValidation.TabIndex = 98;
             this.AddressValidation.Text = " ";
             this.AddressValidation.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // ContactNumberValidation
-            // 
-            this.ContactNumberValidation.AutoSize = true;
-            this.ContactNumberValidation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ContactNumberValidation.ForeColor = System.Drawing.Color.Red;
-            this.ContactNumberValidation.Location = new System.Drawing.Point(200, 394);
-            this.ContactNumberValidation.Name = "ContactNumberValidation";
-            this.ContactNumberValidation.Size = new System.Drawing.Size(10, 16);
-            this.ContactNumberValidation.TabIndex = 97;
-            this.ContactNumberValidation.Text = " ";
-            this.ContactNumberValidation.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // AditButton
             // 
@@ -354,13 +329,24 @@
             this.ExitLabel.Text = "X";
             this.ExitLabel.Click += new System.EventHandler(this.ExitLabel_Click);
             // 
+            // ContactNumberValidation
+            // 
+            this.ContactNumberValidation.AutoSize = true;
+            this.ContactNumberValidation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ContactNumberValidation.ForeColor = System.Drawing.Color.Red;
+            this.ContactNumberValidation.Location = new System.Drawing.Point(200, 394);
+            this.ContactNumberValidation.Name = "ContactNumberValidation";
+            this.ContactNumberValidation.Size = new System.Drawing.Size(10, 16);
+            this.ContactNumberValidation.TabIndex = 97;
+            this.ContactNumberValidation.Text = " ";
+            this.ContactNumberValidation.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // EditPatientForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(490, 617);
-            this.Controls.Add(this.PNumberValidation);
             this.Controls.Add(this.PAdressValidation);
             this.Controls.Add(this.AddressValidation);
             this.Controls.Add(this.ContactNumberValidation);
@@ -397,11 +383,8 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label PNumberValidation;
         private System.Windows.Forms.Label PAdressValidation;
         private System.Windows.Forms.Label AddressValidation;
-        private System.Windows.Forms.Label ContactNumberValidation;
         private ButtonModified AditButton;
         private System.Windows.Forms.TextBox PAdressTextBox;
         private System.Windows.Forms.Label PAdressLabel;
@@ -424,5 +407,6 @@
         private System.Windows.Forms.Label PFirstNameLabel;
         private System.Windows.Forms.Label EditPatientLabel;
         private System.Windows.Forms.Label ExitLabel;
+        private System.Windows.Forms.Label ContactNumberValidation;
     }
 }

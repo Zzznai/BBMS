@@ -1,5 +1,4 @@
-﻿using BloodBankManagementSystem.Common;
-using BloodBankManagementSystem.Models;
+﻿using BloodBankManagementSystem.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -159,66 +158,52 @@ namespace BloodBankManagementSystem.Controllers
 
         public void AddDonor(Donor donor)
         {
-            DialogResult result = MessageBox.Show($"Are you sure you want to add the donor {donor.DonorFirstName} {donor.DonorLastName}?",
-                                                  "Confirm Add Donor",
-                                                  MessageBoxButtons.YesNo,
-                                                  MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
+            try
             {
-                try
+                using (var context = new BloodBankDbContext())
                 {
-                    using (var context = new BloodBankDbContext())
-                    {
-                        context.Donors.Add(donor);
-                        context.SaveChanges();
+                    context.Donors.Add(donor);
+                    context.SaveChanges();
 
-                        MessageBox.Show("Donor added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
+                    MessageBox.Show("Donor added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error adding donor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error adding donor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         public void EditDonor(Donor donor)
         {
-            DialogResult result = MessageBox.Show($"Are you sure you want to edit the donor {donor.DonorFirstName} {donor.DonorLastName}?",
-                                                  "Confirm Edit Donor",
-                                                  MessageBoxButtons.YesNo,
-                                                  MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
+            try
             {
-                try
+                using (var context = new BloodBankDbContext())
                 {
-                    using (var context = new BloodBankDbContext())
+                    var existingDonor = context.Donors.FirstOrDefault(d => d.DonorID == donor.DonorID);
+                    if (existingDonor != null)
                     {
-                        var existingDonor = context.Donors.FirstOrDefault(d => d.DonorID == donor.DonorID);
-                        if (existingDonor != null)
-                        {
-                            existingDonor.DonorFirstName = donor.DonorFirstName;
-                            existingDonor.DonorLastName = donor.DonorLastName;
-                            existingDonor.DonorGender = donor.DonorGender;
-                            existingDonor.DonorBirthDate = donor.DonorBirthDate;
-                            existingDonor.DonorAge = donor.DonorAge;
-                            existingDonor.BloodGroup = donor.BloodGroup;
-                            existingDonor.LastDonationDate = donor.LastDonationDate;
-                            existingDonor.ContactNumber = donor.ContactNumber;
-                            existingDonor.Address = donor.Address;
+                        existingDonor.DonorFirstName = donor.DonorFirstName;
+                        existingDonor.DonorLastName = donor.DonorLastName;
+                        existingDonor.DonorGender = donor.DonorGender;
+                        existingDonor.DonorBirthDate = donor.DonorBirthDate;
+                        existingDonor.DonorAge = donor.DonorAge;
+                        existingDonor.BloodGroup = donor.BloodGroup;
+                        existingDonor.LastDonationDate = donor.LastDonationDate;
+                        existingDonor.ContactNumber = donor.ContactNumber;
+                        existingDonor.Address = donor.Address;
 
-                            context.SaveChanges();
-                            MessageBox.Show("Donor updated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                        else
-                        {
-                            MessageBox.Show("Donor not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
+                        context.SaveChanges();
+                        MessageBox.Show("Donor updated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Donor not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error editing donor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error editing donor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

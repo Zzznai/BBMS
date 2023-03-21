@@ -225,6 +225,7 @@ namespace BloodBankManagementSystem.Views
 
         private void EditButton_Click(object sender, EventArgs e)
         {
+
             bool isValid = IsFormDataValid();
             Donor donor = this.donorsService.GetDonorById(id);
 
@@ -256,11 +257,21 @@ namespace BloodBankManagementSystem.Views
                 donor.BloodGroup = BloodGroupComboBox.SelectedItem.ToString();
                 donor.ContactNumber = DonorContactNumberTextBox.Text;
                 donor.Address = DonorAdressTextBox.Text;
-                donorsService.EditDonor(donor);
-
-                DonorsForm donorsForm = (DonorsForm)Application.OpenForms["DonorsForm"];
-                donorsForm.RefreshData();
-                this.Close();
+                DialogResult result = MessageBox.Show($"Are you sure you want to edit the donor {donor.DonorFirstName} {donor.DonorLastName}?",
+                                                 "Confirm Edit Donor",
+                                                 MessageBoxButtons.YesNo,
+                                                 MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    this.donorsService.EditDonor(donor);
+                    DonorsForm donorsForm = (DonorsForm)Application.OpenForms["DonorsForm"];
+                    donorsForm.RefreshData();
+                    this.Close();
+                }
+                else
+                {
+                    return;
+                }
             }
             else
             {

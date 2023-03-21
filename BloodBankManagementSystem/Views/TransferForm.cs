@@ -1,14 +1,8 @@
 ﻿using BloodBankManagementSystem.Common;
 using BloodBankManagementSystem.Controllers;
 using BloodBankManagementSystem.Models;
-using Infragistics.Portable.Graphics.Media;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -80,7 +74,7 @@ namespace BloodBankManagementSystem.Views
                 {
                     decimal neededQuantity = decimal.Parse(TransferVolumeTextBox.Text);
                     BloodStock bloodStock = bloodStockService.GetBloodStock(BloodGroupComboBox.SelectedItem.ToString());
-                    if (bloodStock!= null) 
+                    if (bloodStock != null)
                     {
                         DataGridViewRow selectedRow = PatientsGrid.SelectedRows[0];
                         int patientId = (int)selectedRow.Cells["Id"].Value;
@@ -88,11 +82,13 @@ namespace BloodBankManagementSystem.Views
                         Patient patient = this.patientsService.GetPatientById(patientId);
                         string message = $"Do you want to add a blood transfusion of {neededQuantity} L. from {bloodStock.BloodGroup} to {patient.PatientFirstName} {patient.PatientLastName} ?";
                         DialogResult result = MessageBox.Show(message, "Confirm Blood Transfusion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                        if(result == DialogResult.Yes)
+                        if (result == DialogResult.Yes)
                         {
                             this.bloodTransfusionService.AddBloodTransfusion(patient, bloodStock, neededQuantity);
+                            TransferVolumeValidation.Text = " ";
+                            TransferVolumeTextBox.Clear();
                             MessageBox.Show($"Successful blood transfer for Patient: {patient.PatientFirstName} {patient.PatientLastName}, Transfer info: {bloodStock.BloodGroup}, quantity: {neededQuantity}");
-                           this.RefreshBloodStock();
+                            this.RefreshBloodStock();
                         }
                     }
                 }
@@ -109,7 +105,7 @@ namespace BloodBankManagementSystem.Views
 
         public bool IsFormValid()
         {
-            
+
             if (TransferVolumeValidation.Text == "")
             {
                 return true;
@@ -122,7 +118,7 @@ namespace BloodBankManagementSystem.Views
         {
             if (PatientsGrid.SelectedRows.Count == 0)
             {
-                BloodGroupComboBox.DataSource = null; // Set the data source to null to clear the ComboBox
+                BloodGroupComboBox.DataSource = null;
                 return;
             }
 
@@ -153,7 +149,7 @@ namespace BloodBankManagementSystem.Views
                 }
                 else
                 {
-                    TransferVolumeValidation.Text = "Transfer volume must be between 0.10 and 0.55";
+                    TransferVolumeValidation.Text = "Transfer volume must be between 0.10 and 0.55 L.";
                 }
             }
             else
@@ -237,7 +233,7 @@ namespace BloodBankManagementSystem.Views
 
         private void TransferVolumeValidation_Click(object sender, EventArgs e)
         {
-            
+
         }
     }
 }
