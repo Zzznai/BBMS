@@ -40,6 +40,7 @@ namespace BloodBankManagementSystem.Views
         {
             AddPatientForm addPatientForm = new AddPatientForm();
             addPatientForm.ShowDialog();
+
         }
 
         private void SearchPatientsTextBox_TextChanged(object sender, EventArgs e)
@@ -121,6 +122,36 @@ namespace BloodBankManagementSystem.Views
             TransferRecordsForm transferRecordsForm = new TransferRecordsForm();
             this.Hide();
             transferRecordsForm.Show();
+        }
+
+        private void DeleteButton_Click(object sender, EventArgs e)
+        {
+            if (PatientsGrid.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a patient to delete.");
+                return;
+            }
+            DataGridViewRow selectedRow = PatientsGrid.SelectedRows[0];
+            int patientId = (int)selectedRow.Cells["Id"].Value;
+            string firstName = selectedRow.Cells["FirstName"].Value.ToString();
+            string lastName = selectedRow.Cells["LastName"].Value.ToString();
+
+
+            // Show confirmation message box before deleting user
+            DialogResult result = MessageBox.Show($"Do you want to delete the patient {firstName} {lastName} ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    patientsService.DeletePatient(patientId);
+                    MessageBox.Show("Patient deleted successfully.");
+                    this.RefreshData();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error deleting patient: {ex.Message}");
+                }
+            }
         }
     }
 }

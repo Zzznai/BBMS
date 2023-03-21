@@ -235,11 +235,12 @@
             this.TransferVolumeValidation.AutoSize = true;
             this.TransferVolumeValidation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.TransferVolumeValidation.ForeColor = System.Drawing.Color.Red;
-            this.TransferVolumeValidation.Location = new System.Drawing.Point(941, 474);
+            this.TransferVolumeValidation.Location = new System.Drawing.Point(912, 475);
             this.TransferVolumeValidation.Name = "TransferVolumeValidation";
-            this.TransferVolumeValidation.Size = new System.Drawing.Size(10, 16);
+            this.TransferVolumeValidation.Size = new System.Drawing.Size(291, 16);
             this.TransferVolumeValidation.TabIndex = 76;
-            this.TransferVolumeValidation.Text = " ";
+            this.TransferVolumeValidation.Text = " Transfer volume must be between 0.10 and 0.55";
+            this.TransferVolumeValidation.Click += new System.EventHandler(this.TransferVolumeValidation_Click);
             // 
             // TransferVolumeTextBox
             // 
@@ -371,6 +372,7 @@
             // 
             this.BloodStockDataGridView.AllowUserToAddRows = false;
             this.BloodStockDataGridView.AllowUserToDeleteRows = false;
+            this.BloodStockDataGridView.AllowUserToOrderColumns = true;
             this.BloodStockDataGridView.AllowUserToResizeColumns = false;
             this.BloodStockDataGridView.AllowUserToResizeRows = false;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;

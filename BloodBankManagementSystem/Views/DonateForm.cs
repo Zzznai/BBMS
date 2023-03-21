@@ -130,6 +130,7 @@ namespace BloodBankManagementSystem.Views
                         else
                         {
                             MessageBox.Show("Donor not found.");
+                            return;
                         }
 
                         this.DonationVolumeTextBox.Clear();

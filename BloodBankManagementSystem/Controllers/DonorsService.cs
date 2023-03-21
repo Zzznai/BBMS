@@ -143,6 +143,7 @@ namespace BloodBankManagementSystem.Controllers
                     else
                     {
                         throw new ArgumentException($"Cannot delete a donor which already has donated blood in the system!");
+                        return;
                     }
                 }
             }

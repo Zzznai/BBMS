@@ -360,6 +360,7 @@
             this.DeleteButton.TabIndex = 71;
             this.DeleteButton.Text = "Delete";
             this.DeleteButton.UseVisualStyleBackColor = false;
+            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
             // PatientsForm
             // 

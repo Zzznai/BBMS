@@ -101,27 +101,15 @@ namespace BloodBankManagementSystem.Views
                     MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
+            else
+            {
+                MessageBox.Show("Please enter valid data", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         public bool IsFormValid()
         {
-            decimal transferVolume;
-            if (decimal.TryParse(TransferVolumeTextBox.Text, out transferVolume))
-            {
-                if (transferVolume >= 0.110m && transferVolume <= 0.550m)
-                {
-                    TransferVolumeValidation.Text = "";
-                }
-                else
-                {
-                    TransferVolumeValidation.Text = "Transfer volume must be between 0.25 and 0.50";
-                }
-            }
-            else
-            {
-                TransferVolumeValidation.Text = "Invalid input";
-            }
-
+            
             if (TransferVolumeValidation.Text == "")
             {
                 return true;
@@ -156,12 +144,28 @@ namespace BloodBankManagementSystem.Views
 
         private void TransferVolumeTextBox_TextChanged(object sender, EventArgs e)
         {
-            BloodGroupComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            decimal transferVolume;
+            if (decimal.TryParse(TransferVolumeTextBox.Text, out transferVolume))
+            {
+                if (transferVolume >= 0.100m && transferVolume <= 0.550m)
+                {
+                    TransferVolumeValidation.Text = "";
+                }
+                else
+                {
+                    TransferVolumeValidation.Text = "Transfer volume must be between 0.10 and 0.55";
+                }
+            }
+            else
+            {
+                TransferVolumeValidation.Text = "Invalid input";
+            }
+
         }
 
         private void BloodGroupComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            BloodGroupComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void PatientsGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -229,6 +233,11 @@ namespace BloodBankManagementSystem.Views
                 await Task.Delay(15);
             }
             System.Environment.Exit(1);
+        }
+
+        private void TransferVolumeValidation_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

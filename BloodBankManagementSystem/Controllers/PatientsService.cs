@@ -89,6 +89,28 @@ namespace BloodBankManagementSystem.Controllers
             }
         }
 
+        public void DeletePatient(int PatientId)
+        {
+            using (var context = new BloodBankDbContext())
+            {
+                var patient = context.Patients.FirstOrDefault(p => p.PatientID == PatientId);
+                if (patient != null)
+                {
+                    var bloodTransfusionRecord = context.BloodTransfusion.FirstOrDefault(bt => bt.DestinationPatientID == PatientId);
+                    if (bloodTransfusionRecord == null)
+                    {
+                        context.Patients.Remove(patient);
+                        context.SaveChanges();
+                    }
+                    else
+                    {
+                        throw new ArgumentException($"Cannot delete a patient who already has received blood in the system!");
+                        return;
+                    }
+                }
+            }
+        }
+
         public List<object> SearchAllPatients(string searchInput)
         {
             using (var context = new BloodBankDbContext())
