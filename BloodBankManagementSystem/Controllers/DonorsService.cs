@@ -159,36 +159,23 @@ namespace BloodBankManagementSystem.Controllers
 
         public void AddDonor(Donor donor)
         {
-            DialogResult result = MessageBox.Show($"Are you sure you want to add the donor {donor.DonorFirstName} {donor.DonorLastName}?",
-                                                  "Confirm Add Donor",
-                                                  MessageBoxButtons.YesNo,
-                                                  MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
-                try
+             try
+             {
+                using (var context = new BloodBankDbContext())
                 {
-                    using (var context = new BloodBankDbContext())
-                    {
-                        context.Donors.Add(donor);
-                        context.SaveChanges();
+                    context.Donors.Add(donor);
+                    context.SaveChanges();
 
-                        MessageBox.Show("Donor added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
+                    MessageBox.Show("Donor added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error adding donor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
+             }
+             catch (Exception ex)
+             {
+                MessageBox.Show("Error adding donor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+             }
         }
         public void EditDonor(Donor donor)
         {
-            DialogResult result = MessageBox.Show($"Are you sure you want to edit the donor {donor.DonorFirstName} {donor.DonorLastName}?",
-                                                  "Confirm Edit Donor",
-                                                  MessageBoxButtons.YesNo,
-                                                  MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
                 try
                 {
                     using (var context = new BloodBankDbContext())
@@ -219,7 +206,6 @@ namespace BloodBankManagementSystem.Controllers
                 {
                     MessageBox.Show("Error editing donor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            }
         }
     }
 }

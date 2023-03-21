@@ -37,10 +37,21 @@ namespace BloodBankManagementSystem.Views
                 }
                 else
                 {
-                    AdminForm adminForm = (AdminForm)Application.OpenForms["AdminForm"];
-                    usersService.EditUser(id, FirstNameTextBox.Text, LastNameTextBox.Text, EmailTextBox.Text, PasswordTextBox.Text);
-                    adminForm.RefreshData();
-                    this.Close();
+                    DialogResult result = MessageBox.Show($"Are you sure you want to edit the user {FirstNameTextBox.Text} {LastNameTextBox.Text}?",
+                                                  "Confirm Edit User",
+                                                  MessageBoxButtons.YesNo,
+                                                 MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                    {
+                        AdminForm adminForm = (AdminForm)Application.OpenForms["AdminForm"];
+                        usersService.EditUser(id, FirstNameTextBox.Text, LastNameTextBox.Text, EmailTextBox.Text, PasswordTextBox.Text);
+                        adminForm.RefreshData();
+                        this.Close();
+                    }
+                    else
+                    {
+                        return;
+                    }
                 }
             }
             else

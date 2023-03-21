@@ -27,12 +27,6 @@ namespace BloodBankManagementSystem.Controllers
         }
         public void AddPatient(Patient patient)
         {
-            DialogResult result = MessageBox.Show($"Are you sure you want to add the patient {patient.PatientFirstName} {patient.PatientLastName}?",
-                                                  "Confirm Add Patient",
-                                                  MessageBoxButtons.YesNo,
-                                                  MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
                 try
                 {
                     using (var context = new BloodBankDbContext())
@@ -47,7 +41,6 @@ namespace BloodBankManagementSystem.Controllers
                 {
                     MessageBox.Show("Error adding patient", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            }
         }
         public void EditPatient(Patient patient)
         {

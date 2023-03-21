@@ -122,7 +122,7 @@ namespace BloodBankManagementSystem.Views
         {
             if (PatientsGrid.SelectedRows.Count == 0)
             {
-                BloodGroupComboBox.DataSource = null; // Set the data source to null to clear the ComboBox
+                BloodGroupComboBox.DataSource = null;
                 return;
             }
 
@@ -153,7 +153,7 @@ namespace BloodBankManagementSystem.Views
                 }
                 else
                 {
-                    TransferVolumeValidation.Text = "Transfer volume must be between 0.10 and 0.55";
+                    TransferVolumeValidation.Text = "Transfer volume must be between 0.10 and 0.55 L.";
                 }
             }
             else

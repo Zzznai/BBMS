@@ -335,9 +335,9 @@
             this.DonationVolumeValidation.ForeColor = System.Drawing.Color.Red;
             this.DonationVolumeValidation.Location = new System.Drawing.Point(906, 355);
             this.DonationVolumeValidation.Name = "DonationVolumeValidation";
-            this.DonationVolumeValidation.Size = new System.Drawing.Size(10, 16);
+            this.DonationVolumeValidation.Size = new System.Drawing.Size(305, 16);
             this.DonationVolumeValidation.TabIndex = 69;
-            this.DonationVolumeValidation.Text = " ";
+            this.DonationVolumeValidation.Text = "Donation volume must be between 0.25 and 0.50 L.";
             this.DonationVolumeValidation.Click += new System.EventHandler(this.label1_Click);
             // 
             // DonateForm

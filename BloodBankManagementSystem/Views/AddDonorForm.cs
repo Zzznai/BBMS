@@ -122,11 +122,22 @@ namespace BloodBankManagementSystem.Views
                 }
                 donor.ContactNumber = DonorContactNumberTextBox.Text;
                 donor.Address = DonorAdressTextBox.Text;
-                donorsService.AddDonor(donor);
-
-                DonorsForm donorsForm = (DonorsForm)Application.OpenForms["DonorsForm"];
-                donorsForm.RefreshData();
-                this.Close();
+                DialogResult result = MessageBox.Show($"Are you sure you want to add the donor {donor.DonorFirstName} {donor.DonorLastName}?",
+                                                  "Confirm Add Donor",
+                                                  MessageBoxButtons.YesNo,
+                                                  MessageBoxIcon.Question);
+                if(result == DialogResult.Yes)
+                {
+                    donorsService.AddDonor(donor);
+                    DonorsForm donorsForm = (DonorsForm)Application.OpenForms["DonorsForm"];
+                    donorsForm.RefreshData();
+                    this.Close();
+                }
+                else
+                {
+                    return;
+                }
+               
             }
             else
             {
