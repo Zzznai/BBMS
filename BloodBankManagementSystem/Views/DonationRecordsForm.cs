@@ -21,9 +21,14 @@ namespace BloodBankManagementSystem.Views
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
         }
 
-        private void DonationRecordsForm_Load(object sender, EventArgs e)
+        private async void DonationRecordsForm_Load(object sender, EventArgs e)
         {
             this.RefreshData();
+            for (double opacity = 0; opacity <= 1; opacity += 0.1)
+            {
+                this.Opacity = opacity;
+                await Task.Delay(15);
+            }
         }
 
         public void RefreshData()
@@ -86,6 +91,16 @@ namespace BloodBankManagementSystem.Views
             DonorsForm donorsForm = new DonorsForm();
             this.Hide();
             donorsForm.Show();
+        }
+
+        private async void ExitLabel_Click(object sender, EventArgs e)
+        {
+            for (double opacity = 1; opacity >= 0; opacity -= 0.1)
+            {
+                this.Opacity = opacity;
+                await Task.Delay(15);
+            }
+            System.Environment.Exit(1);
         }
     }
 }

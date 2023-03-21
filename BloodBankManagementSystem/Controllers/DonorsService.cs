@@ -127,6 +127,26 @@ namespace BloodBankManagementSystem.Controllers
                 return donors.Cast<object>().ToList();
             }
         }
+        public void DeleteDonor(int DonorId)
+        {
+            using (var context = new BloodBankDbContext())
+            {
+                var donor = context.Donors.FirstOrDefault(d => d.DonorID == DonorId);
+                if (donor != null)
+                {
+                    var donationRecord = context.BloodDonations.FirstOrDefault(dr => dr.DonorID == DonorId);
+                    if (donationRecord == null)
+                    {
+                        context.Donors.Remove(donor);
+                        context.SaveChanges();
+                    }
+                    else
+                    {
+                        throw new ArgumentException($"Cannot delete a donor which already has donated blood in the system!");
+                    }
+                }
+            }
+        }
 
         public int GetDonorsCount()
         {

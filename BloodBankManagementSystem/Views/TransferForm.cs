@@ -1,6 +1,7 @@
 ﻿using BloodBankManagementSystem.Common;
 using BloodBankManagementSystem.Controllers;
 using BloodBankManagementSystem.Models;
+using Infragistics.Portable.Graphics.Media;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -26,18 +27,36 @@ namespace BloodBankManagementSystem.Views
             this.bloodStockService = new BloodStockService();
             this.bloodTransfusionService = new BloodTransfusionService();
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            BloodStockDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            BloodStockDataGridView.DefaultCellStyle.SelectionBackColor = BloodStockDataGridView.DefaultCellStyle.BackColor;
+
         }
 
-        private void TransferForm_Load(object sender, EventArgs e)
+        private async void TransferForm_Load(object sender, EventArgs e)
         {
             this.RefreshData();
             this.GetBloodGroupForPatient();
+            this.RefreshBloodStock();
+            for (double opacity = 0; opacity <= 1; opacity += 0.1)
+            {
+                this.Opacity = opacity;
+                await Task.Delay(15);
+            }
         }
 
         public void RefreshData()
         {
             PatientsGrid.DataSource = patientsService.SearchAllPatients(SearchTextBox.Text);
             this.GetBloodGroupForPatient();
+        }
+
+        public void RefreshBloodStock()
+        {
+            BloodStockDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            BloodStockDataGridView.MultiSelect = false;
+            BloodStockDataGridView.ReadOnly = true;
+            BloodStockDataGridView.DataSource = bloodStockService.GetAllBloodStocks();
+            BloodStockDataGridView.CurrentCell = null;
         }
 
         private void SearchTextBox_TextChanged(object sender, EventArgs e)
@@ -67,9 +86,14 @@ namespace BloodBankManagementSystem.Views
                         int patientId = (int)selectedRow.Cells["Id"].Value;
 
                         Patient patient = this.patientsService.GetPatientById(patientId);
-
-                        this.bloodTransfusionService.AddBloodTransfusion(patient, bloodStock, neededQuantity);
-                        MessageBox.Show($"Successful blood transfer for Patient: {patient.PatientFirstName} {patient.PatientLastName}, Transfer info: {bloodStock.BloodGroup}, quantity: {neededQuantity}");
+                        string message = $"Do you want to add a blood transfusion of {neededQuantity} L. from {bloodStock.BloodGroup} to {patient.PatientFirstName} {patient.PatientLastName} ?";
+                        DialogResult result = MessageBox.Show(message, "Confirm Blood Transfusion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if(result == DialogResult.Yes)
+                        {
+                            this.bloodTransfusionService.AddBloodTransfusion(patient, bloodStock, neededQuantity);
+                            MessageBox.Show($"Successful blood transfer for Patient: {patient.PatientFirstName} {patient.PatientLastName}, Transfer info: {bloodStock.BloodGroup}, quantity: {neededQuantity}");
+                           this.RefreshBloodStock();
+                        }
                     }
                 }
                 catch (Exception ex)
@@ -190,6 +214,21 @@ namespace BloodBankManagementSystem.Views
             TransferRecordsForm transferRecordsForm = new TransferRecordsForm();
             this.Hide();
             transferRecordsForm.Show();
+        }
+
+        private void BloodStockDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            BloodStockDataGridView.CurrentCell = null;
+        }
+
+        private async void ExitLabel_Click(object sender, EventArgs e)
+        {
+            for (double opacity = 1; opacity >= 0; opacity -= 0.1)
+            {
+                this.Opacity = opacity;
+                await Task.Delay(15);
+            }
+            System.Environment.Exit(1);
         }
     }
 }

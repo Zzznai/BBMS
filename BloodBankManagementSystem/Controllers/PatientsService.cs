@@ -39,7 +39,7 @@ namespace BloodBankManagementSystem.Controllers
                     {
                         context.Patients.Add(patient);
                         context.SaveChanges();
-
+                        
                         MessageBox.Show("Patient added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }

@@ -40,10 +40,20 @@ namespace BloodBankManagementSystem
             }
         }
 
-        private void IntroForm_Load(object sender, EventArgs e)
+        private async void IntroForm_Load(object sender, EventArgs e)
         {
             //Load the Timer
             timerSplash.Start();
+            for (double opacity = 0; opacity <= 1; opacity += 0.1)
+            {
+                this.Opacity = opacity;
+                await Task.Delay(5);
+            }
+
+        }
+
+        private void panelBG_Paint(object sender, PaintEventArgs e)
+        {
 
         }
     }

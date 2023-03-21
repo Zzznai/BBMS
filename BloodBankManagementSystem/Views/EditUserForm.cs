@@ -73,12 +73,17 @@ namespace BloodBankManagementSystem.Views
             }
         }
 
-        private void ExitLabel_Click(object sender, EventArgs e)
+        private async void ExitLabel_Click(object sender, EventArgs e)
         {
+            for (double opacity = 1; opacity >= 0; opacity -= 0.1)
+            {
+                this.Opacity = opacity;
+                await Task.Delay(15);
+            }
             this.Close();
         }
 
-        private void EditUserForm_Load(object sender, EventArgs e)
+        private async void EditUserForm_Load(object sender, EventArgs e)
         {
             Users user = this.usersService.GetUserById(id);
 
@@ -90,7 +95,13 @@ namespace BloodBankManagementSystem.Views
             this.FirstNameTextBox.Text = user.FirstName;
             this.LastNameTextBox.Text = user.LastName;
             this.EmailTextBox.Text = user.Email;
-            this.PasswordTextBox.Text = user.Password;            
+            this.PasswordTextBox.Text = user.Password;
+
+            for (double opacity = 0; opacity <= 1; opacity += 0.1)
+            {
+                this.Opacity = opacity;
+                await Task.Delay(15);
+            }
         }
 
         private void FirstNameTextBox_TextChanged(object sender, EventArgs e)

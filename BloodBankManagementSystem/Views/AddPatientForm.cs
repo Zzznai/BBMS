@@ -4,6 +4,7 @@ using BloodBankManagementSystem.Models;
 using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
@@ -98,15 +99,25 @@ namespace BloodBankManagementSystem.Views
             BloodGroupComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
-        private void AddPatientForm_Load(object sender, EventArgs e)
+        private async void AddPatientForm_Load(object sender, EventArgs e)
         {
             List<string> bloodGroups = bloodStockService.GetAllBloodGroupsSortedById();
             BloodGroupComboBox.DataSource = bloodGroups;
+            for (double opacity = 0; opacity <= 1; opacity += 0.1)
+            {
+                this.Opacity = opacity;
+                await Task.Delay(15);
+            }
 
         }
 
-        private void ExitLabel_Click(object sender, EventArgs e)
+        private async void ExitLabel_Click(object sender, EventArgs e)
         {
+            for (double opacity = 1; opacity >= 0; opacity -= 0.1)
+            {
+                this.Opacity = opacity;
+                await Task.Delay(15);
+            }
             this.Close();
         }
 

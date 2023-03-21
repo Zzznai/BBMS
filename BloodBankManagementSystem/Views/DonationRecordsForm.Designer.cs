@@ -77,6 +77,7 @@
             this.ExitLabel.Size = new System.Drawing.Size(24, 24);
             this.ExitLabel.TabIndex = 44;
             this.ExitLabel.Text = "X";
+            this.ExitLabel.Click += new System.EventHandler(this.ExitLabel_Click);
             // 
             // HeaderLabel
             // 

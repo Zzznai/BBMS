@@ -53,6 +53,7 @@
             this.DashboardLabel = new System.Windows.Forms.Label();
             this.SearchPatientsTextBox = new System.Windows.Forms.TextBox();
             this.SearchPatientsLabel = new System.Windows.Forms.Label();
+            this.DeleteButton = new BloodBankManagementSystem.ButtonModified1();
             this.HeaderPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PatientsGrid)).BeginInit();
             this.MenuPanel.SuspendLayout();
@@ -148,7 +149,7 @@
             this.RefreshButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RefreshButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RefreshButton.ForeColor = System.Drawing.Color.White;
-            this.RefreshButton.Location = new System.Drawing.Point(820, 628);
+            this.RefreshButton.Location = new System.Drawing.Point(882, 628);
             this.RefreshButton.Name = "RefreshButton";
             this.RefreshButton.Size = new System.Drawing.Size(132, 47);
             this.RefreshButton.TabIndex = 67;
@@ -164,7 +165,7 @@
             this.EditButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.EditButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EditButton.ForeColor = System.Drawing.Color.White;
-            this.EditButton.Location = new System.Drawing.Point(671, 628);
+            this.EditButton.Location = new System.Drawing.Point(596, 628);
             this.EditButton.Name = "EditButton";
             this.EditButton.Size = new System.Drawing.Size(143, 47);
             this.EditButton.TabIndex = 65;
@@ -180,7 +181,7 @@
             this.AddButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddButton.ForeColor = System.Drawing.Color.White;
-            this.AddButton.Location = new System.Drawing.Point(522, 628);
+            this.AddButton.Location = new System.Drawing.Point(447, 628);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(143, 47);
             this.AddButton.TabIndex = 64;
@@ -345,11 +346,27 @@
             this.SearchPatientsLabel.TabIndex = 70;
             this.SearchPatientsLabel.Text = "Search patients:";
             // 
+            // DeleteButton
+            // 
+            this.DeleteButton.BackColor = System.Drawing.Color.Salmon;
+            this.DeleteButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.DeleteButton.FlatAppearance.BorderColor = System.Drawing.Color.Salmon;
+            this.DeleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DeleteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DeleteButton.ForeColor = System.Drawing.Color.White;
+            this.DeleteButton.Location = new System.Drawing.Point(745, 628);
+            this.DeleteButton.Name = "DeleteButton";
+            this.DeleteButton.Size = new System.Drawing.Size(131, 47);
+            this.DeleteButton.TabIndex = 71;
+            this.DeleteButton.Text = "Delete";
+            this.DeleteButton.UseVisualStyleBackColor = false;
+            // 
             // PatientsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1212, 705);
+            this.Controls.Add(this.DeleteButton);
             this.Controls.Add(this.SearchPatientsTextBox);
             this.Controls.Add(this.SearchPatientsLabel);
             this.Controls.Add(this.MenuPanel);
@@ -395,5 +412,6 @@
         private System.Windows.Forms.Label DashboardLabel;
         private System.Windows.Forms.TextBox SearchPatientsTextBox;
         private System.Windows.Forms.Label SearchPatientsLabel;
+        private ButtonModified1 DeleteButton;
     }
 }

@@ -77,6 +77,7 @@
             this.panelBG.Name = "panelBG";
             this.panelBG.Size = new System.Drawing.Size(664, 39);
             this.panelBG.TabIndex = 3;
+            this.panelBG.Paint += new System.Windows.Forms.PaintEventHandler(this.panelBG_Paint);
             // 
             // panelMovable
             // 

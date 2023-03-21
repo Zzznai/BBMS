@@ -26,9 +26,14 @@ namespace BloodBankManagementSystem.Views
             RefreshData();
         }
 
-        private void TransferRecordsForm_Load(object sender, EventArgs e)
+        private async void TransferRecordsForm_Load(object sender, EventArgs e)
         {
             RefreshData();
+            for (double opacity = 0; opacity <= 1; opacity += 0.1)
+            {
+                this.Opacity = opacity;
+                await Task.Delay(15);
+            }
         }
         public void RefreshData()
         {
@@ -80,6 +85,16 @@ namespace BloodBankManagementSystem.Views
             TransferForm transferForm = new TransferForm();
             this.Hide();
             transferForm.Show();
+        }
+
+        private async void ExitLabel_Click(object sender, EventArgs e)
+        {
+            for (double opacity = 1; opacity >= 0; opacity -= 0.1)
+            {
+                this.Opacity = opacity;
+                await Task.Delay(15);
+            }
+            System.Environment.Exit(1);
         }
     }
 }

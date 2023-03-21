@@ -49,6 +49,7 @@
             this.DashboardLabel = new System.Windows.Forms.Label();
             this.SearchDonorsTextBox = new System.Windows.Forms.TextBox();
             this.SearchDonorsLabel = new System.Windows.Forms.Label();
+            this.DeleteButton = new BloodBankManagementSystem.ButtonModified1();
             this.DonorsGrid = new BloodBankManagementSystem.MyDataGridView();
             this.RefreshButton = new BloodBankManagementSystem.ButtonModified1();
             this.EditButton = new BloodBankManagementSystem.ButtonModified1();
@@ -245,11 +246,27 @@
             this.SearchDonorsLabel.AutoSize = true;
             this.SearchDonorsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SearchDonorsLabel.ForeColor = System.Drawing.Color.Salmon;
-            this.SearchDonorsLabel.Location = new System.Drawing.Point(480, 563);
+            this.SearchDonorsLabel.Location = new System.Drawing.Point(476, 563);
             this.SearchDonorsLabel.Name = "SearchDonorsLabel";
-            this.SearchDonorsLabel.Size = new System.Drawing.Size(145, 25);
+            this.SearchDonorsLabel.Size = new System.Drawing.Size(158, 25);
             this.SearchDonorsLabel.TabIndex = 67;
-            this.SearchDonorsLabel.Text = "Search users:";
+            this.SearchDonorsLabel.Text = "Search donors:";
+            // 
+            // DeleteButton
+            // 
+            this.DeleteButton.BackColor = System.Drawing.Color.Salmon;
+            this.DeleteButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.DeleteButton.FlatAppearance.BorderColor = System.Drawing.Color.Salmon;
+            this.DeleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DeleteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DeleteButton.ForeColor = System.Drawing.Color.White;
+            this.DeleteButton.Location = new System.Drawing.Point(743, 628);
+            this.DeleteButton.Name = "DeleteButton";
+            this.DeleteButton.Size = new System.Drawing.Size(131, 47);
+            this.DeleteButton.TabIndex = 68;
+            this.DeleteButton.Text = "Delete";
+            this.DeleteButton.UseVisualStyleBackColor = false;
+            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
             // DonorsGrid
             // 
@@ -307,7 +324,7 @@
             this.RefreshButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RefreshButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RefreshButton.ForeColor = System.Drawing.Color.White;
-            this.RefreshButton.Location = new System.Drawing.Point(791, 628);
+            this.RefreshButton.Location = new System.Drawing.Point(880, 628);
             this.RefreshButton.Name = "RefreshButton";
             this.RefreshButton.Size = new System.Drawing.Size(132, 47);
             this.RefreshButton.TabIndex = 61;
@@ -323,7 +340,7 @@
             this.EditButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.EditButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EditButton.ForeColor = System.Drawing.Color.White;
-            this.EditButton.Location = new System.Drawing.Point(642, 628);
+            this.EditButton.Location = new System.Drawing.Point(594, 628);
             this.EditButton.Name = "EditButton";
             this.EditButton.Size = new System.Drawing.Size(143, 47);
             this.EditButton.TabIndex = 59;
@@ -339,7 +356,7 @@
             this.AddButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddButton.ForeColor = System.Drawing.Color.White;
-            this.AddButton.Location = new System.Drawing.Point(493, 628);
+            this.AddButton.Location = new System.Drawing.Point(445, 628);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(143, 47);
             this.AddButton.TabIndex = 58;
@@ -352,6 +369,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1212, 705);
+            this.Controls.Add(this.DeleteButton);
             this.Controls.Add(this.SearchDonorsTextBox);
             this.Controls.Add(this.SearchDonorsLabel);
             this.Controls.Add(this.DonorsGrid);
@@ -397,5 +415,6 @@
         private System.Windows.Forms.TextBox SearchDonorsTextBox;
         private System.Windows.Forms.Label SearchDonorsLabel;
         private System.Windows.Forms.Label DashBoardLabell;
+        private ButtonModified1 DeleteButton;
     }
 }

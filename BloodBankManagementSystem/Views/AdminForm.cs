@@ -21,10 +21,15 @@ namespace BloodBankManagementSystem.Views
             this.usersService = new UsersService();
         }
 
-        private void AdminForm_Load(object sender, EventArgs e)
+        private async void AdminForm_Load(object sender, EventArgs e)
         {
             this.RefreshData();
-            
+            for (double opacity = 0; opacity <= 1; opacity += 0.1)
+            {
+                this.Opacity = opacity;
+                await Task.Delay(15);
+            }
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -32,8 +37,13 @@ namespace BloodBankManagementSystem.Views
 
         }
 
-        private void ExitLabel_Click(object sender, EventArgs e)
+        private async void ExitLabel_Click(object sender, EventArgs e)
         {
+            for (double opacity = 1; opacity >= 0; opacity -= 0.1)
+            {
+                    this.Opacity = opacity;
+                    await Task.Delay(15);
+            }
             System.Environment.Exit(1);
         }
 

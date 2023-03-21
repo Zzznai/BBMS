@@ -29,8 +29,13 @@ namespace BloodBankManagementSystem.Views
             this.id= id;
         }
 
-        private void ExitLabel_Click(object sender, EventArgs e)
+        private async void ExitLabel_Click(object sender, EventArgs e)
         {
+            for (double opacity = 1; opacity >= 0; opacity -= 0.1)
+            {
+                this.Opacity = opacity;
+                await Task.Delay(15);
+            }
             this.Close();
         }
 
@@ -72,7 +77,7 @@ namespace BloodBankManagementSystem.Views
             }
         }
 
-        private void EditPatientForm_Load(object sender, EventArgs e)
+        private async void EditPatientForm_Load(object sender, EventArgs e)
         {
             List<string> bloodGroups = bloodStockService.GetAllBloodGroupsSortedById();
             BloodGroupComboBox.DataSource = bloodGroups;
@@ -91,6 +96,11 @@ namespace BloodBankManagementSystem.Views
             this.BloodGroupComboBox.SelectedItem = patient.BloodGroup;
             this.PContactNumberTextBox.Text = patient.ContactNumber;
             this.PAdressTextBox.Text = patient.Address;
+            for (double opacity = 0; opacity <= 1; opacity += 0.1)
+            {
+                this.Opacity = opacity;
+                await Task.Delay(15);
+            }
         }
 
         private void PFirstNameTextBox_TextChanged(object sender, EventArgs e)

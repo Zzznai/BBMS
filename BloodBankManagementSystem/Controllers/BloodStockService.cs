@@ -21,6 +21,22 @@ namespace BloodBankManagementSystem.Controllers
                 return bloodStock;
             }
         }
+
+        public List<object> GetAllBloodStocks()
+        {
+            using (var context = new BloodBankDbContext())
+            {
+                var bloodStock = context.BloodStock.Select(bs => new
+                {
+                    BloodGroup = bs.BloodGroup,
+                    QuantityInLiters=bs.QuantityInLiters
+                })
+                              .ToList();
+
+                return bloodStock.Cast<object>().ToList();
+            }
+        }
+
         public decimal GetQuantityByBloodGroup(string bloodGroup)
         {
             using (var context = new BloodBankDbContext())

@@ -26,9 +26,14 @@ namespace BloodBankManagementSystem.Views
             PatientsGrid.DataSource = patientsService.SearchAllPatients(SearchPatientsTextBox.Text);
         }
 
-        private void PatientsForm_Load(object sender, EventArgs e)
+        private async void PatientsForm_Load(object sender, EventArgs e)
         {
             RefreshData();
+            for (double opacity = 0; opacity <= 1; opacity += 0.1)
+            {
+                this.Opacity = opacity;
+                await Task.Delay(15);
+            }
         }
 
         private void AddButton_Click(object sender, EventArgs e)
@@ -47,8 +52,13 @@ namespace BloodBankManagementSystem.Views
             RefreshData();
         }
 
-        private void ExitLabel_Click(object sender, EventArgs e)
+        private async void ExitLabel_Click(object sender, EventArgs e)
         {
+            for (double opacity = 1; opacity >= 0; opacity -= 0.1)
+            {
+                this.Opacity = opacity;
+                await Task.Delay(15);
+            }
             System.Environment.Exit(1);
         }
 

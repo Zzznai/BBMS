@@ -21,13 +21,23 @@ namespace BloodBankManagementSystem.Views
             this.donorsService = new DonorsService();
         }
 
-        private void DonorsForm_Load(object sender, EventArgs e)
+        private async void DonorsForm_Load(object sender, EventArgs e)
         {
             DonorsGrid.DataSource = donorsService.SearchAllDonors(SearchDonorsTextBox.Text);
+            for (double opacity = 0; opacity <= 1; opacity += 0.1)
+            {
+                this.Opacity = opacity;
+                await Task.Delay(15);
+            }
         }
 
-        private void ExitLabel_Click(object sender, EventArgs e)
+        private async void ExitLabel_Click(object sender, EventArgs e)
         {
+            for (double opacity = 1; opacity >= 0; opacity -= 0.1)
+            {
+                this.Opacity = opacity;
+                await Task.Delay(15);
+            }
             System.Environment.Exit(1);
         }
 
@@ -133,6 +143,38 @@ namespace BloodBankManagementSystem.Views
             TransferRecordsForm transferRecordsForm = new TransferRecordsForm();
             this.Hide();
             transferRecordsForm.Show();
+        }
+
+        private void DeleteButton_Click(object sender, EventArgs e)
+        {
+            if (DonorsGrid.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a donor to delete.");
+                return;
+            }
+            DataGridViewRow selectedRow = DonorsGrid.SelectedRows[0];
+            int donorId = (int)selectedRow.Cells["Id"].Value;
+            string firstName = selectedRow.Cells["FirstName"].Value.ToString();
+            string lastName = selectedRow.Cells["LastName"].Value.ToString();
+
+
+            // Show confirmation message box before deleting user
+            DialogResult result = MessageBox.Show($"Do you want to delete the donor {firstName} {lastName} ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    donorsService.DeleteDonor(donorId);
+                    MessageBox.Show("Donor deleted successfully.");
+                    this.RefreshData();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error deleting donor: {ex.Message}");
+                }
+            }
+
+
         }
     }
 }

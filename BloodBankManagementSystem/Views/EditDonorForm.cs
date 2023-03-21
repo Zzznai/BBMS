@@ -30,7 +30,7 @@ namespace BloodBankManagementSystem.Views
             this.bloodStockService = new BloodStockService();
         }
 
-        private void EditDonorForm_Load(object sender, EventArgs e)
+        private async void EditDonorForm_Load(object sender, EventArgs e)
         {
             List<string> bloodGroups = bloodStockService.GetAllBloodGroupsSortedById();
             BloodGroupComboBox.DataSource = bloodGroups;
@@ -55,7 +55,11 @@ namespace BloodBankManagementSystem.Views
             this.LastDonationTimePicker.Value = this.HasDonatedCheckBox.Checked ? donor.LastDonationDate.Value : DateTime.Now;
             this.LastDonationTimePicker.Visible = this.HasDonatedCheckBox.Checked ? true : false;
             this.LastDonationTimeLabel.Visible = this.HasDonatedCheckBox.Checked ? true : false;
-
+            for (double opacity = 0; opacity <= 1; opacity += 0.1)
+            {
+                this.Opacity = opacity;
+                await Task.Delay(15);
+            }
         }
 
         private void FirstNameTextBox_TextChanged(object sender, EventArgs e)
@@ -278,8 +282,13 @@ namespace BloodBankManagementSystem.Views
             return isValid;
         }
 
-        private void ExitLabel_Click(object sender, EventArgs e)
+        private async void ExitLabel_Click(object sender, EventArgs e)
         {
+            for (double opacity = 1; opacity >= 0; opacity -= 0.1)
+            {
+                this.Opacity = opacity;
+                await Task.Delay(15);
+            }
             this.Close();
         }
 

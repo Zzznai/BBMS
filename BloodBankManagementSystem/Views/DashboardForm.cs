@@ -34,7 +34,7 @@ namespace BloodBankManagementSystem.Views
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
         }
 
-        private void DashboardForm_Load(object sender, EventArgs e)
+        private async void DashboardForm_Load(object sender, EventArgs e)
         {
             this.WelcomeLabel.Text = $"Welcome, {LoggedUser.Name}";
             donorsNumber.Text = $"{donorsService.GetDonorsCount()}";
@@ -49,8 +49,14 @@ namespace BloodBankManagementSystem.Views
             SetBloodGroupCount("B-", lblBnegativeCount);
             SetBloodGroupCount("AB+", lblABpositiveCount);
             SetBloodGroupCount("AB-", lblABnegativeCount);
+            for (double opacity = 0; opacity <= 1; opacity += 0.1)
+            {
+                this.Opacity = opacity;
+                await Task.Delay(15);
+            }
 
         }
+
         private void SetBloodGroupCount(string bloodGroup, Label label)
         {
             decimal count = bloodStockService.GetQuantityByBloodGroup(bloodGroup);
@@ -77,17 +83,20 @@ namespace BloodBankManagementSystem.Views
 
         }
 
-        private void ExitLabel_Click(object sender, EventArgs e)
+        private async void ExitLabel_Click(object sender, EventArgs e)
         {
+            for (double opacity = 1; opacity >= 0; opacity -= 0.1)
+            {
+                this.Opacity = opacity;
+                await Task.Delay(15);
+            }
             System.Environment.Exit(1);
         }
 
-        
-
         private void ManageDonorsLabel_Click(object sender, EventArgs e)
         {
-            DonorsForm donorsForm = new DonorsForm();
             this.Hide();
+            DonorsForm donorsForm = new DonorsForm();
             donorsForm.ShowDialog();
         }
 
@@ -127,15 +136,15 @@ namespace BloodBankManagementSystem.Views
 
         private void ManagePatientsLabel_Click(object sender, EventArgs e)
         {
-            PatientsForm patientsForm = new PatientsForm();
             this.Hide();
+            PatientsForm patientsForm = new PatientsForm();
             patientsForm.Show();
         }
 
         private void TransferLabel_Click(object sender, EventArgs e)
         {
-            TransferForm transferForm = new TransferForm();
             this.Hide();
+            TransferForm transferForm = new TransferForm();
             transferForm.Show();
         }
 
@@ -156,15 +165,15 @@ namespace BloodBankManagementSystem.Views
 
         private void RecordsLabel_Click(object sender, EventArgs e)
         {
-            TransferRecordsForm transferRecordsForm = new TransferRecordsForm();
             this.Hide();
+            TransferRecordsForm transferRecordsForm = new TransferRecordsForm();
             transferRecordsForm.Show();
         }
 
         private void DonationsRecordsLabel_Click(object sender, EventArgs e)
         {
-            DonationRecordsForm donationRecordsForm = new DonationRecordsForm();
             this.Hide();
+            DonationRecordsForm donationRecordsForm = new DonationRecordsForm();
             donationRecordsForm.Show();
         }
 

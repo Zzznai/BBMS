@@ -32,6 +32,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TransferForm));
             this.HeaderPanel = new System.Windows.Forms.Panel();
             this.ExitLabel = new System.Windows.Forms.Label();
@@ -55,9 +59,11 @@
             this.BloodGroupLabel = new System.Windows.Forms.Label();
             this.TransferButton = new BloodBankManagementSystem.ButtonModified();
             this.PatientsGrid = new BloodBankManagementSystem.MyDataGridView();
+            this.BloodStockDataGridView = new BloodBankManagementSystem.MyDataGridView();
             this.HeaderPanel.SuspendLayout();
             this.MenuPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PatientsGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BloodStockDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // HeaderPanel
@@ -82,6 +88,7 @@
             this.ExitLabel.Size = new System.Drawing.Size(24, 24);
             this.ExitLabel.TabIndex = 44;
             this.ExitLabel.Text = "X";
+            this.ExitLabel.Click += new System.EventHandler(this.ExitLabel_Click);
             // 
             // HeaderLabel
             // 
@@ -228,7 +235,7 @@
             this.TransferVolumeValidation.AutoSize = true;
             this.TransferVolumeValidation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.TransferVolumeValidation.ForeColor = System.Drawing.Color.Red;
-            this.TransferVolumeValidation.Location = new System.Drawing.Point(939, 300);
+            this.TransferVolumeValidation.Location = new System.Drawing.Point(941, 474);
             this.TransferVolumeValidation.Name = "TransferVolumeValidation";
             this.TransferVolumeValidation.Size = new System.Drawing.Size(10, 16);
             this.TransferVolumeValidation.TabIndex = 76;
@@ -237,7 +244,7 @@
             // TransferVolumeTextBox
             // 
             this.TransferVolumeTextBox.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TransferVolumeTextBox.Location = new System.Drawing.Point(942, 267);
+            this.TransferVolumeTextBox.Location = new System.Drawing.Point(944, 441);
             this.TransferVolumeTextBox.Name = "TransferVolumeTextBox";
             this.TransferVolumeTextBox.Size = new System.Drawing.Size(225, 31);
             this.TransferVolumeTextBox.TabIndex = 74;
@@ -248,7 +255,7 @@
             this.TransferVolumeLabel.AutoSize = true;
             this.TransferVolumeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TransferVolumeLabel.ForeColor = System.Drawing.Color.Salmon;
-            this.TransferVolumeLabel.Location = new System.Drawing.Point(937, 235);
+            this.TransferVolumeLabel.Location = new System.Drawing.Point(939, 409);
             this.TransferVolumeLabel.Name = "TransferVolumeLabel";
             this.TransferVolumeLabel.Size = new System.Drawing.Size(232, 29);
             this.TransferVolumeLabel.TabIndex = 73;
@@ -278,7 +285,7 @@
             // 
             this.BloodGroupComboBox.Font = new System.Drawing.Font("Century Gothic", 14.25F);
             this.BloodGroupComboBox.FormattingEnabled = true;
-            this.BloodGroupComboBox.Location = new System.Drawing.Point(942, 365);
+            this.BloodGroupComboBox.Location = new System.Drawing.Point(944, 539);
             this.BloodGroupComboBox.Name = "BloodGroupComboBox";
             this.BloodGroupComboBox.Size = new System.Drawing.Size(225, 30);
             this.BloodGroupComboBox.TabIndex = 78;
@@ -289,7 +296,7 @@
             this.BloodGroupLabel.AutoSize = true;
             this.BloodGroupLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BloodGroupLabel.ForeColor = System.Drawing.Color.Salmon;
-            this.BloodGroupLabel.Location = new System.Drawing.Point(937, 322);
+            this.BloodGroupLabel.Location = new System.Drawing.Point(939, 496);
             this.BloodGroupLabel.Name = "BloodGroupLabel";
             this.BloodGroupLabel.Size = new System.Drawing.Size(156, 29);
             this.BloodGroupLabel.TabIndex = 77;
@@ -304,7 +311,7 @@
             this.TransferButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.TransferButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TransferButton.ForeColor = System.Drawing.Color.White;
-            this.TransferButton.Location = new System.Drawing.Point(942, 442);
+            this.TransferButton.Location = new System.Drawing.Point(944, 616);
             this.TransferButton.Name = "TransferButton";
             this.TransferButton.Size = new System.Drawing.Size(225, 42);
             this.TransferButton.TabIndex = 75;
@@ -356,15 +363,64 @@
             this.PatientsGrid.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.PatientsGrid.RowTemplate.Height = 30;
             this.PatientsGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.PatientsGrid.Size = new System.Drawing.Size(602, 504);
+            this.PatientsGrid.Size = new System.Drawing.Size(602, 508);
             this.PatientsGrid.TabIndex = 70;
             this.PatientsGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PatientsGrid_CellContentClick);
+            // 
+            // BloodStockDataGridView
+            // 
+            this.BloodStockDataGridView.AllowUserToAddRows = false;
+            this.BloodStockDataGridView.AllowUserToDeleteRows = false;
+            this.BloodStockDataGridView.AllowUserToResizeColumns = false;
+            this.BloodStockDataGridView.AllowUserToResizeRows = false;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            this.BloodStockDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.BloodStockDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.BloodStockDataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
+            this.BloodStockDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.BloodStockDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.BloodStockDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.BloodStockDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.BloodStockDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.BloodStockDataGridView.Cursor = System.Windows.Forms.Cursors.Arrow;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.BloodStockDataGridView.DefaultCellStyle = dataGridViewCellStyle7;
+            this.BloodStockDataGridView.EnableHeadersVisualStyles = false;
+            this.BloodStockDataGridView.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BloodStockDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.BloodStockDataGridView.Location = new System.Drawing.Point(944, 88);
+            this.BloodStockDataGridView.MultiSelect = false;
+            this.BloodStockDataGridView.Name = "BloodStockDataGridView";
+            this.BloodStockDataGridView.ReadOnly = true;
+            this.BloodStockDataGridView.RowHeadersVisible = false;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+            this.BloodStockDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            this.BloodStockDataGridView.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.BloodStockDataGridView.RowTemplate.Height = 30;
+            this.BloodStockDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.BloodStockDataGridView.Size = new System.Drawing.Size(227, 279);
+            this.BloodStockDataGridView.TabIndex = 79;
+            this.BloodStockDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.BloodStockDataGridView_CellContentClick);
             // 
             // TransferForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1212, 705);
+            this.Controls.Add(this.BloodStockDataGridView);
             this.Controls.Add(this.BloodGroupComboBox);
             this.Controls.Add(this.BloodGroupLabel);
             this.Controls.Add(this.TransferVolumeValidation);
@@ -386,6 +442,7 @@
             this.MenuPanel.ResumeLayout(false);
             this.MenuPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PatientsGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BloodStockDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -415,5 +472,6 @@
         private MyDataGridView PatientsGrid;
         private System.Windows.Forms.ComboBox BloodGroupComboBox;
         private System.Windows.Forms.Label BloodGroupLabel;
+        private MyDataGridView BloodStockDataGridView;
     }
 }

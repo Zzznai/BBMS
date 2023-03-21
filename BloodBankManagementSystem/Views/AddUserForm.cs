@@ -25,13 +25,22 @@ namespace BloodBankManagementSystem.Views
             this.usersService = new UsersService();
         }
 
-        private void AddUserForm_Load(object sender, EventArgs e)
+        private async void AddUserForm_Load(object sender, EventArgs e)
         {
-
+            for (double opacity = 0; opacity <= 1; opacity += 0.1)
+            {
+                this.Opacity = opacity;
+                await Task.Delay(15);
+            }
         }
 
-        private void ExitLabel_Click(object sender, EventArgs e)
+        private async void ExitLabel_Click(object sender, EventArgs e)
         {
+            for (double opacity = 1; opacity >= 0; opacity -= 0.1)
+            {
+                this.Opacity = opacity;
+                await Task.Delay(15);
+            }
             this.Close();
         }
 

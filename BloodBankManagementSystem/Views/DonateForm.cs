@@ -26,9 +26,14 @@ namespace BloodBankManagementSystem.Views
             this.donationService = new DonationService();
         }
 
-        private void DonateForm_Load(object sender, EventArgs e)
+        private async void DonateForm_Load(object sender, EventArgs e)
         {
             RefreshData();
+            for (double opacity = 0; opacity <= 1; opacity += 0.1)
+            {
+                this.Opacity = opacity;
+                await Task.Delay(15);
+            }
         }
         public void RefreshData()
         {
@@ -49,8 +54,13 @@ namespace BloodBankManagementSystem.Views
             donationRecordsForm.Show();
         }
 
-        private void ExitLabel_Click(object sender, EventArgs e)
+        private async void ExitLabel_Click(object sender, EventArgs e)
         {
+            for (double opacity = 1; opacity >= 0; opacity -= 0.1)
+            {
+                this.Opacity = opacity;
+                await Task.Delay(15);
+            }
             System.Environment.Exit(1);
         }
 
@@ -97,6 +107,7 @@ namespace BloodBankManagementSystem.Views
             {
                 try
                 {
+                    
                     if (DonorsGrid.SelectedRows.Count == 0)
                     {
                         MessageBox.Show("Please select a donor to donate blood.");
@@ -109,21 +120,30 @@ namespace BloodBankManagementSystem.Views
                     Donor donor = this.donorsService.GetDonorById(donorId);
                     decimal quantity = decimal.Parse(this.DonationVolumeTextBox.Text);
 
-                    if (donor != null)
+                    DialogResult result = MessageBox.Show($"Are you sure you want to donate {quantity}L of blood from {donor.DonorFirstName} {donor.DonorFirstName}?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if(result == DialogResult.Yes)
                     {
-                        this.donationService.AddDonation(donor, quantity);
+                        if (donor != null)
+                        {
+                            this.donationService.AddDonation(donor, quantity);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Donor not found.");
+                        }
+
+                        this.DonationVolumeTextBox.Clear();
+                        this.RefreshData();
+
+                        this.bloodStockService.AddBlood(donor.BloodGroup, quantity);
+
+                        MessageBox.Show($"Donor: {donor.DonorFirstName} {donor.DonorLastName} successfully donated {quantity}l blood");
                     }
                     else
                     {
-                        MessageBox.Show("Donor not found.");
+                        return;
                     }
-
-                    this.DonationVolumeTextBox.Clear();
-                    this.RefreshData();
-
-                    this.bloodStockService.AddBlood(donor.BloodGroup, quantity);
-
-                    MessageBox.Show($"Donor: {donor.DonorFirstName} {donor.DonorLastName} successfully donated {quantity}l blood");
+                   
                 }
                 catch (Exception ex)
                 {
