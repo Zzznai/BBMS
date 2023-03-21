@@ -2,8 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BloodBankManagementSystem.Controllers
@@ -27,20 +25,20 @@ namespace BloodBankManagementSystem.Controllers
         }
         public void AddPatient(Patient patient)
         {
-                try
+            try
+            {
+                using (var context = new BloodBankDbContext())
                 {
-                    using (var context = new BloodBankDbContext())
-                    {
-                        context.Patients.Add(patient);
-                        context.SaveChanges();
-                        
-                        MessageBox.Show("Patient added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
+                    context.Patients.Add(patient);
+                    context.SaveChanges();
+
+                    MessageBox.Show("Patient added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error adding patient", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error adding patient", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         public void EditPatient(Patient patient)
         {

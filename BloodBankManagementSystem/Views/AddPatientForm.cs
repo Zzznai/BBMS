@@ -173,11 +173,22 @@ namespace BloodBankManagementSystem.Views
                 patient.BloodGroup = BloodGroupComboBox.SelectedItem.ToString();
                 patient.ContactNumber = PContactNumberTextBox.Text;
                 patient.Address = PAdressTextBox.Text;
-                patientsService.AddPatient(patient);
+                DialogResult result = MessageBox.Show($"Are you sure you want to add the patient {patient.PatientFirstName} {patient.PatientLastName}?",
+                                                  "Confirm Add Donor",
+                                                  MessageBoxButtons.YesNo,
+                                                  MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    patientsService.AddPatient(patient);
+                    PatientsForm patientsForm = (PatientsForm)Application.OpenForms["PatientsForm"];
+                    patientsForm.RefreshData();
+                    this.Close();
+                }
+                else
+                {
+                    return;
+                }
 
-                PatientsForm patientsForm = (PatientsForm)Application.OpenForms["PatientsForm"];
-                patientsForm.RefreshData();
-                this.Close();
             }
             else
             {
