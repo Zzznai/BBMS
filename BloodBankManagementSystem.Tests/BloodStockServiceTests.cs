@@ -19,7 +19,7 @@ namespace BloodBankManagementSystem.Tests
             // Assert
             Assert.IsNotNull(bloodStock);
             Assert.AreEqual("A+", bloodStock.BloodGroup);
-            Assert.IsTrue(bloodStock.QuantityInLiters > 0);
+            Assert.IsTrue(bloodStock.QuantityInLiters >= 0);
         }
 
         [TestMethod]

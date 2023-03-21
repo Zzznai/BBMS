@@ -216,6 +216,7 @@
             this.LogOutLabel.Size = new System.Drawing.Size(84, 25);
             this.LogOutLabel.TabIndex = 47;
             this.LogOutLabel.Text = "Log out";
+            this.LogOutLabel.Click += new System.EventHandler(this.LogOutLabel_Click);
             // 
             // DashboardLabel
             // 
@@ -367,6 +368,7 @@
             this.PatientsGrid.Size = new System.Drawing.Size(602, 508);
             this.PatientsGrid.TabIndex = 70;
             this.PatientsGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PatientsGrid_CellContentClick);
+            this.PatientsGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PatientsGrid_CellClick);
             // 
             // BloodStockDataGridView
             // 

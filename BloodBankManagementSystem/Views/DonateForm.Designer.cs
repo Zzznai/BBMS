@@ -209,6 +209,7 @@
             this.LogOutLabel.Size = new System.Drawing.Size(84, 25);
             this.LogOutLabel.TabIndex = 47;
             this.LogOutLabel.Text = "Log out";
+            this.LogOutLabel.Click += new System.EventHandler(this.LogOutLabel_Click);
             // 
             // DashboardLabel
             // 

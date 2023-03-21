@@ -153,5 +153,12 @@ namespace BloodBankManagementSystem.Views
                 }
             }
         }
+
+        private void LogOutLabel_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
+        }
     }
 }

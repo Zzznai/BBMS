@@ -23,6 +23,7 @@ namespace BloodBankManagementSystem.Views
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             BloodStockDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             BloodStockDataGridView.DefaultCellStyle.SelectionBackColor = BloodStockDataGridView.DefaultCellStyle.BackColor;
+            BloodGroupComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
 
         }
 
@@ -161,12 +162,31 @@ namespace BloodBankManagementSystem.Views
 
         private void BloodGroupComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            BloodGroupComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            
         }
 
         private void PatientsGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            this.GetBloodGroupForPatient();
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                this.GetBloodGroupForPatient();
+            }
+            else
+            {
+                BloodGroupComboBox.DataSource = null;
+            }
+        }
+
+        private void PatientsGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                this.GetBloodGroupForPatient();
+            }
+            else
+            {
+                BloodGroupComboBox.DataSource = null;
+            }
         }
 
         private void DashboardLabel_Click(object sender, EventArgs e)
@@ -234,6 +254,13 @@ namespace BloodBankManagementSystem.Views
         private void TransferVolumeValidation_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void LogOutLabel_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
         }
     }
 }
