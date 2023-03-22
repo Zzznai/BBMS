@@ -1,12 +1,14 @@
 ﻿using BloodBankManagementSystem.Controllers;
 using BloodBankManagementSystem.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Linq;
 
 namespace BloodBankManagementSystem.Tests
 {
     [TestClass]
     public class BloodStockServiceTests
     {
+
         [TestMethod]
         public void TestGetBloodStock()
         {
@@ -130,18 +132,24 @@ namespace BloodBankManagementSystem.Tests
         }
 
         [TestMethod]
-        public void TestAddBloodWithValidData()
+        public void AddBlood_AddsNewBloodGroup_WhenGroupDoesNotExist()
         {
-            //Arrange
-            var service = new BloodStockService();
+            // Arrange
+            var options = new DbContextOptionsBuilder<BloodBankDbContext>()
+                .UseInMemoryDatabase(databaseName: "Test_BloodBank")
+                .Options;
+            var dbContext = new TestBloodBankDbContext(options);
+            var bloodBank = new BloodStock(dbContext);
+            var bloodGroup = "AB+";
+            var quantity = 5;
 
-            //Act
-            service.AddBlood("A+", 10);
+            // Act
+            bloodBank.AddBlood(bloodGroup, quantity);
 
-            //Assert
-            var quantity = service.GetQuantityByBloodGroup("A+");
-            Assert.AreEqual(quantity, 10);
+            // Assert
+            var bloodStock = dbContext.BloodStock.FirstOrDefault(bs => bs.BloodGroup == bloodGroup);
+            Assert.IsNotNull(bloodStock);
+            Assert.AreEqual(quantity, bloodStock.QuantityInLiters);
         }
-
     }
 }
