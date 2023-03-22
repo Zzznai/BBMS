@@ -8,6 +8,25 @@ namespace BloodBankManagementSystem.Tests
     [TestClass]
     public class BloodStockServiceTests
     {
+        private TestBloodBankDbContext _context;
+        private BloodStockService _service;
+
+        [TestInitialize]
+        public void TestInitialize()
+        {
+            // Initialize the test database context
+            _context = new TestBloodBankDbContext();
+
+            // Seed the test database with some initial data
+            _context.BloodStock.Add(new BloodStock { BloodGroup = "A+", QuantityInLiters = 10 });
+            _context.BloodStock.Add(new BloodStock { BloodGroup = "B+", QuantityInLiters = 5 });
+            _context.BloodStock.Add(new BloodStock { BloodGroup = "O+", QuantityInLiters = 7 });
+            _context.BloodStock.Add(new BloodStock { BloodGroup = "AB+", QuantityInLiters = 3 });
+            _context.SaveChanges();
+
+            // Initialize the service with the test database context
+            _service = new BloodStockService { Context = _context };
+        }
 
         [TestMethod]
         public void TestGetBloodStock()
@@ -132,24 +151,21 @@ namespace BloodBankManagementSystem.Tests
         }
 
         [TestMethod]
-        public void AddBlood_AddsNewBloodGroup_WhenGroupDoesNotExist()
+        public void AddBlood_ShouldCreateNewBloodStockIfItDoesNotExist()
         {
             // Arrange
-            var options = new DbContextOptionsBuilder<BloodBankDbContext>()
-                .UseInMemoryDatabase(databaseName: "Test_BloodBank")
-                .Options;
-            var dbContext = new TestBloodBankDbContext(options);
-            var bloodBank = new BloodStock(dbContext);
-            var bloodGroup = "AB+";
-            var quantity = 5;
+            var bloodGroup = "A-";
+            var quantityToAdd = 4m;
+            var expectedQuantity = quantityToAdd;
 
             // Act
-            bloodBank.AddBlood(bloodGroup, quantity);
+            _service.AddBlood(bloodGroup, quantityToAdd);
 
             // Assert
-            var bloodStock = dbContext.BloodStock.FirstOrDefault(bs => bs.BloodGroup == bloodGroup);
-            Assert.IsNotNull(bloodStock);
-            Assert.AreEqual(quantity, bloodStock.QuantityInLiters);
+            var actualQuantity = _context.BloodStock.Where(bs => bs.BloodGroup == bloodGroup).Select(bs => bs.QuantityInLiters).FirstOrDefault();
+            Assert.AreEqual(expectedQuantity, actualQuantity, "The blood quantity was not added correctly");
         }
+
+
     }
 }

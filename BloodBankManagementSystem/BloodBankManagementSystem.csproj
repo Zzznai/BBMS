@@ -159,6 +159,10 @@
     <Compile Include="Migrations\202303220805454_AddedTestDatabase.designer.cs">
       <DependentUpon>202303220805454_AddedTestDatabase.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202303221045349_EditedTestBloodBankDb.cs" />
+    <Compile Include="Migrations\202303221045349_EditedTestBloodBankDb.designer.cs">
+      <DependentUpon>202303221045349_EditedTestBloodBankDb.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BloodBankDbContext.cs" />
     <Compile Include="Models\BloodDonation.cs" />
@@ -299,6 +303,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202303220805454_AddedTestDatabase.resx">
       <DependentUpon>202303220805454_AddedTestDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303221045349_EditedTestBloodBankDb.resx">
+      <DependentUpon>202303221045349_EditedTestBloodBankDb.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
