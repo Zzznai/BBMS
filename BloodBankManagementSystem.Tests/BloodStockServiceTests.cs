@@ -1,6 +1,6 @@
 ﻿using BloodBankManagementSystem.Controllers;
+using BloodBankManagementSystem.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 
 namespace BloodBankManagementSystem.Tests
 {
@@ -40,5 +40,108 @@ namespace BloodBankManagementSystem.Tests
                 Assert.IsNotNull(bloodStock.GetType().GetProperty("QuantityInLiters").GetValue(bloodStock));
             }
         }
+
+        [TestMethod]
+        public void TestGetBloodStockWithNonExistentBloodGroup()
+        {
+            // Arrange
+            var bloodStockService = new BloodStockService();
+
+            // Act
+            var bloodStock = bloodStockService.GetBloodStock("W+");
+
+            // Assert
+            Assert.IsNull(bloodStock, "BloodStock object should be null.");
+        }
+
+        [TestMethod]
+        public void TestGetBloodStockWithNullInput()
+        {
+            // Arrange
+            var bloodStockService = new BloodStockService();
+
+            // Act
+            var bloodStock = bloodStockService.GetBloodStock(null);
+
+            // Assert
+            Assert.IsNull(bloodStock, "BloodStock object should be null.");
+        }
+
+        [TestMethod]
+        public void TestGetQuantityByBloodGroup()
+        {
+            // Arrange
+            var service = new BloodStockService();
+
+            // Act
+            var quantity = service.GetQuantityByBloodGroup("A+");
+
+            // Assert
+            Assert.IsTrue(quantity >= 0);
+        }
+
+        [TestMethod]
+        public void TestGetQuantityByBloodGroupWithNullInput()
+        {
+            //Arrange
+            var service = new BloodStockService();
+
+            //Act
+            var quantity = service.GetQuantityByBloodGroup(null);
+
+            //Assert
+            Assert.AreEqual(quantity, 0);
+        }
+
+        [TestMethod]
+        public void TestGetQuantityByBloodGroupWithIncorrectInput()
+        {
+            //Arrange
+            var service = new BloodStockService();
+
+            //Act
+            var quantity = service.GetQuantityByBloodGroup("XYZ");
+
+            //Assert
+            Assert.AreEqual(quantity, 0);
+        }
+
+
+        [TestMethod]
+        public void TestGetAllBloodGroupsSortedById()
+        {
+            // Arrange
+            var service = new BloodStockService();
+
+            // Act
+            var bloodGroups = service.GetAllBloodGroupsSortedById();
+
+            // Assert
+            Assert.IsNotNull(bloodGroups);
+            Assert.IsTrue(bloodGroups.Count == 8);
+            Assert.AreEqual("O+", bloodGroups[0]);
+            Assert.AreEqual("O-", bloodGroups[1]);
+            Assert.AreEqual("A+", bloodGroups[2]);
+            Assert.AreEqual("A-", bloodGroups[3]);
+            Assert.AreEqual("B+", bloodGroups[4]);
+            Assert.AreEqual("B-", bloodGroups[5]);
+            Assert.AreEqual("AB+", bloodGroups[6]);
+            Assert.AreEqual("AB-", bloodGroups[7]);
+        }
+
+        [TestMethod]
+        public void TestAddBloodWithValidData()
+        {
+            //Arrange
+            var service = new BloodStockService();
+
+            //Act
+            service.AddBlood("A+", 10);
+
+            //Assert
+            var quantity = service.GetQuantityByBloodGroup("A+");
+            Assert.AreEqual(quantity, 10);
+        }
+
     }
 }

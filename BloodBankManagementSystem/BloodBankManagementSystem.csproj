@@ -163,6 +163,7 @@
     <Compile Include="Models\Donors.cs" />
     <Compile Include="Models\LoggedUser.cs" />
     <Compile Include="Models\Patients.cs" />
+    <Compile Include="Models\TestBloodBankDbContext.cs" />
     <Compile Include="Models\Users.cs" />
     <Compile Include="MyDataGridView.cs">
       <SubType>Component</SubType>

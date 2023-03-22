@@ -12,7 +12,6 @@ namespace BloodBankManagementSystem
     class ButtonModified : System.Windows.Forms.Button
     {
         //we can use this to modify the color of the border 
-        //modify so that it can be every color
         public Color BorderColor = Color.Salmon;
         //we can use this to modify the border size
         public int BorderSize = 1;
@@ -26,8 +25,6 @@ namespace BloodBankManagementSystem
             30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))),
                     ((int)(((byte)(33)))), ((int)(((byte)(107)))));
-
-           
         }
         int top;
         int left;

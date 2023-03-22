@@ -13,7 +13,6 @@ namespace BloodBankManagementSystem
         public MyDataGridView()
         {
            
-
             // Set the basic properties
             this.BorderStyle = BorderStyle.None;
             this.BackgroundColor = Color.FromArgb(255, 245, 245, 245);
@@ -66,7 +65,6 @@ namespace BloodBankManagementSystem
             Padding padding = new Padding(10, 0, 10, 0);
             this.RowTemplate.DefaultCellStyle.Padding = padding;
 
-            
         }
     }
 }
