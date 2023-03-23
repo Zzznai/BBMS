@@ -1,6 +1,7 @@
 ﻿using BloodBankManagementSystem.Controllers;
 using BloodBankManagementSystem.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Linq;
 
 namespace BloodBankManagementSystem.Tests
@@ -8,26 +9,7 @@ namespace BloodBankManagementSystem.Tests
     [TestClass]
     public class BloodStockServiceTests
     {
-        private TestBloodBankDbContext _context;
         private BloodStockService _service;
-
-        [TestInitialize]
-        public void TestInitialize()
-        {
-            // Initialize the test database context
-            _context = new TestBloodBankDbContext();
-
-            // Seed the test database with some initial data
-            _context.BloodStock.Add(new BloodStock { BloodGroup = "A+", QuantityInLiters = 10 });
-            _context.BloodStock.Add(new BloodStock { BloodGroup = "B+", QuantityInLiters = 5 });
-            _context.BloodStock.Add(new BloodStock { BloodGroup = "O+", QuantityInLiters = 7 });
-            _context.BloodStock.Add(new BloodStock { BloodGroup = "AB+", QuantityInLiters = 3 });
-            _context.SaveChanges();
-
-            // Initialize the service with the test database context
-            _service = new BloodStockService { Context = _context };
-        }
-
         [TestMethod]
         public void TestGetBloodStock()
         {
@@ -121,7 +103,7 @@ namespace BloodBankManagementSystem.Tests
             var service = new BloodStockService();
 
             //Act
-            var quantity = service.GetQuantityByBloodGroup("XYZ");
+            var quantity = service.GetQuantityByBloodGroup("X-");
 
             //Assert
             Assert.AreEqual(quantity, 0);
@@ -151,21 +133,68 @@ namespace BloodBankManagementSystem.Tests
         }
 
         [TestMethod]
-        public void AddBlood_ShouldCreateNewBloodStockIfItDoesNotExist()
+        public void AddBlood_AddsCorrectAmountOfBloodToStock()
         {
             // Arrange
-            var bloodGroup = "A-";
-            var quantityToAdd = 4m;
-            var expectedQuantity = quantityToAdd;
+            var service = new BloodStockService();
+            var bloodGroup = "B+";
+            var startingQuantity = service.GetQuantityByBloodGroup(bloodGroup);
+            var amountToAdd = 0.5m;
 
             // Act
-            _service.AddBlood(bloodGroup, quantityToAdd);
+            service.AddBlood(bloodGroup, amountToAdd);
+            var newQuantity = service.GetQuantityByBloodGroup(bloodGroup);
 
             // Assert
-            var actualQuantity = _context.BloodStock.Where(bs => bs.BloodGroup == bloodGroup).Select(bs => bs.QuantityInLiters).FirstOrDefault();
-            Assert.AreEqual(expectedQuantity, actualQuantity, "The blood quantity was not added correctly");
+            Assert.AreEqual(startingQuantity + amountToAdd, newQuantity);
         }
 
+        [TestMethod]
+        public void AddBlood_NullBloodGroup_ThrowsException()
+        {
+            // Arrange
+            var service = new BloodStockService();
+            string bloodGroup = null;
+            var quantity = 0.3M;
 
+            // Act and Assert
+            Assert.ThrowsException<ArgumentException>(() => service.AddBlood(bloodGroup, quantity));
+        }
+
+        [TestMethod]
+        public void AddBlood_IncorrectBloodGroup_ThrowsException()
+        {
+            // Arrange
+            var service = new BloodStockService();
+            string bloodGroup = "W+";
+            var quantity = 0.3M;
+
+            // Act and Assert
+            Assert.ThrowsException<ArgumentException>(() => service.AddBlood(bloodGroup, quantity));
+        }
+
+        [TestMethod]
+        public void AddBlood_IncorrectQuantity_ThrowsException()
+        {
+            // Arrange
+            var service = new BloodStockService();
+            string bloodGroup = "B-";
+            var quantity = -0.5m;
+
+            // Act and Assert
+            Assert.ThrowsException<ArgumentException>(() => service.AddBlood(bloodGroup, quantity));
+        }
+
+        [TestMethod]
+        public void AddBlood_IncorrectBloodGroup_IncorrectQuantity_ThrowsException()
+        {
+            // Arrange
+            var service = new BloodStockService();
+            string bloodGroup = "W+";
+            var quantity = -10m;
+
+            // Act and Assert
+            Assert.ThrowsException<ArgumentException>(() => service.AddBlood(bloodGroup, quantity));
+        }
     }
 }

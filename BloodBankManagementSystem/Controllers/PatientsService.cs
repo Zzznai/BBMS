@@ -6,8 +6,15 @@ using System.Windows.Forms;
 
 namespace BloodBankManagementSystem.Controllers
 {
+    /// <summary>
+    /// Represents a service for managing patients in a blood bank.
+    /// </summary>
     public class PatientsService
     {
+        /// <summary>
+        /// Returns the number of patients in the database.
+        /// </summary>
+        /// <returns>The number of patients in the database.</returns>
         public int GetPatientsCount()
         {
             using (var context = new BloodBankDbContext())
@@ -15,6 +22,12 @@ namespace BloodBankManagementSystem.Controllers
                 return context.Patients.Count();
             }
         }
+
+        /// <summary>
+        /// Returns the patient with the specified ID from the database.
+        /// </summary>
+        /// <param name="id">The ID of the patient to retrieve.</param>
+        /// <returns>The patient with the specified ID, or null if no such patient exists.</returns>
         public Patient GetPatientById(int id)
         {
             using (var context = new BloodBankDbContext())
@@ -23,6 +36,16 @@ namespace BloodBankManagementSystem.Controllers
                 return patient;
             }
         }
+
+        /// <summary>
+        /// Adds the specified patient to the database.
+        /// </summary>
+        /// <param name="patient">The patient to add to the database.</param>
+        /// <exception cref="Exception">Thrown if there is an error while adding the patient to the database.</exception>
+        /// <remarks>
+        /// If the patient is successfully added to the database, a message box is displayed indicating that the patient was added successfully. 
+        /// </remarks>
+        /// <exception cref="Exception">Thrown if an error occurs while adding the patient to the database.</exception>
         public void AddPatient(Patient patient)
         {
             try
@@ -40,6 +63,17 @@ namespace BloodBankManagementSystem.Controllers
                 MessageBox.Show("Error adding patient", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        /// <summary>
+        /// Updates an existing patient's information in the database.
+        /// </summary>
+        /// <param name="patient">The Patient object containing the updated information for the patient.</param>
+        /// <remarks>
+        /// If a patient with the same PatientID as the one passed in as a parameter is found in the database, 
+        /// the patient's information is updated and the changes are saved to the database. If no patient with 
+        /// the specified PatientID is found in the database. 
+        /// </remarks>
+        /// <exception cref="Exception">Thrown if any exception occurs during the execution of the method.</exception>
         public void EditPatient(Patient patient)
         {
 
@@ -75,6 +109,17 @@ namespace BloodBankManagementSystem.Controllers
 
         }
 
+        /// <summary>
+        /// Deletes a patient from the Blood Bank's database.
+        /// </summary>
+        /// <param name="PatientId">The ID of the patient to be deleted.</param>
+        /// <remarks>
+        /// If a patient with the specified PatientId is found in the database and has not yet received any blood transfusion, 
+        /// the patient is removed from the database using the Remove method, and the changes are saved to the database 
+        /// using the SaveChanges method. If the patient has already received a blood transfusion, the method throws an 
+        /// ArgumentException with a message indicating that the patient cannot be deleted from the system.
+        /// </remarks>
+        /// <exception cref="ArgumentException">Thrown if the patient has already received a blood transfusion.</exception>
         public void DeletePatient(int PatientId)
         {
             using (var context = new BloodBankDbContext())
@@ -97,6 +142,11 @@ namespace BloodBankManagementSystem.Controllers
             }
         }
 
+        /// <summary>
+        /// Retrieves a list of blood transfusions based on the specified search input.The search can include patient first name, last name, blood group, or a combination of first and last name.If the search input is null or whitespace, all blood transfusions are returned.
+        /// </summary>
+        /// <param name="searchInput">The search input to use for filtering the blood transfusions. It can be a patient's first name, last name, blood group, or a combination of first and last name.</param>
+        /// <returns>The method returns a list of anonymous objects with properties including the ID and date of the transfusion, the first and last name of the patient, their blood group, the blood group received, the quantity transfused, and the patient's age.</returns>
         public List<object> SearchAllPatients(string searchInput)
         {
             using (var context = new BloodBankDbContext())
@@ -141,6 +191,11 @@ namespace BloodBankManagementSystem.Controllers
             }
         }
 
+        /// <summary>
+        /// Retrieves a list of patients based on the specified search input. The search can include patient first name, last name, or a combination of first and last name. If the search input is null or whitespace, all patients are returned. The method returns a list of anonymous objects with a subset of the properties of the Patient entity.
+        /// </summary>
+        /// <param name="searchInput">The search input to use for filtering the patients.</param>
+        /// <returns>The method returns a list of anonymous objects with properties including the ID, first and last name, gender, age, and blood group of the patient.</returns>
         public List<object> SearchAllPatientsForTransfer(string searchInput)
         {
             using (var context = new BloodBankDbContext())

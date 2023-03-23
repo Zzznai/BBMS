@@ -12,6 +12,9 @@ using System.Windows.Forms;
 
 namespace BloodBankManagementSystem.Views
 {
+    /// <summary>
+    /// Form for adding a blood donation
+    /// </summary>
     public partial class DonateForm : Form
     {
         BloodStockService bloodStockService;

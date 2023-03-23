@@ -3,8 +3,14 @@ using System.Linq;
 
 namespace BloodBankManagementSystem.Common
 {
+    /// <summary>
+    /// Provides blood group compatibility information.
+    /// </summary>
     public class BloodCompatibility
     {
+        /// <summary>
+        /// A dictionary that maps blood groups to a list of compatible blood groups.
+        /// </summary>
         public static Dictionary<string, List<string>> RecipientGroups = new Dictionary<string, List<string>>
         {
             { "A+", new List<string> { "A+", "A-", "O+", "O-" } },

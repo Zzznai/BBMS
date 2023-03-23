@@ -6,29 +6,17 @@ using System.Windows.Forms;
 
 namespace BloodBankManagementSystem.Controllers
 {
+    /// <summary>
+    /// Represents a service for managing donors in a blood bank.
+    /// </summary>
     public class DonorsService
     {
-        public List<object> GetAllDonors()
-        {
-            using (var context = new BloodBankDbContext())
-            {
-                var donors = context.Donors.Select(d => new
-                {
-                    Id = d.DonorID,
-                    FirstName = d.DonorFirstName,
-                    LastName = d.DonorLastName,
-                    Gender = d.DonorGender,
-                    Age = d.DonorAge,
-                    d.BloodGroup,
-                    LastDonationDate = d.LastDonationDate == null ? "-" : d.LastDonationDate.ToString(),
-                    d.ContactNumber,
-                    d.Address
-                })
-                              .ToList();
-
-                return donors.Cast<object>().ToList();
-            }
-        }
+        /// <summary>
+        /// Searches all donors based on a given search input.
+        /// If the search input is null or empty, the method will return all donors in the database.
+        /// </summary>
+        /// <param name="searchInput">The search input to use. Can be a donor ID or a donor's first name, last name, or both.</param>
+        /// <returns>A list of anonymous objects representing the matching donors.</returns>
         public List<object> SearchAllDonors(string searchInput)
         {
             using (var context = new BloodBankDbContext())
@@ -74,6 +62,11 @@ namespace BloodBankManagementSystem.Controllers
             }
         }
 
+        /// <summary>
+        /// Gets the donor with the specified ID.
+        /// </summary>
+        /// <param name="id">The ID of the donor to retrieve.</param>
+        /// <returns>The donor with the specified ID, or null if no such donor exists.</returns>
         public Donor GetDonorById(int id)
         {
             using (var context = new BloodBankDbContext())
@@ -83,7 +76,12 @@ namespace BloodBankManagementSystem.Controllers
             }
         }
 
-
+        /// <summary>
+        /// Searches all donors for potential blood donations based on a given search input.
+        /// If the search input is null or empty, the method will return all donors in the database.
+        /// </summary>
+        /// <param name="searchInput">The search input to use. Can be a donor ID or a donor's first name, last name, or both.</param>
+        /// <returns>A list of anonymous objects representing the matching donors, including their ID, first name, last name, gender, age, blood group, and last donation date.</returns>
         public List<object> SearchAllDonorsForDonation(string searchInput)
         {
             using (var context = new BloodBankDbContext())
@@ -126,6 +124,12 @@ namespace BloodBankManagementSystem.Controllers
                 return donors.Cast<object>().ToList();
             }
         }
+
+        /// <summary>
+        /// Deletes a donor from the database by their donor ID. If the donor has a donation record, it throws an exception.
+        /// </summary>
+        /// <param name="DonorId">The donor ID of the donor to be deleted.</param>
+        /// <exception cref="ArgumentException">Thrown when attempting to delete a donor that has already donated blood.</exception>
         public void DeleteDonor(int DonorId)
         {
             using (var context = new BloodBankDbContext())
@@ -148,6 +152,10 @@ namespace BloodBankManagementSystem.Controllers
             }
         }
 
+        /// <summary>
+        /// Gets the total number of donors currently in the database.
+        /// </summary>
+        /// <returns>The total number of donors in the database.</returns>
         public int GetDonorsCount()
         {
             using (var context = new BloodBankDbContext())
@@ -156,6 +164,10 @@ namespace BloodBankManagementSystem.Controllers
             }
         }
 
+        /// <summary>
+        /// Adds a new donor to the database.
+        /// </summary>
+        /// <param name="donor">The donor to add.</param>
         public void AddDonor(Donor donor)
         {
             try
@@ -173,6 +185,13 @@ namespace BloodBankManagementSystem.Controllers
                 MessageBox.Show("Error adding donor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        /// <summary>
+        /// Updates an existing donor record in the database.
+        /// </summary>
+        /// <param name="donor">The donor object with updated information.</param>
+        /// <exception cref="ArgumentException">Thrown if the donor with the specified ID does not exist in the database.</exception>
+        /// <exception cref="ArgumentException">Thrown if an error occurs while updating the donor record.</exception>
         public void EditDonor(Donor donor)
         {
             try
@@ -201,7 +220,7 @@ namespace BloodBankManagementSystem.Controllers
                     }
                 }
             }
-            catch (Exception ex)
+            catch (ArgumentException ex)
             {
                 MessageBox.Show("Error editing donor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

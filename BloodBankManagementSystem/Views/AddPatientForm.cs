@@ -10,6 +10,9 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace BloodBankManagementSystem.Views
 {
+    /// <summary>
+    /// Form for adding a patient.
+    /// </summary>
     public partial class AddPatientForm : Form
     {
         BloodStockService bloodStockService;

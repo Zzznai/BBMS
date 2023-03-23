@@ -15,6 +15,9 @@ using static BloodBankManagementSystem.Models.Donor;
 
 namespace BloodBankManagementSystem.Views
 {
+    /// <summary>
+    /// Form for adding a donor.
+    /// </summary>
     public partial class AddDonorForm : Form
     {
         BloodStockService bloodStockService;

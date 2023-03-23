@@ -9,6 +9,9 @@ using System.Windows.Forms;
 
 namespace BloodBankManagementSystem.Views
 {
+    /// <summary>
+    /// Form for editing a patient
+    /// </summary>
     public partial class EditPatientForm : Form
     {
         private int id;

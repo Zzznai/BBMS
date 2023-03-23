@@ -18,9 +18,6 @@ namespace BloodBankManagementSystem
             InitializeComponent();
         }
 
-        /// <summary>
-        /// Advances the loading animation and displays the login form when loading is complete.
-        /// </summary>
         private void timerSplash_Tick(object sender, EventArgs e)
         {
             // Write the code to show Loading Animation
@@ -40,9 +37,6 @@ namespace BloodBankManagementSystem
             }
         }
 
-        /// <summary>
-        /// Loads the form and fades it in gradually for a smoother transition.
-        /// </summary>
         private async void IntroForm_Load(object sender, EventArgs e)
         {
             // Load the Timer

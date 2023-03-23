@@ -15,6 +15,9 @@ using System.Windows.Forms;
 
 namespace BloodBankManagementSystem.Views
 {
+    /// <summary>
+    /// Form for editing a donor.
+    /// </summary>
     public partial class EditDonorForm : Form
     {
         private int id;

@@ -11,6 +11,9 @@ using System.Windows.Forms;
 
 namespace BloodBankManagementSystem.Views
 {
+    /// <summary>
+    /// Admin Form for managing users.
+    /// </summary>
     public partial class AdminForm : Form
     {
         UsersService usersService;

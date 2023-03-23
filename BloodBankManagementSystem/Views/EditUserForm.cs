@@ -12,6 +12,9 @@ using BloodBankManagementSystem.Models;
 
 namespace BloodBankManagementSystem.Views
 {
+    /// <summary>
+    /// Form for editing a user.
+    /// </summary>
     public partial class EditUserForm : Form
     {
         private int id;

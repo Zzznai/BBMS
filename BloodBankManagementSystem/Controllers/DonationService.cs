@@ -8,8 +8,15 @@ using System.Threading.Tasks;
 
 namespace BloodBankManagementSystem.Controllers
 {
+    /// <summary>
+    /// Represents a service for managing blood donations in a blood bank.
+    /// </summary>
     public class DonationService
     {
+        /// <summary>
+        /// Retrieves the total count of all blood donations in the database.
+        /// </summary>
+        /// <returns>The total count of all blood donations.</returns>
         public int GetAllDonationsCount()
         {
             using (var context = new BloodBankDbContext())
@@ -18,6 +25,11 @@ namespace BloodBankManagementSystem.Controllers
             }
         }
 
+        /// <summary>
+        /// Retrieves a list of blood donations based on the specified search input. The search can include donor first name, last name, blood group, or a combination of first and last name. If the search input is null or whitespace, all blood donations are returned. The method returns a list of anonymous objects with a subset of the properties of the BloodDonation and Donor entities.
+        /// </summary>
+        /// <param name="searchInput">The search input to use for filtering the blood donations.</param>
+        /// <returns>The method returns a list of anonymous objects with properties including the ID and date of the donation, the first and last name of the donor, their blood group, the quantity donated, and the donor's age.</returns>
         public List<object> SearchAllDonations(string searchInput)
         {
             using (var context = new BloodBankDbContext())
@@ -62,6 +74,12 @@ namespace BloodBankManagementSystem.Controllers
             }
         }
 
+        /// <summary>
+        /// Adds a blood donation to the database for the specified donor with the given quantity in liters. The method also updates the donor's last donation date to the current date and ensures that the donor is eligible to donate blood based on their last donation date.
+        /// </summary>
+        /// <param name="donor">The donor for whom the blood donation is being added.</param>
+        /// <param name="quantityInLiters">The quantity of blood donated in liters.</param>
+        /// <exception cref="ArgumentException">Thrown when the donor has donated blood within the last 4 months and is not eligible to donate again yet.</exception>
         public void AddDonation(Donor donor, decimal quantityInLiters)
         {
             try

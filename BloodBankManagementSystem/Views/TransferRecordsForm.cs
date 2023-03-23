@@ -11,9 +11,13 @@ using System.Windows.Forms;
 
 namespace BloodBankManagementSystem.Views
 {
+    /// <summary>
+    /// Form for displaying blood transfusion transfer records.
+    /// </summary>
     public partial class TransferRecordsForm : Form
     {
         private BloodTransfusionService bloodTransfusion;
+
         public TransferRecordsForm()
         {
             InitializeComponent();
@@ -21,11 +25,17 @@ namespace BloodBankManagementSystem.Views
             this.bloodTransfusion = new BloodTransfusionService();
         }
 
+        public void RefreshData()
+        {
+            this.TransfusionGrid.DataSource = this.bloodTransfusion.SearchAllTransfusions(SearchPatientsTextBox.Text);
+        }
+
         private void SearchPatientsTextBox_TextChanged(object sender, EventArgs e)
         {
             RefreshData();
         }
 
+        
         private async void TransferRecordsForm_Load(object sender, EventArgs e)
         {
             RefreshData();
@@ -35,11 +45,8 @@ namespace BloodBankManagementSystem.Views
                 await Task.Delay(15);
             }
         }
-        public void RefreshData()
-        {
-            this.TransfusionGrid.DataSource = this.bloodTransfusion.SearchAllTransfusions(SearchPatientsTextBox.Text);
-        }
 
+        
         private void DashBoardLabell_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -47,6 +54,7 @@ namespace BloodBankManagementSystem.Views
             dashboardForm.Show();
         }
 
+        
         private void ManageDonorsLabel_Click(object sender, EventArgs e)
         {
             DonorsForm donorsForm = new DonorsForm();
@@ -54,11 +62,13 @@ namespace BloodBankManagementSystem.Views
             donorsForm.ShowDialog();
         }
 
+        
         private void RecordsLabel_Click(object sender, EventArgs e)
         {
             this.Refresh();
         }
 
+       
         private void DonateLabel_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -66,6 +76,7 @@ namespace BloodBankManagementSystem.Views
             donateForm.Show();
         }
 
+        
         private void DonationsRecordsLabel_Click(object sender, EventArgs e)
         {
             DonationRecordsForm donationRecordsForm = new DonationRecordsForm();
@@ -73,6 +84,7 @@ namespace BloodBankManagementSystem.Views
             donationRecordsForm.Show();
         }
 
+        
         private void ManagePatientsLabel_Click(object sender, EventArgs e)
         {
             PatientsForm patientsForm = new PatientsForm();
@@ -96,12 +108,14 @@ namespace BloodBankManagementSystem.Views
             }
             System.Environment.Exit(1);
         }
-
+        
         private void LogOutLabel_Click(object sender, EventArgs e)
         {
             this.Hide();
             LoginForm loginForm = new LoginForm();
             loginForm.Show();
         }
+
     }
 }
+

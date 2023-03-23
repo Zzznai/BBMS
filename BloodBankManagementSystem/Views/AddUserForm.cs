@@ -14,6 +14,9 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace BloodBankManagementSystem.Views
 {
+    /// <summary>
+    /// Form for adding a user.
+    /// </summary>
     public partial class AddUserForm : Form
     {
         UsersService usersService;

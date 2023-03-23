@@ -11,6 +11,9 @@ using System.Windows.Forms;
 
 namespace BloodBankManagementSystem.Views
 {
+    /// <summary>
+    /// Form for managing patients.
+    /// </summary>
     public partial class DonorsForm : Form
     {
         DonorsService donorsService;

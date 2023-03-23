@@ -13,6 +13,9 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace BloodBankManagementSystem.Views
 {
+    /// <summary>
+    /// Form for logging in into the system.
+    /// </summary>
     public partial class LoginForm : Form
     {
         UsersService usersService;

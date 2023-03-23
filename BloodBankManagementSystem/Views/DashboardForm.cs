@@ -13,6 +13,10 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace BloodBankManagementSystem.Views
 {
+    /// <summary>
+    /// Represents the dashboard form of the Blood Bank Management System.
+    /// Displays statistics on the number of donors, patients, blood transfusions, and blood donations, as well as the quantity of each blood group in the database.
+    /// </summary>
     public partial class DashboardForm : Form
     {
         UsersService usersService;

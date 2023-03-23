@@ -8,6 +8,9 @@ using System.Windows.Forms;
 
 namespace BloodBankManagementSystem.Views
 {
+    /// <summary>
+    /// Form for adding a blood transfusion
+    /// </summary>
     public partial class TransferForm : Form
     {
         PatientsService patientsService;
@@ -40,7 +43,7 @@ namespace BloodBankManagementSystem.Views
 
         public void RefreshData()
         {
-            PatientsGrid.DataSource = patientsService.SearchAllPatients(SearchTextBox.Text);
+            PatientsGrid.DataSource = patientsService.SearchAllPatientsForTransfer(SearchTextBox.Text);
             this.GetBloodGroupForPatient();
         }
 
