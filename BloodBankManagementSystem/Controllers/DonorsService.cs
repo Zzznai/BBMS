@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace BloodBankManagementSystem.Controllers
 {
@@ -40,7 +41,7 @@ namespace BloodBankManagementSystem.Controllers
                     }
                     else
                     {
-                        donorsQuery = donorsQuery.Where(d => d.DonorFirstName.Contains(searchInput) || d.DonorLastName.Contains(searchInput));
+                        donorsQuery = donorsQuery.Where(d => d.DonorFirstName.Contains(searchInput) || d.DonorLastName.Contains(searchInput) || d.BloodGroup.Contains(searchInput));
                     }
                 }
 
@@ -105,7 +106,7 @@ namespace BloodBankManagementSystem.Controllers
                     }
                     else
                     {
-                        donorsQuery = donorsQuery.Where(d => d.DonorFirstName.Contains(searchInput) || d.DonorLastName.Contains(searchInput));
+                        donorsQuery = donorsQuery.Where(d => d.DonorFirstName.Contains(searchInput) || d.DonorLastName.Contains(searchInput) || d.BloodGroup.Contains(searchInput));
                     }
                 }
 
@@ -175,12 +176,20 @@ namespace BloodBankManagementSystem.Controllers
                 using (var context = new BloodBankDbContext())
                 {
                     context.Donors.Add(donor);
-                    context.SaveChanges();
+                    if (donor != null)
+                    {
+                        context.SaveChanges();
 
-                    MessageBox.Show("Donor added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Donor added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        throw new ArgumentNullException("One or more input arguments are null or empty.");
+                    }
+
                 }
             }
-            catch (Exception ex)
+            catch (ArgumentException ex)
             {
                 MessageBox.Show("Error adding donor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -198,6 +207,7 @@ namespace BloodBankManagementSystem.Controllers
             {
                 using (var context = new BloodBankDbContext())
                 {
+                   
                     var existingDonor = context.Donors.FirstOrDefault(d => d.DonorID == donor.DonorID);
                     if (existingDonor != null)
                     {
@@ -216,14 +226,18 @@ namespace BloodBankManagementSystem.Controllers
                     }
                     else
                     {
+                        throw new Exception($"Donor with ID {donor.DonorID} not found.");
                         MessageBox.Show("Donor not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
             catch (ArgumentException ex)
             {
+                throw new ArgumentException(ex.Message);
                 MessageBox.Show("Error editing donor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+
     }
 }
