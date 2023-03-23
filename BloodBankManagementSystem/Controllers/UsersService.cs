@@ -109,11 +109,28 @@ namespace BloodBankManagementSystem.Controllers
         /// <returns>The full name of the user, or an empty string if the user does not exist.</returns>
         public string GetUserNameByEmail(string email)
         {
-            using (var context = new BloodBankDbContext())
+            try
             {
-                var user = context.Users.FirstOrDefault(u => u.Email == email);
-                return user.FirstName + " " + user.LastName;
+                using (var context = new BloodBankDbContext())
+                {
+                    var user = context.Users.FirstOrDefault(u => u.Email == email);
+                    if (user == null)
+                    {
+                        return "";
+                    }
+                    else
+                    {
+                        
+                        return user.FirstName + " " + user.LastName;
+                    }
+                    
+                }
             }
+            catch (ArgumentException ex)
+            {
+                return ex.Message;
+            }
+
         }
 
         /// <summary>
@@ -172,6 +189,11 @@ namespace BloodBankManagementSystem.Controllers
         /// </remarks>
         public void AddUser(string firstName, string lastName, string email, string password)
         {
+            if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
+            {
+                throw new ArgumentNullException("One or more input arguments are null or empty.");
+            }
+
             try
             {
                 using (var context = new BloodBankDbContext())
@@ -184,15 +206,16 @@ namespace BloodBankManagementSystem.Controllers
                         Password = password,
                         Role = GlobalConstants.UserRole
                     };
+                    
+                        context.Users.Add(newUser);
+                        context.SaveChanges();
 
-                    context.Users.Add(newUser);
-                    context.SaveChanges();
-
-                    MessageBox.Show("User added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("User added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 MessageBox.Show("Error adding user", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -214,6 +237,11 @@ namespace BloodBankManagementSystem.Controllers
         /// <exception cref="Exception">Thrown when an error occurs while attempting to update the user in the database.</exception>
         public void EditUser(int userId, string firstName, string lastName, string email, string password)
         {
+            if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
+            {
+                throw new ArgumentNullException("One or more input arguments are null or empty.");
+            }
+
             try
             {
                 using (var context = new BloodBankDbContext())
