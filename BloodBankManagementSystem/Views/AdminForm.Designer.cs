@@ -78,6 +78,7 @@
             this.GreetingsLabel.Size = new System.Drawing.Size(199, 29);
             this.GreetingsLabel.TabIndex = 43;
             this.GreetingsLabel.Text = "Welcome, admin!";
+            this.GreetingsLabel.Click += new System.EventHandler(this.GreetingsLabel_Click);
             // 
             // ExitLabel
             // 
@@ -151,6 +152,7 @@
             this.BloodDropImage.TabIndex = 43;
             this.BloodDropImage.TabStop = false;
             this.BloodDropImage.UseWaitCursor = true;
+            this.BloodDropImage.Click += new System.EventHandler(this.BloodDropImage_Click);
             // 
             // ManagaEmpLabel
             // 

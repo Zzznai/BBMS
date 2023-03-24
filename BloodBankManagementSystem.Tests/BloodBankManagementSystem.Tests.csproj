@@ -92,6 +92,8 @@
     <Compile Include="CommonTests\GlobalConstantsTests.cs" />
     <Compile Include="ControllersTests\DonorsServiceTests.cs" />
     <Compile Include="ControllersTests\DonationServiceTests.cs" />
+    <Compile Include="ControllersTests\PatientsServiceTest.cs" />
+    <Compile Include="ControllersTests\BloodTransfusionServiceTests.cs" />
     <Compile Include="ControllersTests\UsersServiceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ControllersTests\BloodStockServiceTests.cs" />

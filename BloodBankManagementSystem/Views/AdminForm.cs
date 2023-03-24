@@ -148,6 +148,16 @@ namespace BloodBankManagementSystem.Views
         {
             RefreshData();
         }
+
+        private void BloodDropImage_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void GreetingsLabel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }
