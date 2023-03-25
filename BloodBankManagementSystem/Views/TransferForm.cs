@@ -88,10 +88,10 @@ namespace BloodBankManagementSystem.Views
                         if (result == DialogResult.Yes)
                         {
                             this.bloodTransfusionService.AddBloodTransfusion(patient, bloodStock, neededQuantity);
-                            TransferVolumeValidation.Text = " ";
-                            TransferVolumeTextBox.Clear();
                             MessageBox.Show($"Successful blood transfer for Patient: {patient.PatientFirstName} {patient.PatientLastName}, Transfer info: {bloodStock.BloodGroup}, quantity: {neededQuantity}");
                             this.RefreshBloodStock();
+                            TransferVolumeTextBox.Clear();
+                            TransferVolumeValidation.Text = " ";
                         }
                     }
                 }
@@ -157,7 +157,7 @@ namespace BloodBankManagementSystem.Views
             }
             else
             {
-                TransferVolumeValidation.Text = "Invalid input";
+                TransferVolumeValidation.Text = "Invalid Input";
             }
 
         }
